@@ -54,4 +54,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-public/images
+public/images/events
+public/images/home
+public/images/menu

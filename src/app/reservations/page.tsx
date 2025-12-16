@@ -1,0 +1,84 @@
+"use client";
+
+import { memo, useEffect } from "react";
+import Navigation from "@/components/home/Navigation";
+import Footer from "@/components/home/Footer";
+import HeroSection from "@/components/reservations/HeroSection";
+import ReservationForm from "@/components/reservations/ReservationForm";
+// Import our clean component instead of the old one
+import ReservationInfo from "@/components/reservations/ReservationInfoClean";
+import ReservationFAQ from "@/components/reservations/ReservationFAQ";
+import { loadPageStyles } from '@/utils/loadPageStyles';
+import { ANIMATED_BACKGROUND_STYLE, BACKGROUND_ANIMATION_KEYFRAMES } from "@/constants/menuConstants";
+
+// Optimized Reservations Page
+const ReservationsPage = memo(function ReservationsPage() {
+  // Load page-specific CSS
+  useEffect(() => {
+    loadPageStyles('reservations');
+  }, []);
+
+  return (
+    <main className="min-h-screen bg-black text-white">
+      <Navigation />
+      <HeroSection />
+
+      {/* Main content with decorative background */}
+      <div className="relative pt-24 pb-8 md:pb-12">
+        {/* Decorative background elements */}
+        <div className="absolute inset-0 overflow-hidden" style={{ opacity: 0.13 }}>
+          <div className="absolute inset-0" style={ANIMATED_BACKGROUND_STYLE}></div>
+        </div>
+
+        {/* Content container */}
+        <div className="container mx-auto px-4 md:px-8 relative z-10">
+          {/* Two-column layout for desktop */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
+            {/* Reservation form - Order 1 on mobile to appear at the top */}
+            <div className="order-1 lg:order-1">
+              <ReservationForm />
+            </div>
+
+            {/* Restaurant information - Order 2 on mobile to appear below the form */}
+            <div className="order-2 lg:order-2">
+              <ReservationInfo />
+            </div>
+          </div>
+
+          {/* FAQ Section */}
+          <div className="mt-24">
+            <ReservationFAQ />
+          </div>
+
+          {/* Decorative separator */}
+          <div className="w-24 h-1 mx-auto mt-24 mb-4 md:mb-8 bg-gradient-to-r from-transparent via-[#E6C78B] to-transparent"></div>
+        </div>
+      </div>
+
+      <Footer />
+
+      {/* Add custom CSS for animations */}
+      <style jsx>{`
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+
+        @keyframes fadeSlideUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        ${BACKGROUND_ANIMATION_KEYFRAMES}
+      `}</style>
+    </main>
+  );
+});
+
+export default ReservationsPage;

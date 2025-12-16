@@ -1,0 +1,60 @@
+/* Image container styling - prevents layout shifts */
+.image-container {
+  position: relative;
+  background-color: #111;
+  overflow: hidden;
+}
+
+/* Advanced performance optimizations */
+@media screen and (min-width: 1024px) {
+  /* Only apply these optimizations on desktop */
+  img[loading="lazy"] {
+    content-visibility: auto;
+  }
+
+  /* Optimize paint performance for fixed elements */
+  .fixed, .absolute {
+    will-change: transform;
+    transform: translateZ(0);
+  }
+
+  /* Optimize paint performance for sections */
+  section {
+    contain: content;
+  }
+}
+
+/* Optimize image decoding */
+img {
+  decoding: async;
+}
+
+/* Optimize font display */
+@font-face {
+  font-display: swap;
+}
+
+/* Responsive optimizations */
+@media screen and (max-width: 767px) {
+  /* Prevent text size adjustment on orientation change */
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  /* Improve touch targets */
+  button, a, input, select, textarea {
+    touch-action: manipulation;
+  }
+
+  /* Optimize scrolling performance */
+  * {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Responsive styles */
+html, body {
+  width: 100%;
+  overflow-x: hidden;
+}

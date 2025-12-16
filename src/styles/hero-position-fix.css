@@ -1,0 +1,161 @@
+/**
+ * Hero position fixes
+ * This file ensures the logo and hero text are properly positioned on all devices and browsers
+ * Includes cross-browser compatibility fixes for Safari, Firefox, and Chrome
+ */
+
+/* Logo positioning - with cross-browser compatibility */
+.hero-logo-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 40;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 11rem; /* Restored to original position */
+  height: 260px; /* Restored to original height */
+  overflow: visible;
+  /* Safari-specific fix */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  /* Prevent text wrapping under logo */
+  min-height: 260px;
+  max-height: 260px;
+  /* Force center alignment */
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Text content positioning - with cross-browser compatibility */
+.hero-text-container {
+  padding: 0 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* Ensure text stays in its container */
+  width: 100%;
+  max-width: 100%;
+  /* Force center alignment */
+  margin-left: auto;
+  margin-right: auto;
+  /* Position in the vertical center but shifted up */
+  position: absolute;
+  top: 42%; /* Moved up from 50% to shift text upward */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  /* Ensure separation from logo */
+  margin-top: 0; /* Remove margin-top to move text up */
+}
+
+/* Ensure proper spacing on different screen sizes */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero-logo-container {
+    padding-top: 3rem;
+    min-height: 120px;
+    max-height: 120px;
+    height: 120px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  /* Keep text vertically centered */
+  .hero-text-container {
+    /* Position in the vertical center */
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-logo-container {
+    padding-top: 11rem; /* Restored to original position */
+    min-height: 260px; /* Restored to original height */
+    max-height: 260px; /* Restored to original height */
+    height: 260px; /* Restored to original height */
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  /* Position text below logo but higher up */
+  .hero-text-container {
+    /* Position shifted up from center */
+    top: 42%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    /* No margin-top to allow text to be higher */
+    margin-top: 0;
+  }
+}
+
+/* Safari-specific fixes */
+@media not all and (min-resolution:.001dpcm) {
+  @supports (-webkit-appearance:none) {
+    .hero-logo-container {
+      transform: translate3d(0, 0, 0);
+      -webkit-transform: translate3d(0, 0, 0);
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+
+    /* Keep text positioned correctly in Safari */
+    .hero-text-container {
+      position: absolute;
+      top: 42%; /* Shifted up from center */
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      margin-top: 0; /* Remove margin to move text up */
+    }
+  }
+}
+
+/* Force center alignment for desktop hero elements */
+.force-center {
+  position: relative !important;
+  left: 0 !important;
+  right: 0 !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+/* Exception for hero-text-container to allow absolute positioning */
+.hero-text-container.force-center {
+  position: absolute !important;
+  transform: translate(-50%, -50%) !important;
+  -webkit-transform: translate(-50%, -50%) !important;
+  top: 42% !important; /* Shifted up from center */
+  margin-top: 0 !important; /* Remove margin to move text up */
+}
+
+/* Add a clear separation between logo and text */
+.hero-logo-container::after {
+  content: '';
+  display: block;
+  height: 40px; /* Increased extra spacing after logo */
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+/* Add a minimum distance between logo and text */
+.hero-logo-container + * .hero-text-container {
+  min-top: calc(260px + 2rem); /* Logo height + extra spacing */
+}

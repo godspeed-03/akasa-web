@@ -1,0 +1,322 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-playfair: var(--font-playfair);
+  --font-lora: var(--font-lora);
+  --font-montserrat: var(--font-montserrat);
+}
+
+body {
+  /* Removed background: var(--background); */
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .animate-scroll {
+    animation: scroll 120s linear infinite;
+    animation-play-state: running;
+    will-change: transform;
+  }
+
+  /* Mobile-specific animation for infinite scrolling */
+  .animate-scroll-mobile {
+    animation: scroll 120s linear infinite;
+    animation-play-state: running;
+    will-change: transform;
+  }
+
+  /* Only enable animations for users who don't prefer reduced motion */
+
+  .animate-fadeIn {
+    animation: fadeIn 0.5s ease-in-out forwards;
+  }
+
+  .animate-fadeSlideUp {
+    animation: fadeSlideUp 0.8s ease-out forwards;
+    opacity: 0;
+  }
+
+  .animate-float {
+    animation: float 15s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 4s ease-in-out infinite;
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2.5s infinite;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    background-size: 200% 100%;
+  }
+
+  .animate-slideBackground {
+    animation: slideBackground 60s linear infinite;
+  }
+
+  .animate-borderGlow {
+    animation: borderGlow 4s ease-in-out infinite;
+  }
+
+  /* Equalizer bar animations for audio visualization */
+  .animate-eq-bar1 {
+    animation: eqBar 0.8s ease-in-out infinite alternate;
+    animation-delay: 0s;
+  }
+
+  .animate-eq-bar2 {
+    animation: eqBar 1.2s ease-in-out infinite alternate;
+    animation-delay: 0.1s;
+  }
+
+  .animate-eq-bar3 {
+    animation: eqBar 0.7s ease-in-out infinite alternate;
+    animation-delay: 0.2s;
+  }
+
+  .animate-eq-bar4 {
+    animation: eqBar 1s ease-in-out infinite alternate;
+    animation-delay: 0.15s;
+  }
+
+  .animate-eq-bar5 {
+    animation: eqBar 0.9s ease-in-out infinite alternate;
+    animation-delay: 0.05s;
+  }
+
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+
+  /* Touch scrolling utilities */
+  .touch-pan-x {
+    touch-action: pan-x;
+  }
+
+  /* Snap scrolling */
+  .snap-x {
+    scroll-snap-type: x mandatory;
+  }
+
+  .snap-mandatory > * {
+    scroll-snap-align: start;
+  }
+
+  .bg-pattern-overlay {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e6c78b' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-size: 60px 60px;
+    animation: slideBackground 60s linear infinite;
+    opacity: 0.25; /* Increased opacity for better visibility */
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-15px) translateX(15px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.3;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0.4;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes slideBackground {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100% 100%;
+  }
+}
+
+@keyframes borderGlow {
+  0% {
+    box-shadow: 0 0 5px rgba(230, 199, 139, 0.3);
+    border-color: rgba(230, 199, 139, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(230, 199, 139, 0.6);
+    border-color: rgba(230, 199, 139, 0.6);
+  }
+  100% {
+    box-shadow: 0 0 5px rgba(230, 199, 139, 0.3);
+    border-color: rgba(230, 199, 139, 0.3);
+  }
+}
+
+@keyframes eqBar {
+  0% {
+    height: 20%;
+  }
+  100% {
+    height: 100%;
+  }
+}
+
+/* Performance optimizations */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+.hardware-accelerated {
+  transform: translateZ(0);
+}
+
+/* Basic fixes for scrolling */
+html {
+  background-color: black !important; /* Force HTML background to black */
+}
+
+body {
+  overscroll-behavior: none;
+  overflow-x: hidden;
+  background-color: transparent; /* Set body background to transparent */
+  scroll-behavior: auto; /* Disable smooth scrolling for better performance */
+  width: 100%;
+}
+
+/* Simplified section styling */
+section {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* Image optimizations handled by Tailwind */
+
+/* Prevent layout shifts */
+.image-container {
+  position: relative;
+  overflow: hidden;
+  background-color: #111; /* Placeholder color while loading */
+}
+
+/* Fix for missing texture backgrounds */
+.bg-\[url\(\'\/images\/texture-bg-1\.jpg\'\)\],
+.bg-\[url\(\'\/images\/texture-bg-2\.jpg\'\)\] {
+  /* Fallback to a solid color or gradient if the image is missing */
+  background-color: #111;
+  background-image: linear-gradient(to bottom, rgba(0,0,0,0.8), rgba(0,0,0,0.6)) !important;
+}
+
+/* Menu interaction fixes */
+.perspective a,
+.perspective button,
+.perspective [role="button"] {
+  position: relative;
+  z-index: 50 !important;
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  touch-action: manipulation !important;
+  isolation: isolate !important;
+}
+
+/* Menu links with higher z-index */
+.perspective a[href^="/menu/"],
+div[style*="zIndex: 50"] a {
+  position: relative !important;
+  z-index: 100 !important;
+}
+
+/* Menu card hover effects */
+.perspective h3 {
+  color: white !important;
+  transition: color 0.3s ease;
+}
+
+.perspective .group:hover h3,
+.perspective .group:has(.rotate-y-10) h3 {
+  color: #E6C78B !important;
+}
+
+/* Force fixed positioning for mobile navigation */
+.md\:hidden .fixed {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 50 !important;
+  transform: translateZ(0);
+  will-change: transform;
+}

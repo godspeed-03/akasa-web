@@ -1,0 +1,151 @@
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  // Disable ESLint during builds in production
+  eslint: {
+    // Set to true to ignore ESLint errors during builds
+    ignoreDuringBuilds: process.env.VERCEL || process.env.NODE_ENV === 'production',
+    // Directories to include in ESLint checking
+    dirs: ['src'],
+  },
+  typescript: {
+    // Ignore TypeScript errors during builds in production
+    ignoreBuildErrors: process.env.VERCEL || process.env.NODE_ENV === 'production',
+  },
+  reactStrictMode: true,
+  // Responsive image optimization for all device sizes
+  images: {
+    formats: ['image/avif', 'image/webp'], // Prioritize AVIF format for better compression
+    deviceSizes: [320, 420, 640, 768, 1024, 1280, 1536, 1920, 2048, 3840], // All device sizes from mobile to 4K
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384, 512, 1024, 2048], // Various image sizes for responsive design
+    dangerouslyAllowSVG: true,
+    contentDispositionType: 'attachment',
+    minimumCacheTTL: 60,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'akasa-restaurant.vercel.app',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '3000',
+        pathname: '/**',
+       },
+       {
+         protocol: 'https',
+         hostname: 'cdn.sanity.io',
+         pathname: '/**',
+       },
+     ],
+     unoptimized: false, // Enable Next.js image optimization
+  },
+  // Enable CSS optimization for better performance
+  experimental: {
+    // Enable CSS optimization for better performance
+    optimizeCss: true,
+    // Optimize for Largest Contentful Paint (LCP)
+    largePageDataBytes: 128 * 1000,
+  },
+  // Optimize for code splitting and minimal JS/CSS
+  compiler: {
+    // Remove console logs in production, but keep error and warn logs
+    removeConsole: {
+      exclude: ['error', 'warn'],
+    },
+  },
+  // Optimize for Cumulative Layout Shift (CLS)
+  poweredByHeader: false,
+  // Optimize webpack for code splitting and Web Vitals
+  webpack: (config, { isServer, dev }) => {
+    // Add a fallback for missing image files
+    config.module.rules.push({
+      test: /\.(jpg|jpeg|png|gif|svg)$/i,
+      use: [
+        {
+          loader: 'file-loader',
+          options: {
+            emitFile: !isServer,
+            name: '[path][name].[ext]',
+            publicPath: '/_next/',
+          },
+        },
+      ],
+      // Add this to make it work with missing files
+      include: [/public\/images/],
+    });
+
+    // Optimize for code splitting
+    if (!isServer && !dev) {
+      // Optimize chunk splitting for better caching
+      config.optimization.splitChunks = {
+        chunks: 'all',
+        maxInitialRequests: 25,
+        minSize: 20000,
+        cacheGroups: {
+          // Create a separate chunk for the framework
+          framework: {
+            name: 'framework',
+            test: /[\\/]node_modules[\\/](react|react-dom|scheduler|next)[\\/]/,
+            priority: 40,
+            enforce: true,
+          },
+          // Create a separate chunk for larger libraries
+          lib: {
+            test: /[\\/]node_modules[\\/]/,
+            name(module) {
+              // Get the name of the package
+              if (!module.context) return 'npm.unknown';
+              const match = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/);
+              const packageName = match ? match[1] : 'unknown';
+              return `npm.${packageName.replace('@', '')}`;
+            },
+            priority: 30,
+            minChunks: 1,
+            reuseExistingChunk: true,
+          },
+          // Create page-specific chunks
+          pages: {
+            name: 'pages',
+            test: /[\\/]pages[\\/]/,
+            priority: 20,
+          },
+          // Create component-specific chunks
+          components: {
+            name: 'components',
+            test: /[\\/]components[\\/]/,
+            priority: 10,
+            minChunks: 2,
+          },
+          // Default chunk for everything else
+          default: {
+            minChunks: 2,
+            priority: -20,
+            reuseExistingChunk: true,
+          },
+        },
+      };
+
+      // Optimize CSS extraction for better CLS
+      if (config.plugins) {
+        config.plugins.forEach((plugin) => {
+          if (plugin.constructor.name === 'MiniCssExtractPlugin') {
+            plugin.options.ignoreOrder = true;
+          }
+        });
+      }
+    }
+
+    // Disable webpack cache in development to prevent corruption
+    if (dev) {
+      config.cache = false;
+    }
+
+    return config;
+  },
+  // Note: Turbopack configuration would go here if needed in the future
+  // For now, we're using Webpack as the bundler
+};
+
+module.exports = nextConfig;

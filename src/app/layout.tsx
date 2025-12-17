@@ -14,6 +14,7 @@ import ScrollBehavior from "@/components/home/ScrollBehavior";
 import FacebookPixel from "@/components/tracking/FacebookPixel";
 import { ANIMATED_BACKGROUND_STYLE } from "@/constants/menuConstants";
 import { generateMetadata } from "@/utils/seo";
+import Script from "next/script";
 
 // Define CSS variables for font fallbacks
 const fontVariables = {
@@ -96,16 +97,19 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         {/* Google Site Verification */}
-        <meta
-          name="google-site-verification"
-          content="con9e04JeylhS4iXu1ZBZVUJPohnV9cRTrc0oyBkask"
-        />
+        <meta name="google-site-verification" content="con9e04JeylhS4iXu1ZBZVUJPohnV9cRTrc0oyBkask" />
+        <Script src="https://www.googletagmanager.com/gtag/js?id=AW-16540647948" strategy="afterInteractive" />
+        <Script id="google-ads-gtag" strategy="afterInteractive">
+          {`
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-16540647948');
+    `}
+        </Script>
 
         {/* Safari-specific viewport fix */}
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
         {/* Additional SEO meta tags */}
         <meta name="author" content="Akasa" />
@@ -174,14 +178,8 @@ export default function RootLayout({
         }}
       >
         {/* Decorative background elements */}
-        <div
-          className="absolute inset-0 overflow-hidden"
-          style={{ opacity: 0.13 }}
-        >
-          <div
-            className="absolute inset-0"
-            style={ANIMATED_BACKGROUND_STYLE}
-          ></div>
+        <div className="absolute inset-0 overflow-hidden" style={{ opacity: 0.13 }}>
+          <div className="absolute inset-0" style={ANIMATED_BACKGROUND_STYLE}></div>
         </div>
 
         {/* This div will contain the main content and have a semi-transparent background */}

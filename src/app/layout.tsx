@@ -184,7 +184,7 @@ export default function RootLayout({
 
         {/* This div will contain the main content and have a semi-transparent background */}
         <div className="relative z-10 min-h-screen">
-          <Analytics />
+          {/* <Analytics /> */}
           {/* Facebook Pixel - Global tracking */}
           <FacebookPixel />
 

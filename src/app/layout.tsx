@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Analytics from "@/components/Analytics";
+// import Analytics from "@/components/Analytics";
 // Import essential CSS files
 import "./globals.css";
 // Import consolidated performance CSS

@@ -423,7 +423,7 @@ const NewsletterSection = memo(function NewsletterSection() {
       <div
         className="absolute inset-0 bg-cover bg-center z-0"
         style={{
-          backgroundImage: "url('/images/home/hero/hero-home.jpg.webp?quality=60&width=1200')",
+          backgroundImage: "url('/images/home/hero/hero-home.jpg.webp')",
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

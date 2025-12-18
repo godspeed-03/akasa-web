@@ -65,7 +65,7 @@ export default function MithaiMenuPage() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="overflow-hidden rounded-md">
                   <Image
-                    src="/images/menu/mithai/box.jpg.webp"
+                    src="/images/menu/mithai/box.JPG.webp"
                     alt="Mithai Gift Boxes"
                     width={400}
                     height={600}
@@ -74,7 +74,7 @@ export default function MithaiMenuPage() {
                 </div>
                 <div className="overflow-hidden rounded-md">
                   <Image
-                    src="/images/menu/mithai/box-info.jpg.webp"
+                    src="/images/menu/mithai/box-info.JPG.webp"
                     alt="Ladoo Collection"
                     width={400}
                     height={600}
@@ -83,7 +83,7 @@ export default function MithaiMenuPage() {
                 </div>
                 <div className="overflow-hidden rounded-md">
                   <Image
-                    src="/images/menu/mithai/Mithai.jpg.webp"
+                    src="/images/menu/mithai/Mithai.JPG.webp"
                     alt="Gift Jars"
                     width={400}
                     height={600}

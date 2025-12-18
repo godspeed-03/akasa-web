@@ -29,7 +29,7 @@ const Footer = memo(function Footer() {
       {/* Background image with blur effect */}
       <div
         className="absolute inset-0 bg-cover bg-center blur-[2px]"
-        style={{ backgroundImage: "url('/images/common/footer-background.jpg.webp?quality=75&width=1200')" }}
+        style={{ backgroundImage: "url('/images/common/footer-background.jpg.webp')" }}
       ></div>
 
       {/* Dark overlay for better text visibility */}

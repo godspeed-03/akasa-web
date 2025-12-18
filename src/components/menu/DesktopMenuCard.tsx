@@ -32,7 +32,7 @@ const DesktopMenuCard = memo(function DesktopMenuCard({ menu, isActive, isMobile
         {/* Menu image with overlay effects */}
         <div className="relative h-[220px] overflow-hidden">
           <Image
-            src={`${menu.image}?quality=60&width=400`}
+            src={`${menu.image}`}
             alt={menu.name}
             fill
             sizes="(max-width: 768px) 100vw, 14vw"

@@ -37,7 +37,7 @@ export const CHEF_IMAGES = {
   background: {
     src: "/images/menu/chef/background.jpg.webp",
     alt: "Chef background",
-    quality: 60,
+    quality: 70,
   },
 
   /**
@@ -46,7 +46,7 @@ export const CHEF_IMAGES = {
   portrait: {
     src: "/images/menu/chef/portrait.jpg.webp",
     alt: "Chef Akhilesh Pathak",
-    quality: 85,
+    quality: 70,
   },
 };
 

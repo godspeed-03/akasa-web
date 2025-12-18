@@ -140,7 +140,7 @@ const FeaturedDishesSection = memo(function FeaturedDishesSection() {
                 {/* Dish image with fancy overlay effects - Fixed height */}
                 <div className="relative h-[280px] overflow-hidden">
                   <Image
-                    src={`${dish.image}?quality=75&width=800`}
+                    src={`${dish.image}`}
                     alt={dish.name}
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"

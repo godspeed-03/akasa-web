@@ -83,12 +83,12 @@ describe("FeaturedDishesSection", () => {
     expect(images).toHaveLength(6);
 
     // Check if the images have the correct src attributes
-    expect(images[0]).toHaveAttribute("src", "/images/menu/hero/gallery-1.jpg.webp?quality=75&width=800");
-    expect(images[1]).toHaveAttribute("src", "/images/menu/hero/gallery-2.jpg.webp?quality=75&width=800");
-    expect(images[2]).toHaveAttribute("src", "/images/menu/hero/gallery-3.jpg.webp?quality=75&width=800");
-    expect(images[3]).toHaveAttribute("src", "/images/menu/hero/gallery-5.jpg.webp?quality=75&width=800");
-    expect(images[4]).toHaveAttribute("src", "/images/menu/hero/gallery-6.jpg.webp?quality=75&width=800");
-    expect(images[5]).toHaveAttribute("src", "/images/events/hero/hero.jpg.webp?quality=75&width=800");
+    expect(images[0]).toHaveAttribute("src", "/images/menu/hero/gallery-1.jpg.webp");
+    expect(images[1]).toHaveAttribute("src", "/images/menu/hero/gallery-2.jpg.webp");
+    expect(images[2]).toHaveAttribute("src", "/images/menu/hero/gallery-3.jpg.webp");
+    expect(images[3]).toHaveAttribute("src", "/images/menu/hero/gallery-5.jpg.webp");
+    expect(images[4]).toHaveAttribute("src", "/images/menu/hero/gallery-6.jpg.webp");
+    expect(images[5]).toHaveAttribute("src", "/images/events/hero/hero.jpg.webp");
   });
 
   it("has the correct grid layout", () => {

@@ -11,32 +11,32 @@ export const IMAGES = {
   /**
    * Default quality for images (balanced for performance and quality)
    */
-  DEFAULT_QUALITY: 75,
+  DEFAULT_QUALITY: 70,
   
   /**
    * High quality for important images
    */
-  HIGH_QUALITY: 85,
+  HIGH_QUALITY: 70,
   
   /**
    * Low quality for background images
    */
-  LOW_QUALITY: 60,
+  LOW_QUALITY: 70,
   
   /**
    * Quality for AVIF format
    */
-  AVIF_QUALITY: 75,
+  AVIF_QUALITY: 70,
   
   /**
    * Quality for WebP format
    */
-  WEBP_QUALITY: 75,
+  WEBP_QUALITY: 70,
   
   /**
    * Quality for JPEG format
    */
-  JPEG_QUALITY: 80,
+  JPEG_QUALITY: 70,
   
   /**
    * Standard image sizes

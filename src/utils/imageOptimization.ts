@@ -16,13 +16,13 @@ import type { StaticImport } from 'next/dist/shared/lib/get-img-props';
  *
  * @param {Object} options - Configuration options
  * @param {string|StaticImageData} options.src - Image source
- * @param {number} [options.quality=75] - Image quality (1-100)
+ * @param {number} [options.quality=70] - Image quality (1-100)
  * @param {boolean} [options.priority=false] - Whether the image is critical
  * @returns {Object} Props for Next.js Image component
  */
 export function getOptimizedImageProps({
   src,
-  quality = 60,
+  quality = 70,
   priority = false,
 }: {
   src: string | StaticImageData | StaticImport;

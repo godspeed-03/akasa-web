@@ -3,44 +3,44 @@ const nextConfig = {
   // Disable ESLint during builds in production
   eslint: {
     // Set to true to ignore ESLint errors during builds
-    ignoreDuringBuilds: process.env.VERCEL || process.env.NODE_ENV === 'production',
+    ignoreDuringBuilds: process.env.VERCEL || process.env.NODE_ENV === "production",
     // Directories to include in ESLint checking
-    dirs: ['src'],
+    dirs: ["src"],
   },
   typescript: {
     // Ignore TypeScript errors during builds in production
-    ignoreBuildErrors: process.env.VERCEL || process.env.NODE_ENV === 'production',
+    ignoreBuildErrors: process.env.VERCEL || process.env.NODE_ENV === "production",
   },
   reactStrictMode: true,
   // Responsive image optimization for all device sizes
   images: {
-    formats: ['image/avif', 'image/webp'], // Prioritize AVIF format for better compression
-    qualities: [60, 70, 75, 80, 85],
-    deviceSizes: [320, 420, 640, 768, 1024, 1280, 1536, 1920, 2048, 3840], // All device sizes from mobile to 4K
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384, 512, 1024, 2048], // Various image sizes for responsive design
+    formats: ["image/avif", "image/webp"], // Prioritize AVIF format for better compression
+    qualities: [60, 70],
+    deviceSizes: [320, 420, 640, 768, 1024, 1280, 1536, 1600], // All device sizes from mobile to 4K
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384, 512, 1024, 1280, 1536, 1600], // Various image sizes for responsive design
     dangerouslyAllowSVG: true,
-    contentDispositionType: 'attachment',
-    minimumCacheTTL: 60,
+    contentDispositionType: "inline",
+    minimumCacheTTL: 500,
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'akasa-restaurant.vercel.app',
-        port: '',
-        pathname: '/**',
+        protocol: "https",
+        hostname: "akasa-restaurant.vercel.app",
+        port: "",
+        pathname: "/**",
       },
       {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '3000',
-        pathname: '/**',
-       },
-       {
-         protocol: 'https',
-         hostname: 'cdn.sanity.io',
-         pathname: '/**',
-       },
-     ],
-     unoptimized: false, // Enable Next.js image optimization
+        protocol: "http",
+        hostname: "localhost",
+        port: "3000",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.sanity.io",
+        pathname: "/**",
+      },
+    ],
+    unoptimized: false, // Enable Next.js image optimization
   },
   // Enable CSS optimization for better performance
   experimental: {
@@ -53,7 +53,7 @@ const nextConfig = {
   compiler: {
     // Remove console logs in production, but keep error and warn logs
     removeConsole: {
-      exclude: ['error', 'warn'],
+      exclude: ["error", "warn"],
     },
   },
   // Optimize for Cumulative Layout Shift (CLS)
@@ -65,11 +65,11 @@ const nextConfig = {
       test: /\.(jpg|jpeg|png|gif|svg)$/i,
       use: [
         {
-          loader: 'file-loader',
+          loader: "file-loader",
           options: {
             emitFile: !isServer,
-            name: '[path][name].[ext]',
-            publicPath: '/_next/',
+            name: "[path][name].[ext]",
+            publicPath: "/_next/",
           },
         },
       ],
@@ -81,13 +81,13 @@ const nextConfig = {
     if (!isServer && !dev) {
       // Optimize chunk splitting for better caching
       config.optimization.splitChunks = {
-        chunks: 'all',
+        chunks: "all",
         maxInitialRequests: 25,
         minSize: 20000,
         cacheGroups: {
           // Create a separate chunk for the framework
           framework: {
-            name: 'framework',
+            name: "framework",
             test: /[\\/]node_modules[\\/](react|react-dom|scheduler|next)[\\/]/,
             priority: 40,
             enforce: true,
@@ -97,10 +97,10 @@ const nextConfig = {
             test: /[\\/]node_modules[\\/]/,
             name(module) {
               // Get the name of the package
-              if (!module.context) return 'npm.unknown';
+              if (!module.context) return "npm.unknown";
               const match = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/);
-              const packageName = match ? match[1] : 'unknown';
-              return `npm.${packageName.replace('@', '')}`;
+              const packageName = match ? match[1] : "unknown";
+              return `npm.${packageName.replace("@", "")}`;
             },
             priority: 30,
             minChunks: 1,
@@ -108,13 +108,13 @@ const nextConfig = {
           },
           // Create page-specific chunks
           pages: {
-            name: 'pages',
+            name: "pages",
             test: /[\\/]pages[\\/]/,
             priority: 20,
           },
           // Create component-specific chunks
           components: {
-            name: 'components',
+            name: "components",
             test: /[\\/]components[\\/]/,
             priority: 10,
             minChunks: 2,
@@ -131,7 +131,7 @@ const nextConfig = {
       // Optimize CSS extraction for better CLS
       if (config.plugins) {
         config.plugins.forEach((plugin) => {
-          if (plugin.constructor.name === 'MiniCssExtractPlugin') {
+          if (plugin.constructor.name === "MiniCssExtractPlugin") {
             plugin.options.ignoreOrder = true;
           }
         });

@@ -1,5 +1,11 @@
-# *
+
 User-agent: *
+Disallow: /images/
+Disallow: /menus/
+Disallow: /styles/
+Disallow: /video/
+Disallow: /fonts/
+
 Allow: /
 
 # Host

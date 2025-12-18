@@ -14,8 +14,14 @@ export async function generateRobotsTxt() {
   try {
     const urlsXml = mainUrls.map(url => `Sitemap: ${SITE_URL}/${url}.xml`).join('\n');
 
-    const robotsContent = `# *
+    const robotsContent = `
 User-agent: *
+Disallow: /images/
+Disallow: /menus/
+Disallow: /styles/
+Disallow: /video/
+Disallow: /fonts/
+
 Allow: /
 
 # Host

@@ -11,7 +11,7 @@ export const metadata: Metadata = generateMetadata({
   ogDescription:
     "5-course wine pairing menu by Chef Akhilesh Pathak. Authentic Indian cuisine meets international wines. $88++ per person. Festive season special.",
   ogImageUrl:
-    "https://cdn.jsdelivr.net/gh/sharadchaturveda/akasa_b-bwireframe@master/public/images/menu/wine-pairing/hero-1.jpg",
+    "https://cdn.jsdelivr.net/gh/sharadchaturveda/akasa_b-bwireframe@master/public/images/menu/wine-pairing/hero-1.jpg.webp",
   keywords:
     "wine pairing menu Singapore, wine pairing dinner, Indian food wine pairing, festive menu Singapore, wine tasting menu, Robinson Road wine dinner, Akasa wine pairing, Chardonnay pairing, Cabernet Sauvignon pairing, Prosecco pairing, Riesling pairing, fine dining Singapore, wine and dine Singapore, special occasion dining",
 });

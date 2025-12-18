@@ -15,6 +15,7 @@ const nextConfig = {
   // Responsive image optimization for all device sizes
   images: {
     formats: ['image/avif', 'image/webp'], // Prioritize AVIF format for better compression
+    qualities: [60, 70, 75, 80, 85],
     deviceSizes: [320, 420, 640, 768, 1024, 1280, 1536, 1920, 2048, 3840], // All device sizes from mobile to 4K
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384, 512, 1024, 2048], // Various image sizes for responsive design
     dangerouslyAllowSVG: true,

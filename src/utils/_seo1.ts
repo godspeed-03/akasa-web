@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata } from "next";
 
 /**
  * Interface for page-specific SEO metadata
@@ -8,32 +8,32 @@ export interface PageSEOProps {
    * Page title (without site name)
    */
   title: string;
-  
+
   /**
    * Page description
    */
   description: string;
-  
+
   /**
    * Page-specific keywords
    */
   keywords?: string;
-  
+
   /**
    * Page path (relative to domain root, e.g., "/menu/a-la-carte")
    */
   path?: string;
-  
+
   /**
-   * Open Graph image path (relative to domain root, e.g., "/images/menu/og-image.jpg")
+   * Open Graph image path (relative to domain root, e.g., "/images/menu/og-image.jpg.webp")
    */
   ogImagePath?: string;
-  
+
   /**
-   * Twitter Card image path (relative to domain root, e.g., "/images/menu/twitter-card.jpg")
+   * Twitter Card image path (relative to domain root, e.g., "/images/menu/twitter-card.jpg.webp")
    */
   twitterImagePath?: string;
-  
+
   /**
    * Whether this is the homepage
    */
@@ -44,18 +44,20 @@ export interface PageSEOProps {
  * Default SEO values
  */
 const DEFAULT_SEO = {
-  siteName: 'Akasa',
-  domain: 'https://akasa.sg',
-  defaultTitle: 'Finest Indian Cuisine in Singapore',
-  defaultDescription: 'Experience the finest Indian cuisine at Akasa. Located at 79 Robinson Road, Singapore. Open Monday to Saturday, 11:30am to 10:30pm.',
-  defaultKeywords: 'Indian cuisine, Singapore restaurant, fine dining, Akasa, Indian food, Robinson Road, authentic Indian, luxury dining',
-  defaultOgImage: '/images/seo/og-image.jpg',
-  defaultTwitterImage: '/images/seo/twitter-card.jpg',
+  siteName: "Akasa",
+  domain: "https://akasa.sg",
+  defaultTitle: "Finest Indian Cuisine in Singapore",
+  defaultDescription:
+    "Experience the finest Indian cuisine at Akasa. Located at 79 Robinson Road, Singapore. Open Monday to Saturday, 11:30am to 10:30pm.",
+  defaultKeywords:
+    "Indian cuisine, Singapore restaurant, fine dining, Akasa, Indian food, Robinson Road, authentic Indian, luxury dining",
+  defaultOgImage: "/images/seo/og-image.jpg.webp",
+  defaultTwitterImage: "/images/seo/twitter-card.jpg.webp",
 };
 
 /**
  * Generate metadata for a page
- * 
+ *
  * @param props - Page-specific SEO properties
  * @returns Metadata object for Next.js
  */
@@ -63,48 +65,46 @@ export function generateMetadata({
   title,
   description,
   keywords,
-  path = '',
+  path = "",
   ogImagePath,
   twitterImagePath,
   isHomePage = false,
 }: PageSEOProps): Metadata {
   // Full title with or without site name
-  const fullTitle = isHomePage 
+  const fullTitle = isHomePage
     ? `${DEFAULT_SEO.siteName} | ${DEFAULT_SEO.defaultTitle}`
     : `${title} – ${DEFAULT_SEO.siteName}`;
-  
+
   // Full URL for canonical and OG
   const url = `${DEFAULT_SEO.domain}${path}`;
-  
+
   // OG image URL
-  const ogImageUrl = ogImagePath 
-    ? `${DEFAULT_SEO.domain}${ogImagePath}` 
+  const ogImageUrl = ogImagePath
+    ? `${DEFAULT_SEO.domain}${ogImagePath}`
     : `${DEFAULT_SEO.domain}${DEFAULT_SEO.defaultOgImage}`;
-  
+
   // Twitter image URL
-  const twitterImageUrl = twitterImagePath 
-    ? `${DEFAULT_SEO.domain}${twitterImagePath}` 
+  const twitterImageUrl = twitterImagePath
+    ? `${DEFAULT_SEO.domain}${twitterImagePath}`
     : `${DEFAULT_SEO.domain}${DEFAULT_SEO.defaultTwitterImage}`;
-  
+
   // Combined keywords
-  const combinedKeywords = keywords 
-    ? `${keywords}, ${DEFAULT_SEO.defaultKeywords}`
-    : DEFAULT_SEO.defaultKeywords;
-  
+  const combinedKeywords = keywords ? `${keywords}, ${DEFAULT_SEO.defaultKeywords}` : DEFAULT_SEO.defaultKeywords;
+
   return {
     title: fullTitle,
     description: description,
     keywords: combinedKeywords,
     authors: [{ name: DEFAULT_SEO.siteName }],
-    
+
     // Open Graph metadata
     openGraph: {
       title: fullTitle,
       description: description,
       url: url,
       siteName: DEFAULT_SEO.siteName,
-      locale: 'en_SG',
-      type: isHomePage ? 'website' : 'article',
+      locale: "en_SG",
+      type: isHomePage ? "website" : "article",
       images: [
         {
           url: ogImageUrl,
@@ -114,17 +114,17 @@ export function generateMetadata({
         },
       ],
     },
-    
+
     // Twitter Card metadata
     twitter: {
-      card: 'summary_large_image',
+      card: "summary_large_image",
       title: fullTitle,
       description: description,
       images: [twitterImageUrl],
-      creator: '@akasa_singapore',
-      site: '@akasa_singapore',
+      creator: "@akasa_singapore",
+      site: "@akasa_singapore",
     },
-    
+
     // Canonical URL
     alternates: {
       canonical: url,

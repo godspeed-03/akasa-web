@@ -13,13 +13,13 @@ const HeroSection = memo(function HeroSection() {
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
-          src="/images/home/hero/hero-home.jpg"
+          src="/images/home/hero/hero-home.jpg.webp"
           alt="Hero background"
           fill
           priority={true}
           fetchPriority="high"
           sizes="100vw"
-          quality={60}
+          quality={70}
           className="object-cover"
           style={{ objectPosition: "center" }}
         />

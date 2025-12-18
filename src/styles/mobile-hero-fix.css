@@ -23,7 +23,7 @@
     font-size: 2rem !important;
     line-height: 1.2 !important;
     margin-bottom: 1rem !important;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.5) !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
   }
 
   .hero-section p {
@@ -46,7 +46,7 @@
 @media (max-width: 767px) {
   .hero-section {
     background-color: #000 !important;
-    background-image: url('/images/home/hero/hero-home.jpg') !important;
+    background-image: url("/images/home/hero/hero-home.jpg.webp") !important;
     background-size: cover !important;
     background-position: center !important;
     background-repeat: no-repeat !important;
@@ -78,5 +78,3 @@
     z-index: 2 !important;
   }
 }
-
-

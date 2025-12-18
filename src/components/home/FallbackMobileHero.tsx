@@ -1,8 +1,8 @@
 "use client";
 
-import { memo } from 'react';
-import Image from 'next/image';
-import { IMAGES } from '@/constants';
+import { memo } from "react";
+import Image from "next/image";
+import { IMAGES } from "@/constants";
 
 /**
  * FallbackMobileHero Component
@@ -18,19 +18,19 @@ const FallbackMobileHero = memo(function FallbackMobileHero() {
       {/* Fallback image - no darkening overlay */}
       <div className="absolute inset-0 z-10">
         <Image
-          src="/images/home/hero/carousel/hero1.jpg"
+          src="/images/home/hero/carousel/hero1.jpg.webp"
           alt="Akasa restaurant ambiance"
           fill
           priority
           sizes="100vw"
-          quality={90}
+          quality={70}
           className="object-cover"
           style={{
-            filter: 'brightness(1.15)',
-            objectFit: 'cover',
-            objectPosition: 'center',
-            transform: 'translateZ(0)', // Force hardware acceleration
-            willChange: 'transform' // Hint to browser to optimize
+            filter: "brightness(1.15)",
+            objectFit: "cover",
+            objectPosition: "center",
+            transform: "translateZ(0)", // Force hardware acceleration
+            willChange: "transform", // Hint to browser to optimize
           }}
           placeholder="blur"
           blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAoHBwgHBgoICAgLCgoLDhgQDg0NDh0VFhEYIx8lJCIfIiEmKzcvJik0KSEiMEExNDk7Pj4+JS5ESUM8SDc9Pjv/2wBDAQoLCw4NDhwQEBw7KCIoOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozv/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAb/xAAhEAACAQIGAwAAAAAAAAAAAAABAgMABAUGERIhMUFRcf/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AnnWzYxyKis7MQFA5JNRnGMbxG8jCWbIrdIVBSFfYXgn36ooor//Z"

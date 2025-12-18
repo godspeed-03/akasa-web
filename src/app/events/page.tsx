@@ -7,8 +7,7 @@ import HeroSection from "@/components/events/HeroSection";
 import CategoriesSection from "@/components/events/CategoriesSection";
 import EventListingsSection from "@/components/events/EventListingsSection";
 
-
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 
 /**
  * Import components directly for now to ensure they appear
@@ -19,14 +18,13 @@ import dynamic from 'next/dynamic';
 
 const TestimonialsSection = dynamic(() => import("@/components/events/TestimonialsSection"), {
   loading: () => <p>Loading Testimonials...</p>, // Optional loading component
-  ssr: false // Disable server-side rendering for this component
+  ssr: false, // Disable server-side rendering for this component
 });
 
 const InquiryFormSection = dynamic(() => import("@/components/events/InquiryFormSection"), {
   loading: () => <p>Loading Inquiry Form...</p>, // Optional loading component
-  ssr: false // Disable server-side rendering for this component
+  ssr: false, // Disable server-side rendering for this component
 });
-
 
 /**
  * EventsPage Component
@@ -54,11 +52,11 @@ export default function EventsPage() {
     // Preload critical event images
     const preloadImages = () => {
       // Get the first few event images to preload
-      const imagesToPreload = events.slice(0, 3).map(event => event.image);
+      const imagesToPreload = events.slice(0, 3).map((event) => event.image);
 
       // Preload each image
-      imagesToPreload.forEach(src => {
-        if (typeof window !== 'undefined') {
+      imagesToPreload.forEach((src) => {
+        if (typeof window !== "undefined") {
           const img = new window.Image();
           img.src = src;
         }
@@ -66,7 +64,7 @@ export default function EventsPage() {
     };
 
     // Use requestIdleCallback for better performance if available
-    if ('requestIdleCallback' in window) {
+    if ("requestIdleCallback" in window) {
       (window as any).requestIdleCallback(preloadImages, { timeout: 2000 });
     } else {
       // Fallback to setTimeout
@@ -88,7 +86,7 @@ export default function EventsPage() {
     { id: "anniversary", name: "Anniversary" },
     { id: "office-lunch", name: "Office Lunch" },
     { id: "office-parties", name: "Office Parties" },
-    { id: "networking", name: "Networking Events" }
+    { id: "networking", name: "Networking Events" },
   ];
 
   /**
@@ -108,54 +106,79 @@ export default function EventsPage() {
     {
       id: 1,
       title: "Birthday",
-      description: "Make your birthday celebration truly special! Discover the finest restaurants for a birthday celebration in Singapore. Whether it's an elegant dinner or an intimate evening.",
-      image: "/images/events/listings/birthday.jpg", // Verify this path exists in your public folder
+      description:
+        "Make your birthday celebration truly special! Discover the finest restaurants for a birthday celebration in Singapore. Whether it's an elegant dinner or an intimate evening.",
+      image: "/images/events/listings/birthday.jpg.webp", // Verify this path exists in your public folder
       category: "birthday",
       features: ["Customized menu", "Dedicated service staff", "Elegant table settings", "Capacity: 8-50 guests"],
       price: "Contact for pricing",
-      termsApply: true
+      termsApply: true,
     },
     {
       id: 2,
       title: "Anniversary",
-      description: "Make your anniversary unforgettable! Discover the finest restaurants for a romantic celebration in Singapore. Whether it's an elegant dinner or an intimate evening.",
-      image: "/images/events/listings/anniversary.jpg",
+      description:
+        "Make your anniversary unforgettable! Discover the finest restaurants for a romantic celebration in Singapore. Whether it's an elegant dinner or an intimate evening.",
+      image: "/images/events/listings/anniversary.jpg.webp",
       category: "anniversary",
-      features: ["Elegant dining setup", "Romantic ambiance", "Special anniversary menu", "Complimentary glass of prosecco for the couple"],
+      features: [
+        "Elegant dining setup",
+        "Romantic ambiance",
+        "Special anniversary menu",
+        "Complimentary glass of prosecco for the couple",
+      ],
       price: "Contact for pricing",
-      termsApply: true
+      termsApply: true,
     },
     {
       id: 3,
       title: "Office Lunch",
-      description: "Elevate your office lunch experience! Discover the best dining options and catering services to make your team meals enjoyable and stress-free.",
-      image: "/images/events/listings/office-lunch.jpg",
+      description:
+        "Elevate your office lunch experience! Discover the best dining options and catering services to make your team meals enjoyable and stress-free.",
+      image: "/images/events/listings/office-lunch.jpg.webp",
       category: "office-lunch",
-      features: ["Express service option", "Customizable menu packages", "Private dining area", "Capacity: up to 50 guests"],
+      features: [
+        "Express service option",
+        "Customizable menu packages",
+        "Private dining area",
+        "Capacity: up to 50 guests",
+      ],
       price: "Contact for pricing",
-      termsApply: true
+      termsApply: true,
     },
     {
       id: 4,
       title: "Office Parties",
-      description: "Make your office parties unforgettable! Whether it's a team celebration, holiday gathering, or milestone event, find the perfect venue or catering services.",
-      image: "/images/events/listings/office-parties.jpg",
+      description:
+        "Make your office parties unforgettable! Whether it's a team celebration, holiday gathering, or milestone event, find the perfect venue or catering services.",
+      image: "/images/events/listings/office-parties.jpg.webp",
       category: "office-parties",
-      features: ["Full venue rental option", "Custom cocktail creation", "Entertainment options", "Capacity: up to 60 guests"],
+      features: [
+        "Full venue rental option",
+        "Custom cocktail creation",
+        "Entertainment options",
+        "Capacity: up to 60 guests",
+      ],
       price: "Contact for pricing",
-      termsApply: true
+      termsApply: true,
     },
     {
       id: 5,
       title: "Networking Events",
-      description: "Host networking events that leave a lasting impression! Discover the perfect venues and services to create a professional yet inviting atmosphere for meaningful connections.",
-      image: "/images/events/listings/networking-events.jpg",
+      description:
+        "Host networking events that leave a lasting impression! Discover the perfect venues and services to create a professional yet inviting atmosphere for meaningful connections.",
+      image: "/images/events/listings/networking-events.jpg.webp",
       category: "networking",
-      features: ["Professional setup", "Audio-visual equipment", "Networking-friendly layout", "Catering options available"],
+      features: [
+        "Professional setup",
+        "Audio-visual equipment",
+        "Networking-friendly layout",
+        "Catering options available",
+      ],
       price: "Contact for pricing",
       termsApply: true,
-      pdfMenu: "/menus/event-menu.pdf"
-    }
+      pdfMenu: "/menus/event-menu.pdf",
+    },
   ];
 
   /**
@@ -164,9 +187,8 @@ export default function EventsPage() {
    * If "all" is selected, show all events
    * Otherwise, filter to only show events matching the selected category
    */
-  const filteredEvents = activeCategory === "all"
-    ? events
-    : events.filter(event => event.category === activeCategory);
+  const filteredEvents =
+    activeCategory === "all" ? events : events.filter((event) => event.category === activeCategory);
 
   return (
     <main className="min-h-screen bg-black text-white">
@@ -186,10 +208,7 @@ export default function EventsPage() {
       </div>
 
       {/* Desktop event listings with alternating layout */}
-      <EventListingsSection
-        filteredEvents={filteredEvents}
-        eventCategories={eventCategories}
-      />
+      <EventListingsSection filteredEvents={filteredEvents} eventCategories={eventCategories} />
 
       {/* Testimonials section */}
       <TestimonialsSection />

@@ -33,8 +33,8 @@ export function generateMetadata({
     description:
       "Experience the finest Indian cuisine at Akasa. Located at 79 Robinson Road, Singapore. Open Monday to Saturday, 11:30am to 10:30am.",
     url: "https://akasa.sg",
-    image: "https://akasa.sg/images/seo/og-image.jpg",
-    twitterImage: "https://akasa.sg/images/seo/twitter-card.jpg",
+    image: "https://akasa.sg/images/seo/og-image.jpg.webp",
+    twitterImage: "https://akasa.sg/images/seo/twitter-card.jpg.webp",
   };
 
   const formattedTitle = title ? title : fallback.title;
@@ -42,9 +42,7 @@ export function generateMetadata({
   const formattedDescription = description ?? fallback.description;
   const formattedOGDescription = ogDescription ?? fallback.description;
   const finalUrl = url?.startsWith("https") ? url : `${fallback.url}/${url}`;
-  const finalImage = ogImageUrl?.startsWith("https")
-    ? ogImageUrl
-    : fallback.image;
+  const finalImage = ogImageUrl?.startsWith("https") ? ogImageUrl : fallback.image;
 
   // Robots directive handling
   const robotsObject = {
@@ -91,7 +89,7 @@ export function generateMetadata({
           alt: formattedTitle,
         },
         {
-          url: "https://akasa.sg/images/home/hero/carousel/hero1.jpg",
+          url: "https://akasa.sg/images/home/hero/carousel/hero1.jpg.webp",
           width: 1200,
           height: 630,
           alt: formattedTitle,
@@ -103,10 +101,7 @@ export function generateMetadata({
       card: "summary_large_image",
       title: formattedOGTitle,
       description: formattedOGDescription,
-      images: [
-        ogImageUrl ?? fallback.twitterImage,
-        "https://akasa.sg/images/home/hero/carousel/hero1.jpg",
-      ],
+      images: [ogImageUrl ?? fallback.twitterImage, "https://akasa.sg/images/home/hero/carousel/hero1.jpg.webp"],
       creator: "@akasa_singapore",
       site: "@akasa_singapore",
     },

@@ -6,18 +6,18 @@ import NextImage from "next/image";
 
 // Gallery images array with optimized paths
 const GALLERY_IMAGES = [
-  { src: "/images/home/gallery/gallery1.jpg", alt: "Gallery image 1" },
-  { src: "/images/home/gallery/gallery2.jpg", alt: "Gallery image 2" },
-  { src: "/images/home/gallery/gallery3.jpg", alt: "Gallery image 3" },
-  { src: "/images/home/gallery/gallery4.jpg", alt: "Gallery image 4" },
-  { src: "/images/home/gallery/gallery5.jpg", alt: "Gallery image 5" },
+  { src: "/images/home/gallery/gallery1.jpg.webp", alt: "Gallery image 1" },
+  { src: "/images/home/gallery/gallery2.jpg.webp", alt: "Gallery image 2" },
+  { src: "/images/home/gallery/gallery3.jpg.webp", alt: "Gallery image 3" },
+  { src: "/images/home/gallery/gallery4.jpg.webp", alt: "Gallery image 4" },
+  { src: "/images/home/gallery/gallery5.jpg.webp", alt: "Gallery image 5" },
 ];
 
 // Optimized gallery image component with performance enhancements
 const GalleryImage = memo(function GalleryImage({
   src,
   alt,
-  priority = false
+  priority = false,
 }: {
   src: string;
   alt: string;
@@ -62,7 +62,7 @@ const GalleryImage = memo(function GalleryImage({
         }}
         sizes="400px"
         loading="eager" // Always use eager to avoid hydration mismatch
-        quality={75}
+        quality={70}
         priority={priority}
         onLoad={handleImageLoad}
         fetchPriority={priority ? "high" : "auto"}
@@ -83,7 +83,7 @@ const DesktopGallery = memo(function DesktopGallery() {
 
     // Preload images for better performance
     const preloadImages = () => {
-      if (typeof window !== 'undefined') {
+      if (typeof window !== "undefined") {
         GALLERY_IMAGES.forEach((image) => {
           const img = new window.Image();
           img.src = image.src;
@@ -99,38 +99,29 @@ const DesktopGallery = memo(function DesktopGallery() {
       id="desktop-gallery"
       className="hidden sm:block overflow-hidden"
       style={{
-        height: '400px',
-        backgroundColor: '#000'
+        height: "400px",
+        backgroundColor: "#000",
       }}
     >
       <div
         className="flex animate-scroll"
         style={{
-          transform: 'translateZ(0)', // Hardware acceleration
-          willChange: 'transform',
-          transition: 'opacity 0.5s ease-in-out',
+          transform: "translateZ(0)", // Hardware acceleration
+          willChange: "transform",
+          transition: "opacity 0.5s ease-in-out",
           // Always render with opacity 1 for SSR, then use inline style for client
-          opacity: 1
+          opacity: 1,
         }}
         suppressHydrationWarning
       >
         {/* First set of images */}
         {GALLERY_IMAGES.map((image, index) => (
-          <GalleryImage
-            key={index}
-            src={image.src}
-            alt={image.alt}
-            priority={index < 2}
-          />
+          <GalleryImage key={index} src={image.src} alt={image.alt} priority={index < 2} />
         ))}
 
         {/* Duplicate first few images for seamless scrolling */}
         {GALLERY_IMAGES.slice(0, 3).map((image, index) => (
-          <GalleryImage
-            key={`dup-${index}`}
-            src={image.src}
-            alt={image.alt}
-          />
+          <GalleryImage key={`dup-${index}`} src={image.src} alt={image.alt} />
         ))}
       </div>
     </div>
@@ -138,4 +129,3 @@ const DesktopGallery = memo(function DesktopGallery() {
 });
 
 export default DesktopGallery;
-

@@ -1,7 +1,6 @@
 "use client";
 
-import Image from "next/image"
-;
+import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/home/Navigation";
@@ -13,12 +12,16 @@ const HeroSection = memo(function HeroSection() {
   return (
     <section className="h-screen w-full bg-black flex flex-col items-center justify-center relative overflow-hidden">
       {/* Background image with parallax effect */}
-      <div className="absolute inset-0 z-0 transform scale-110" style={{
-        willChange: 'transform',
-        transform: 'translateZ(-1px) scale(2)',
-        zIndex: -1
-      }}>
-        <Image src="/images/offers/hero/hero.jpg"
+      <div
+        className="absolute inset-0 z-0 transform scale-110"
+        style={{
+          willChange: "transform",
+          transform: "translateZ(-1px) scale(2)",
+          zIndex: -1,
+        }}
+      >
+        <Image
+          src="/images/offers/hero/hero.jpg.webp"
           alt="Offers background"
           fill
           sizes="100vw"
@@ -28,7 +31,7 @@ const HeroSection = memo(function HeroSection() {
           loading="eager"
           style={{
             objectPosition: "center",
-            opacity: 0.6
+            opacity: 0.6,
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black via-black/50 to-black/80"></div>
@@ -46,13 +49,17 @@ const HeroSection = memo(function HeroSection() {
           <div className="mb-6 relative">
             <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 w-20 h-1 bg-gradient-to-r from-transparent via-[#E6C78B] to-transparent"></div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-playfair mb-6 relative inline-block">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/80">Special Offers & Promotions</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/80">
+                Special Offers & Promotions
+              </span>
               <div className="absolute -bottom-3 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[#E6C78B]/80 to-transparent"></div>
             </h1>
           </div>
 
           <p className="text-lg md:text-xl font-montserrat text-white/90 mb-10 leading-relaxed max-w-2xl mx-auto">
-            {"Discover our exclusive deals and seasonal promotions designed to enhance your dining experience at Akasa."}
+            {
+              "Discover our exclusive deals and seasonal promotions designed to enhance your dining experience at Akasa."
+            }
           </p>
 
           {/* Standardized button */}
@@ -91,7 +98,7 @@ const OfferCard = memo(function OfferCard({
   image,
   validUntil,
   code,
-  link
+  link,
 }: {
   title: { text: string; emphasize: string };
   description: string;
@@ -115,13 +122,14 @@ const OfferCard = memo(function OfferCard({
           <div className="absolute top-0 left-0 w-12 h-12 border-t border-l border-[#E6C78B]/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
           <div className="absolute bottom-0 right-0 w-12 h-12 border-b border-r border-[#E6C78B]/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
 
-          <Image src={image}
+          <Image
+            src={image}
             alt={title.text}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover transition-transform duration-700 group-hover:scale-110"
             loading="lazy"
-            quality={75}
+            quality={70}
           />
 
           {/* Elegant gradient overlay */}
@@ -140,31 +148,25 @@ const OfferCard = memo(function OfferCard({
           {/* Title with emphasis */}
           <h3 className="text-xl md:text-2xl font-playfair font-medium mb-3 whitespace-pre-line">
             {title.text}
-            {title.emphasize && (
-              <span className="text-[#E6C78B]">{title.emphasize}</span>
-            )}
+            {title.emphasize && <span className="text-[#E6C78B]">{title.emphasize}</span>}
           </h3>
 
           {/* Description */}
-          <p className="text-sm md:text-base font-montserrat text-white/80 mb-4 whitespace-pre-line">
-            {description}
-          </p>
+          <p className="text-sm md:text-base font-montserrat text-white/80 mb-4 whitespace-pre-line">{description}</p>
 
           {/* Details (bullet points) */}
           {details && details.length > 0 && (
             <ul className="list-disc list-outside text-sm font-montserrat text-white/80 mb-4 pl-5 space-y-1.5">
               {details.map((detail, index) => (
-                <li key={index} className="leading-tight">{detail}</li>
+                <li key={index} className="leading-tight">
+                  {detail}
+                </li>
               ))}
             </ul>
           )}
 
           {/* Footnote */}
-          {footnote && (
-            <p className="text-xs italic font-montserrat text-white/60 mb-4">
-              {footnote}
-            </p>
-          )}
+          {footnote && <p className="text-xs italic font-montserrat text-white/60 mb-4">{footnote}</p>}
 
           <div className="mt-auto">
             {/* Fancy promo code display */}
@@ -199,43 +201,48 @@ const CurrentOffersSection = memo(function CurrentOffersSection() {
   const offers = [
     {
       title: { text: "Akasa Happy Hour Specials!", emphasize: "" },
-      description: "Unwind in style with our fantastic Happy Hour deals,\navailable Monday to Friday, 4 PM – 7 PM.\n\nSip, relax, and enjoy amazing prices and 1-for-1 specials on your favorite drinks.\n\nHere's the lineup:\n🟤 Monday: $8 Cocktails & $8 Beers\n🟤 Tuesday: 1-for-1 on Wines & Cocktails\n🟤 Wednesday: 1-for-1 on Draught Beer & Cocktails\n🟤 Thursday: 1-for-1 on Draught Beer ($8++), House Wines ($8++), Spirits & Cocktails\n🟤 Friday: 1-for-1 on Cocktails\n\n📍 Only at Akasa.\n🧾 T&Cs apply.",
+      description:
+        "Unwind in style with our fantastic Happy Hour deals,\navailable Monday to Friday, 4 PM – 7 PM.\n\nSip, relax, and enjoy amazing prices and 1-for-1 specials on your favorite drinks.\n\nHere's the lineup:\n🟤 Monday: $8 Cocktails & $8 Beers\n🟤 Tuesday: 1-for-1 on Wines & Cocktails\n🟤 Wednesday: 1-for-1 on Draught Beer & Cocktails\n🟤 Thursday: 1-for-1 on Draught Beer ($8++), House Wines ($8++), Spirits & Cocktails\n🟤 Friday: 1-for-1 on Cocktails\n\n📍 Only at Akasa.\n🧾 T&Cs apply.",
       details: [],
       footnote: "Terms and conditions apply. GST & service charges are additional.",
-      image: "/images/offers/promotions/happy-hours.jpg",
+      image: "/images/offers/promotions/happy-hours.jpg.webp",
       validUntil: "Every Mon-Fri, 4PM-7PM",
       code: "CHEERSAKASA",
-      link: "/menu/drinks"
+      link: "/menu/drinks",
     },
     // {
     //   title: { text: "Akasa Turns ", emphasize: "1" },
     //   description: "We're turning one, and you're invited to the party.\nThis isn't just any celebration—it's a toast to flavor, friends, and unforgettable moments.\n\nEnjoy an exclusive 10% discount on:\n\n🍸 Happy Hour cocktails\n\n🍽️ A La Carte delights\n\n🍷 Curated drink selections\n\nJust show up hungry—we've got the rest.\nOffer valid only for Capitasky tenants.\n\n📅 Limited-time offer.",
     //   details: [],
-    //   image: "/images/offers/promotions/akasa-turns-1.jpg",
+    //   image: "/images/offers/promotions/akasa-turns-1.jpg.webp",
     //   validUntil: "15th May to 30th June 2025",
     //   code: "AKASA1YR",
     //   link: "/reservations"
     // },
     {
       title: { text: "Weekend Family Feast", emphasize: "" },
-      description: "Because good food tastes better when it's shared.\n\nGather your tribe—friends, family, neighbors, even your work fam.\nWhen you dine in with a group of 4 or more, you'll enjoy a full spread:\n\n🥟 Shared appetizers to kick things off\n\n🍛 Hearty mains for every taste\n\n🍰 Sweet finales to round out the meal\n\nAll at 10% off the regular price.\nPerfect for birthdays, reunions, or just because.",
+      description:
+        "Because good food tastes better when it's shared.\n\nGather your tribe—friends, family, neighbors, even your work fam.\nWhen you dine in with a group of 4 or more, you'll enjoy a full spread:\n\n🥟 Shared appetizers to kick things off\n\n🍛 Hearty mains for every taste\n\n🍰 Sweet finales to round out the meal\n\nAll at 10% off the regular price.\nPerfect for birthdays, reunions, or just because.",
       details: [],
-      image: "/images/offers/promotions/weekend-family-feast.jpg",
+      image: "/images/offers/promotions/weekend-family-feast.jpg.webp",
       validUntil: "January 15, 2026",
       code: "FAMILY4+",
-      link: "/reservations"
-    }
+      link: "/reservations",
+    },
   ];
 
   return (
     <section id="current-offers" className="w-full bg-black py-20 relative overflow-hidden">
       {/* Animated background pattern */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e6c78b' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          backgroundSize: '60px 60px',
-          animation: 'slideBackground 60s linear infinite'
-        }}></div>
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e6c78b' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundSize: "60px 60px",
+            animation: "slideBackground 60s linear infinite",
+          }}
+        ></div>
       </div>
 
       {/* Decorative elements */}
@@ -249,7 +256,9 @@ const CurrentOffersSection = memo(function CurrentOffersSection() {
         <div className="text-center mb-16 relative">
           <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 w-20 h-1 bg-gradient-to-r from-transparent via-[#E6C78B] to-transparent"></div>
           <h2 className="text-4xl md:text-6xl font-playfair mb-6 relative inline-block">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E6C78B] to-[#D4B679]">Current Offers</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E6C78B] to-[#D4B679]">
+              Current Offers
+            </span>
             <div className="absolute -bottom-3 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[#E6C78B]/80 to-transparent"></div>
           </h2>
           <p className="text-lg md:text-xl font-montserrat text-white/80 max-w-3xl mx-auto leading-relaxed italic">
@@ -287,8 +296,12 @@ const CurrentOffersSection = memo(function CurrentOffersSection() {
       {/* Add custom CSS for animations */}
       <style jsx>{`
         @keyframes slideBackground {
-          0% { background-position: 0 0; }
-          100% { background-position: 100% 100%; }
+          0% {
+            background-position: 0 0;
+          }
+          100% {
+            background-position: 100% 100%;
+          }
         }
       `}</style>
     </section>
@@ -301,16 +314,18 @@ const LoyaltyProgramSection = memo(function LoyaltyProgramSection() {
     <section className="w-full bg-black py-20 relative overflow-hidden">
       {/* Animated background pattern - same as CurrentOffersSection */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e6c78b' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          backgroundSize: '60px 60px',
-          animation: 'slideBackground 60s linear infinite'
-        }}></div>
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e6c78b' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundSize: "60px 60px",
+            animation: "slideBackground 60s linear infinite",
+          }}
+        ></div>
       </div>
 
       <div className="container mx-auto px-4 md:px-8 relative z-10">
         {/* Coming Soon Banner */}
-
 
         <div className="flex flex-col lg:flex-row gap-12 items-center">
           {/* Loyalty Program image with elegant frame */}
@@ -322,13 +337,14 @@ const LoyaltyProgramSection = memo(function LoyaltyProgramSection() {
               <div className="absolute bottom-0 left-0 w-16 h-16 border-b-2 border-l-2 border-[#E6C78B] opacity-70 z-10"></div>
               <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-[#E6C78B] opacity-70 z-10"></div>
 
-              <Image src="/images/offers/loyalty_program/loyalty.jpg"
+              <Image
+                src="/images/offers/loyalty_program/loyalty.jpg.webp"
                 alt="Akasa Loyalty Program"
                 fill
                 sizes="(max-width: 768px) 100vw, 40vw"
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
                 loading="lazy"
-                quality={80}
+                quality={70}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
 
@@ -349,12 +365,16 @@ const LoyaltyProgramSection = memo(function LoyaltyProgramSection() {
 
             <div className="p-8 bg-black/40 backdrop-blur-md border border-white/5 rounded-lg shadow-2xl">
               <h2 className="text-4xl md:text-5xl font-playfair mb-6 relative inline-block">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E6C78B] to-[#D4B679]">Akasa Loyalty Program</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E6C78B] to-[#D4B679]">
+                  Akasa Loyalty Program
+                </span>
                 <div className="absolute -bottom-3 left-0 w-full h-0.5 bg-gradient-to-r from-[#E6C78B] to-transparent"></div>
               </h2>
 
               <p className="text-base md:text-lg font-montserrat mb-8 text-white/90 leading-relaxed first-letter:text-4xl first-letter:font-playfair first-letter:text-[#E6C78B] first-letter:mr-1 first-letter:float-left">
-                Join our exclusive loyalty program, a visit-based program where you earn discounts and special treats based on your number of visits. Redeem your points for complimentary dishes, special experiences, and unique perks available only to our loyal guests.
+                Join our exclusive loyalty program, a visit-based program where you earn discounts and special treats
+                based on your number of visits. Redeem your points for complimentary dishes, special experiences, and
+                unique perks available only to our loyal guests.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
@@ -370,7 +390,9 @@ const LoyaltyProgramSection = memo(function LoyaltyProgramSection() {
 
                 <div className="bg-black/30 p-4 rounded-lg border border-white/5 hover:border-[#E6C78B]/20 transition-colors duration-300">
                   <h3 className="text-lg font-playfair mb-2 text-[#E6C78B]">Redeem Rewards</h3>
-                  <p className="text-sm text-white/80">Exchange points for complimentary dishes, drinks, and experiences.</p>
+                  <p className="text-sm text-white/80">
+                    Exchange points for complimentary dishes, drinks, and experiences.
+                  </p>
                 </div>
               </div>
 
@@ -401,9 +423,9 @@ const NewsletterSection = memo(function NewsletterSection() {
       <div
         className="absolute inset-0 bg-cover bg-center z-0"
         style={{
-          backgroundImage: "url('/images/home/hero/hero-home.jpg?quality=60&width=1200')",
+          backgroundImage: "url('/images/home/hero/hero-home.jpg.webp?quality=60&width=1200')",
           backgroundSize: "cover",
-          backgroundPosition: "center"
+          backgroundPosition: "center",
         }}
       ></div>
       <div className="absolute inset-0 bg-black/80"></div>
@@ -411,7 +433,9 @@ const NewsletterSection = memo(function NewsletterSection() {
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-playfair mb-4">{"Stay Updated"}</h2>
           <p className="text-lg font-montserrat text-white/70 mb-8">
-            {"Subscribe to our newsletter to receive exclusive offers, event invitations, and culinary insights directly to your inbox."}
+            {
+              "Subscribe to our newsletter to receive exclusive offers, event invitations, and culinary insights directly to your inbox."
+            }
           </p>
 
           <form className="flex flex-col sm:flex-row gap-4">
@@ -421,13 +445,13 @@ const NewsletterSection = memo(function NewsletterSection() {
               className="flex-grow px-4 py-3 bg-white/10 border border-white/20 rounded-full text-white"
               required
             />
-            <Button className="px-8 py-3 whitespace-nowrap">
-              {"Subscribe"}
-            </Button>
+            <Button className="px-8 py-3 whitespace-nowrap">{"Subscribe"}</Button>
           </form>
 
           <p className="text-xs text-white/50 mt-4">
-            {"By subscribing, you agree to receive marketing communications from Akasa. You can unsubscribe at any time."}
+            {
+              "By subscribing, you agree to receive marketing communications from Akasa. You can unsubscribe at any time."
+            }
           </p>
         </div>
       </div>

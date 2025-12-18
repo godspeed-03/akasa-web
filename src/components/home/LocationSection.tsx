@@ -25,12 +25,8 @@ const BusinessHours = memo(function BusinessHours() {
           <Icon name="clock" size={14} color={COLORS.GOLD} strokeWidth={1.5} />
         </div>
         <div className="text-center">
-          <p className="text-xs font-montserrat text-white drop-shadow-md mb-1">
-            {"Monday to Saturday:"}
-          </p>
-          <p className="text-xs font-montserrat text-white drop-shadow-md">
-            {"11:30am to 10:30pm"}
-          </p>
+          <p className="text-xs font-montserrat text-white drop-shadow-md mb-1">{"Monday to Saturday:"}</p>
+          <p className="text-xs font-montserrat text-white drop-shadow-md">{"11:30am to 10:30pm"}</p>
         </div>
       </div>
     );
@@ -39,13 +35,7 @@ const BusinessHours = memo(function BusinessHours() {
   return (
     <div className="flex items-center justify-center mb-4 sm:mb-6">
       <div className="w-7 h-7 sm:w-10 sm:h-10 rounded-full bg-[#1A2A3A]/80 flex items-center justify-center mr-2 sm:mr-4 flex-shrink-0 shadow-sm">
-        <Icon
-          name="clock"
-          size={14}
-          color={COLORS.GOLD}
-          strokeWidth={1.5}
-          className="sm:w-5 sm:h-5"
-        />
+        <Icon name="clock" size={14} color={COLORS.GOLD} strokeWidth={1.5} className="sm:w-5 sm:h-5" />
       </div>
       <p className="text-xs sm:text-sm lg:text-base font-montserrat text-white drop-shadow-md">
         {"Monday to Saturday: 11:30am to 10:30pm"}
@@ -100,17 +90,9 @@ const ActionButtons = memo(function ActionButtons() {
 /**
  * DirectionsButton component for the "Get Directions" button
  */
-const DirectionsButton = memo(function DirectionsButton({
-  isMobile,
-}: {
-  isMobile: boolean;
-}) {
+const DirectionsButton = memo(function DirectionsButton({ isMobile }: { isMobile: boolean }) {
   return (
-    <Link
-      href="https://maps.app.goo.gl/fVFNWkTNBQhbW91J7"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
+    <Link href="https://maps.app.goo.gl/fVFNWkTNBQhbW91J7" target="_blank" rel="noopener noreferrer">
       <Button
         variant="default"
         size={isMobile ? "small" : "medium"}
@@ -122,12 +104,7 @@ const DirectionsButton = memo(function DirectionsButton({
           {isMobile ? (
             <>
               <div className="flex items-center justify-center w-5 h-5 mr-1.5">
-                <Icon
-                  name="map-pin"
-                  size={14}
-                  color={COLORS.GOLD}
-                  strokeWidth={2}
-                />
+                <Icon name="map-pin" size={14} color={COLORS.GOLD} strokeWidth={2} />
               </div>
               <span className="text-xs">Get Directions</span>
             </>
@@ -146,11 +123,7 @@ const DirectionsButton = memo(function DirectionsButton({
 /**
  * ReservationButton component for the "Reserve a Table" button
  */
-const ReservationButton = memo(function ReservationButton({
-  isMobile,
-}: {
-  isMobile: boolean;
-}) {
+const ReservationButton = memo(function ReservationButton({ isMobile }: { isMobile: boolean }) {
   return (
     <Link href="/reservations">
       <Button
@@ -164,23 +137,13 @@ const ReservationButton = memo(function ReservationButton({
           {isMobile ? (
             <>
               <div className="flex items-center justify-center w-5 h-5 mr-1.5">
-                <Icon
-                  name="calendar"
-                  size={14}
-                  color={COLORS.GOLD}
-                  strokeWidth={2}
-                />
+                <Icon name="calendar" size={14} color={COLORS.GOLD} strokeWidth={2} />
               </div>
               <span className="text-xs">Reserve a Table</span>
             </>
           ) : (
             <>
-              <Icon
-                name="calendar"
-                className="mr-2"
-                size={16}
-                strokeWidth={2}
-              />
+              <Icon name="calendar" className="mr-2" size={16} strokeWidth={2} />
               <span>Reserve a Table</span>
             </>
           )}
@@ -238,11 +201,11 @@ const LocationSection = memo(function LocationSection() {
       {/* Background image with high quality */}
       <div className="absolute inset-0 w-full h-full overflow-hidden">
         <Image
-          src="/images/home/location.jpg"
+          src="/images/home/location.jpg.webp"
           alt="Akasa restaurant location"
           fill
           priority={true}
-          quality={95}
+          quality={70}
           sizes="100vw"
           className="object-cover"
           style={{
@@ -253,12 +216,7 @@ const LocationSection = memo(function LocationSection() {
         />
 
         {/* Gradient overlay for better text readability */}
-        <div
-          className={cn(
-            "absolute inset-0",
-            "bg-gradient-to-t from-black/70 via-black/40 to-black/30"
-          )}
-        />
+        <div className={cn("absolute inset-0", "bg-gradient-to-t from-black/70 via-black/40 to-black/30")} />
       </div>
 
       {/* Information card - centered horizontally and vertically */}

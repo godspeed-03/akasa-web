@@ -5,8 +5,7 @@ export const soulBrunchMenu = {
   price: "$38++",
   launch_date: "15th November 2025",
   chef: "Chef Akhilesh Pathak",
-  description:
-    "A unique mix of buffet selections and dishes served fresh from our kitchen to your table",
+  description: "A unique mix of buffet selections and dishes served fresh from our kitchen to your table",
   categories: [
     {
       category_name: "FROM THE COUNTER",
@@ -43,8 +42,7 @@ export const soulBrunchMenu = {
       items: [
         {
           name: "Pani Puri",
-          description:
-            "Crispy Puri | Potato | Mint and Tamarind flavored water",
+          description: "Crispy Puri | Potato | Mint and Tamarind flavored water",
           is_vegetarian: true,
         },
         {
@@ -69,8 +67,7 @@ export const soulBrunchMenu = {
         },
         {
           name: "Sukha Mutton Missi Roti Tacos",
-          description:
-            "Australian Mutton | Chickpea Flour | Cheese | Indian spices",
+          description: "Australian Mutton | Chickpea Flour | Cheese | Indian spices",
           is_vegetarian: false,
         },
         {
@@ -80,8 +77,7 @@ export const soulBrunchMenu = {
         },
         {
           name: "Tandoori Angare Macchi",
-          description:
-            "Sea Bass | Ground Spices | Hung Curd | Chef's Signature Marination",
+          description: "Sea Bass | Ground Spices | Hung Curd | Chef's Signature Marination",
           is_vegetarian: false,
         },
       ],
@@ -136,14 +132,12 @@ export const soulBrunchMenu = {
       items: [
         {
           name: "Malai Shahi Tukda",
-          description:
-            "Home Made Croutons | Cardamom | Reduced Milk | Saffron | Nuts",
+          description: "Home Made Croutons | Cardamom | Reduced Milk | Saffron | Nuts",
           is_vegetarian: true,
         },
         {
           name: "Gulab Jamun",
-          description:
-            "Refined Flour Milk Dumpling | Cardamom | Sticky Sugar Syrup",
+          description: "Refined Flour Milk Dumpling | Cardamom | Sticky Sugar Syrup",
           is_vegetarian: true,
         },
       ],
@@ -154,27 +148,27 @@ export const soulBrunchMenu = {
 // Image gallery data
 export const brunchImages = [
   {
-    src: "/menus/soul-weekend-brunch/DSC06273-topaz.jpg",
+    src: "/menus/soul-weekend-brunch/DSC06273-topaz.jpg.webp",
     alt: "Saturday Brunch",
   },
   {
-    src: "/menus/soul-weekend-brunch/DSC06290-topaz.jpg",
+    src: "/menus/soul-weekend-brunch/DSC06290-topaz.jpg.webp",
     alt: "Gourmet Chaat",
   },
   {
-    src: "/menus/soul-weekend-brunch/DSC06284-topaz.jpg",
+    src: "/menus/soul-weekend-brunch/DSC06284-topaz.jpg.webp",
     alt: "Tandoori Specialties",
   },
   {
-    src: "/menus/soul-weekend-brunch/DSC06279-topaz.jpg",
+    src: "/menus/soul-weekend-brunch/DSC06279-topaz.jpg.webp",
     alt: "Small Plates",
   },
   {
-    src: "/menus/soul-weekend-brunch/DSC06278-topaz.jpg",
+    src: "/menus/soul-weekend-brunch/DSC06278-topaz.jpg.webp",
     alt: "Main Course",
   },
   {
-    src: "/menus/soul-weekend-brunch/DSC06277-topaz.jpg",
+    src: "/menus/soul-weekend-brunch/DSC06277-topaz.jpg.webp",
     alt: "Chef's Finale",
   },
 ];

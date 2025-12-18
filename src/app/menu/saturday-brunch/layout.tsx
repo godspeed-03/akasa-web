@@ -10,8 +10,9 @@ export const metadata: Metadata = generateMetadata({
   ogTitle: "Saturday Brunch at Akasa – $38++ | Launching 15th November",
   ogDescription:
     "New Saturday Brunch by Chef Akhilesh Pathak. Buffet + fresh kitchen dishes. $38++ per person. Saturdays from 15th November.",
-  ogImageUrl: 'https://cdn.jsdelivr.net/gh/sharadchaturveda/akasa_b-bwireframe@master/public/menus/soul-weekend-brunch/DSC06273-topaz.jpg',
-    keywords:
+  ogImageUrl:
+    "https://cdn.jsdelivr.net/gh/sharadchaturveda/akasa_b-bwireframe@master/public/menus/soul-weekend-brunch/DSC06273-topaz.jpg.webp",
+  keywords:
     "Saturday Brunch, Soul Weekend Brunch, Akasa brunch, Indian brunch Singapore, Chef Akhilesh Pathak, Saturday brunch, weekend dining, chaat, tandoori, authentic Indian food, Robinson Road dining, Akasa SG brunch, buffet brunch Singapore",
 });
 

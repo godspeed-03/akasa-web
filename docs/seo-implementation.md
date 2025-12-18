@@ -24,34 +24,34 @@ Individual pages can define their own metadata by creating a `metadata.ts` file 
 
 SEO-specific images are stored in the `public/images/seo/` directory:
 
-- `og-image.jpg` - Default Open Graph image (1200x630px)
-- `twitter-card.jpg` - Default Twitter Card image (1200x600px)
+- `og-image.jpg.webp` - Default Open Graph image (1200x630px)
+- `twitter-card.jpg.webp` - Default Twitter Card image (1200x600px)
 
 ## Best Practices
 
 ### Titles
 
--   Keep titles under 60 characters.
--   Include important keywords early.
--   Use "Page Title – Akasa" format (except homepage).
+- Keep titles under 60 characters.
+- Include important keywords early.
+- Use "Page Title – Akasa" format (except homepage).
 
 ### Descriptions
 
--   Keep descriptions between 150-160 characters.
--   Include relevant keywords naturally.
--   Make them compelling.
+- Keep descriptions between 150-160 characters.
+- Include relevant keywords naturally.
+- Make them compelling.
 
 ### Images
 
--   Optimize for fast loading (compress, proper dimensions).
--   Include descriptive alt text.
--   Use high-quality, visually appealing images.
+- Optimize for fast loading (compress, proper dimensions).
+- Include descriptive alt text.
+- Use high-quality, visually appealing images.
 
 ### Keywords
 
--   Include 5-10 relevant keywords per page.
--   Avoid keyword stuffing.
--   Focus on natural language and user intent.
+- Include 5-10 relevant keywords per page.
+- Avoid keyword stuffing.
+- Focus on natural language and user intent.
 
 ## Testing SEO
 

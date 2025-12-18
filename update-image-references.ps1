@@ -4,62 +4,62 @@ $pathMappings = @(
     @{ OldPath = "/images/brand/akasa-logo.svg"; NewPath = "/images/brand/logo.svg" },
     
     # Home page images
-    @{ OldPath = "/images/home/hero.jpg"; NewPath = "/images/home/hero/hero-home.jpg" },
-    @{ OldPath = "/images/home/philosophy-bg.jpg"; NewPath = "/images/home/philosophy/background.jpg" },
-    @{ OldPath = "/images/home/drink.jpg"; NewPath = "/images/home/philosophy/drink.jpg" },
-    @{ OldPath = "/images/home/whats-happening.jpg"; NewPath = "/images/home/whats-happening/main.jpg" },
-    @{ OldPath = "/images/home/whats-happening-bg.jpg"; NewPath = "/images/home/whats-happening/background.jpg" },
-    @{ OldPath = "/images/home/testimonial.jpg"; NewPath = "/images/home/testimonials/background.jpg" },
-    @{ OldPath = "/images/home/awards.jpg"; NewPath = "/images/home/gallery/awards.jpg" },
-    @{ OldPath = "/images/home/location.jpg"; NewPath = "/images/home/gallery/location.jpg" },
+    @{ OldPath = "/images/home/hero.jpg.webp"; NewPath = "/images/home/hero/hero-home.jpg.webp" },
+    @{ OldPath = "/images/home/philosophy-bg.jpg.webp"; NewPath = "/images/home/philosophy/background.jpg.webp" },
+    @{ OldPath = "/images/home/drink.jpg.webp"; NewPath = "/images/home/philosophy/drink.jpg.webp" },
+    @{ OldPath = "/images/home/whats-happening.jpg.webp"; NewPath = "/images/home/whats-happening/main.jpg.webp" },
+    @{ OldPath = "/images/home/whats-happening-bg.jpg.webp"; NewPath = "/images/home/whats-happening/background.jpg.webp" },
+    @{ OldPath = "/images/home/testimonial.jpg.webp"; NewPath = "/images/home/testimonials/background.jpg.webp" },
+    @{ OldPath = "/images/home/awards.jpg.webp"; NewPath = "/images/home/gallery/awards.jpg.webp" },
+    @{ OldPath = "/images/home/location.jpg.webp"; NewPath = "/images/home/gallery/location.jpg.webp" },
     
     # Menu page images
-    @{ OldPath = "/images/menu/chef-portrait.jpg"; NewPath = "/images/menu/chef/portrait.jpg" },
-    @{ OldPath = "/images/menu/chef.jpg"; NewPath = "/images/menu/chef/background.jpg" },
-    @{ OldPath = "/images/menu/gallery1.jpg"; NewPath = "/images/menu/hero/gallery-1.jpg" },
-    @{ OldPath = "/images/menu/gallery2.jpg"; NewPath = "/images/menu/hero/gallery-2.jpg" },
-    @{ OldPath = "/images/menu/gallery3.jpg"; NewPath = "/images/menu/hero/gallery-3.jpg" },
-    @{ OldPath = "/images/menu/gallery5.jpg"; NewPath = "/images/menu/hero/gallery-5.jpg" },
-    @{ OldPath = "/images/menu/gallery6.jpg"; NewPath = "/images/menu/hero/gallery-6.jpg" },
+    @{ OldPath = "/images/menu/chef-portrait.jpg.webp"; NewPath = "/images/menu/chef/portrait.jpg.webp" },
+    @{ OldPath = "/images/menu/chef.jpg.webp"; NewPath = "/images/menu/chef/background.jpg.webp" },
+    @{ OldPath = "/images/menu/gallery1.jpg.webp"; NewPath = "/images/menu/hero/gallery-1.jpg.webp" },
+    @{ OldPath = "/images/menu/gallery2.jpg.webp"; NewPath = "/images/menu/hero/gallery-2.jpg.webp" },
+    @{ OldPath = "/images/menu/gallery3.jpg.webp"; NewPath = "/images/menu/hero/gallery-3.jpg.webp" },
+    @{ OldPath = "/images/menu/gallery5.jpg.webp"; NewPath = "/images/menu/hero/gallery-5.jpg.webp" },
+    @{ OldPath = "/images/menu/gallery6.jpg.webp"; NewPath = "/images/menu/hero/gallery-6.jpg.webp" },
     
     # A La Carte menu images
-    @{ OldPath = "/images/menu/a-la-carte/hero-a-la-carte.jpg"; NewPath = "/images/menu/a-la-carte/hero/hero.jpg" },
+    @{ OldPath = "/images/menu/a-la-carte/hero-a-la-carte.jpg.webp"; NewPath = "/images/menu/a-la-carte/hero/hero.jpg.webp" },
     
     # Bar Bites menu images
-    @{ OldPath = "/images/menu/bar-bites/hero-bar-bites.jpg"; NewPath = "/images/menu/bar-bites/hero/hero.jpg" },
-    @{ OldPath = "/images/menu/hero-bar-bites.jpg"; NewPath = "/images/menu/bar-bites/hero/hero-alt.jpg" },
+    @{ OldPath = "/images/menu/bar-bites/hero-bar-bites.jpg.webp"; NewPath = "/images/menu/bar-bites/hero/hero.jpg.webp" },
+    @{ OldPath = "/images/menu/hero-bar-bites.jpg.webp"; NewPath = "/images/menu/bar-bites/hero/hero-alt.jpg.webp" },
     
     # Drinks menu images
-    @{ OldPath = "/images/menu/drinks/hero-drinks.jpg"; NewPath = "/images/menu/drinks/hero/hero.jpg" },
+    @{ OldPath = "/images/menu/drinks/hero-drinks.jpg.webp"; NewPath = "/images/menu/drinks/hero/hero.jpg.webp" },
     
     # Set Lunch menu images
-    @{ OldPath = "/images/menu/set-lunch/hero-set-lunch.jpg"; NewPath = "/images/menu/set-lunch/hero/hero.jpg" },
+    @{ OldPath = "/images/menu/set-lunch/hero-set-lunch.jpg.webp"; NewPath = "/images/menu/set-lunch/hero/hero.jpg.webp" },
     
     # Soul Food Weekends menu images
-    @{ OldPath = "/images/menu/soul-food-weekends/hero-soul-food-weekends.jpg"; NewPath = "/images/menu/soul-food-weekends/hero/hero.jpg" },
+    @{ OldPath = "/images/menu/soul-food-weekends/hero-soul-food-weekends.jpg.webp"; NewPath = "/images/menu/soul-food-weekends/hero/hero.jpg.webp" },
     
     # Events page images
-    @{ OldPath = "/images/events/event3.jpg"; NewPath = "/images/events/hero/hero.jpg" },
-    @{ OldPath = "/images/events/gallery4.jpg"; NewPath = "/images/events/listings/event-1.jpg" },
-    @{ OldPath = "/images/unused/gallery1.jpg"; NewPath = "/images/events/listings/event-2.jpg" },
-    @{ OldPath = "/images/unused/gallery3.jpg"; NewPath = "/images/events/listings/event-3.jpg" },
+    @{ OldPath = "/images/events/event3.jpg.webp"; NewPath = "/images/events/hero/hero.jpg.webp" },
+    @{ OldPath = "/images/events/gallery4.jpg.webp"; NewPath = "/images/events/listings/event-1.jpg.webp" },
+    @{ OldPath = "/images/unused/gallery1.jpg.webp"; NewPath = "/images/events/listings/event-2.jpg.webp" },
+    @{ OldPath = "/images/unused/gallery3.jpg.webp"; NewPath = "/images/events/listings/event-3.jpg.webp" },
     
     # Offers page images
-    @{ OldPath = "/images/offers/gallery5.jpg"; NewPath = "/images/offers/hero/hero.jpg" },
-    @{ OldPath = "/images/offers/gallery1.jpg"; NewPath = "/images/offers/promotions/weekday-lunch.jpg" },
-    @{ OldPath = "/images/menu/gallery2.jpg"; NewPath = "/images/offers/promotions/anniversary.jpg" },
+    @{ OldPath = "/images/offers/gallery5.jpg.webp"; NewPath = "/images/offers/hero/hero.jpg.webp" },
+    @{ OldPath = "/images/offers/gallery1.jpg.webp"; NewPath = "/images/offers/promotions/weekday-lunch.jpg.webp" },
+    @{ OldPath = "/images/menu/gallery2.jpg.webp"; NewPath = "/images/offers/promotions/anniversary.jpg.webp" },
     
     # Reservations page images
-    @{ OldPath = "/images/reservations/gallery3.jpg"; NewPath = "/images/reservations/hero/hero.jpg" },
+    @{ OldPath = "/images/reservations/gallery3.jpg.webp"; NewPath = "/images/reservations/hero/hero.jpg.webp" },
     
     # Testimonials images
-    @{ OldPath = "/images/testimonials/avatar1.jpg"; NewPath = "/images/home/testimonials/avatar-1.jpg" },
-    @{ OldPath = "/images/testimonials/avatar2.jpg"; NewPath = "/images/home/testimonials/avatar-2.jpg" },
-    @{ OldPath = "/images/testimonials/avatar3.jpg"; NewPath = "/images/home/testimonials/avatar-3.jpg" },
-    @{ OldPath = "/images/testimonials/testimonial-bg.jpg"; NewPath = "/images/home/testimonials/background-alt.jpg" },
+    @{ OldPath = "/images/testimonials/avatar1.jpg.webp"; NewPath = "/images/home/testimonials/avatar-1.jpg.webp" },
+    @{ OldPath = "/images/testimonials/avatar2.jpg.webp"; NewPath = "/images/home/testimonials/avatar-2.jpg.webp" },
+    @{ OldPath = "/images/testimonials/avatar3.jpg.webp"; NewPath = "/images/home/testimonials/avatar-3.jpg.webp" },
+    @{ OldPath = "/images/testimonials/testimonial-bg.jpg.webp"; NewPath = "/images/home/testimonials/background-alt.jpg.webp" },
     
     # Common images
-    @{ OldPath = "/images/common/footer-bg.jpg"; NewPath = "/images/common/footer-background.jpg" }
+    @{ OldPath = "/images/common/footer-bg.jpg.webp"; NewPath = "/images/common/footer-background.jpg.webp" }
 )
 
 # Get all TypeScript and CSS files

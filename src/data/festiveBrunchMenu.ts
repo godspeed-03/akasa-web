@@ -144,27 +144,27 @@ export const festiveBrunchMenu = {
 // Christmas/NY Eve images - using Saturday brunch images
 export const festiveBrunchImages = [
   {
-    src: "/menus/soul-weekend-brunch/DSC06273-topaz.jpg",
+    src: "/menus/soul-weekend-brunch/DSC06273-topaz.jpg.webp",
     alt: "Christmas/NY Eve",
   },
   {
-    src: "/menus/soul-weekend-brunch/DSC06290-topaz.jpg",
+    src: "/menus/soul-weekend-brunch/DSC06290-topaz.jpg.webp",
     alt: "Festive Specialties",
   },
   {
-    src: "/menus/soul-weekend-brunch/DSC06284-topaz.jpg",
+    src: "/menus/soul-weekend-brunch/DSC06284-topaz.jpg.webp",
     alt: "Christmas Tandoori",
   },
   {
-    src: "/menus/soul-weekend-brunch/DSC06279-topaz.jpg",
+    src: "/menus/soul-weekend-brunch/DSC06279-topaz.jpg.webp",
     alt: "Festive Delights",
   },
   {
-    src: "/menus/soul-weekend-brunch/DSC06278-topaz.jpg",
+    src: "/menus/soul-weekend-brunch/DSC06278-topaz.jpg.webp",
     alt: "Holiday Feast",
   },
   {
-    src: "/menus/soul-weekend-brunch/DSC06277-topaz.jpg",
+    src: "/menus/soul-weekend-brunch/DSC06277-topaz.jpg.webp",
     alt: "Seasonal Desserts",
   },
 ];
@@ -172,6 +172,6 @@ export const festiveBrunchImages = [
 // Christmas/NY Eve video
 export const festiveBrunchVideo = {
   src: "/video/christmas-ny-eve.mp4",
-  poster: "/menus/soul-weekend-brunch/DSC06273-topaz.jpg",
+  poster: "/menus/soul-weekend-brunch/DSC06273-topaz.jpg.webp",
   alt: "Christmas/NY Eve Experience at Akasa",
 };

@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
+import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 
 /**
  * DebugVideoHero Component
@@ -17,9 +17,9 @@ export default function DebugVideoHero() {
     playAttempted: false,
     playSucceeded: false,
     playFailed: false,
-    errorMessage: '',
+    errorMessage: "",
     videoReady: false,
-    videoPlaying: false
+    videoPlaying: false,
   });
 
   // Video reference
@@ -34,84 +34,85 @@ export default function DebugVideoHero() {
     const video = videoRef.current;
 
     // Update debug state
-    setDebug(prev => ({ ...prev, videoExists: !!video }));
+    setDebug((prev) => ({ ...prev, videoExists: !!video }));
 
     if (!video) return;
 
     // Event handlers
     const handleCanPlay = () => {
       setVideoReady(true);
-      setDebug(prev => ({ ...prev, videoReady: true }));
+      setDebug((prev) => ({ ...prev, videoReady: true }));
     };
 
     const handlePlaying = () => {
       setVideoReady(true);
       setHasError(false);
-      setDebug(prev => ({ ...prev, videoPlaying: true }));
+      setDebug((prev) => ({ ...prev, videoPlaying: true }));
     };
 
     const handleError = (e: Event) => {
       setHasError(true);
       setVideoReady(false);
-      setDebug(prev => ({
+      setDebug((prev) => ({
         ...prev,
         playFailed: true,
-        errorMessage: video.error ? `Code: ${video.error.code}, Message: ${video.error.message}` : 'Unknown error'
+        errorMessage: video.error ? `Code: ${video.error.code}, Message: ${video.error.message}` : "Unknown error",
       }));
     };
 
     // Add event listeners
-    video.addEventListener('canplay', handleCanPlay);
-    video.addEventListener('playing', handlePlaying);
-    video.addEventListener('error', handleError);
+    video.addEventListener("canplay", handleCanPlay);
+    video.addEventListener("playing", handlePlaying);
+    video.addEventListener("error", handleError);
 
     // Try to play the video after a delay
     setTimeout(() => {
-      setDebug(prev => ({ ...prev, autoplayAttempted: true }));
+      setDebug((prev) => ({ ...prev, autoplayAttempted: true }));
 
       // Check if video is already playing (autoplay worked)
       if (!video.paused) {
         setVideoReady(true);
         setHasError(false);
-        setDebug(prev => ({ ...prev, playSucceeded: true }));
+        setDebug((prev) => ({ ...prev, playSucceeded: true }));
         return;
       }
 
       // Try to play programmatically
       try {
-        setDebug(prev => ({ ...prev, playAttempted: true }));
+        setDebug((prev) => ({ ...prev, playAttempted: true }));
 
-        video.play()
+        video
+          .play()
           .then(() => {
             setVideoReady(true);
             setHasError(false);
-            setDebug(prev => ({ ...prev, playSucceeded: true }));
+            setDebug((prev) => ({ ...prev, playSucceeded: true }));
           })
-          .catch(err => {
+          .catch((err) => {
             setHasError(true);
             setVideoReady(false);
-            setDebug(prev => ({
+            setDebug((prev) => ({
               ...prev,
               playFailed: true,
-              errorMessage: err.message || 'Unknown error'
+              errorMessage: err.message || "Unknown error",
             }));
           });
       } catch (err: any) {
         setHasError(true);
         setVideoReady(false);
-        setDebug(prev => ({
+        setDebug((prev) => ({
           ...prev,
           playFailed: true,
-          errorMessage: err.message || 'Unknown error'
+          errorMessage: err.message || "Unknown error",
         }));
       }
     }, 1000);
 
     // Cleanup
     return () => {
-      video.removeEventListener('canplay', handleCanPlay);
-      video.removeEventListener('playing', handlePlaying);
-      video.removeEventListener('error', handleError);
+      video.removeEventListener("canplay", handleCanPlay);
+      video.removeEventListener("playing", handlePlaying);
+      video.removeEventListener("error", handleError);
     };
   }, []);
 
@@ -124,16 +125,16 @@ export default function DebugVideoHero() {
         className="absolute inset-0 z-10"
         style={{
           opacity: videoReady && !hasError ? 0 : 1,
-          transition: 'opacity 0.5s ease-in-out'
+          transition: "opacity 0.5s ease-in-out",
         }}
       >
         <Image
-          src="/images/home/hero/carousel/hero1.jpg"
+          src="/images/home/hero/carousel/hero1.jpg.webp"
           alt="Akasa restaurant ambiance"
           fill
           priority
           sizes="100vw"
-          quality={85}
+          quality={70}
           className="object-cover"
         />
       </div>
@@ -147,14 +148,14 @@ export default function DebugVideoHero() {
           loop
           autoPlay
           preload="auto"
-          poster="/images/home/hero/carousel/hero1.jpg"
+          poster="/images/home/hero/carousel/hero1.jpg.webp"
           className="w-full h-full object-cover object-center brightness-115 transform-gpu will-change-transform will-change-opacity"
           style={{
             opacity: videoReady && !hasError ? 1 : 0,
-            transition: 'opacity 0.5s ease-in-out',
+            transition: "opacity 0.5s ease-in-out",
           }}
         >
-          <source src="/images/home/hero/mobile-video/heromobilevid.webm" type="video/webm" />
+          <source src="/video/heromobilevid.mp4" type="video/webm" />
           <source src="/images/home/hero/mobile-video/heromobilevid.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>

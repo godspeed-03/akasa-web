@@ -16,13 +16,13 @@
 //     type: "website",
 //     images: [
 //       {
-//         url: "https://akasa.sg/images/seo/og-image.jpg", // Primary OG image
+//         url: "https://akasa.sg/images/seo/og-image.jpg.webp", // Primary OG image
 //         width: 1200,
 //         height: 630,
 //         alt: "Akasa Restaurant - Finest Indian Cuisine in Singapore",
 //       },
 //       {
-//         url: "https://akasa.sg/images/home/hero/carousel/hero1.jpg", // Fallback image
+//         url: "https://akasa.sg/images/home/hero/carousel/hero1.jpg.webp", // Fallback image
 //         width: 1200,
 //         height: 630,
 //         alt: "Akasa Restaurant - Finest Indian Cuisine in Singapore",
@@ -36,8 +36,8 @@
 //     title: "Akasa | Finest Indian Cuisine in Singapore",
 //     description: "Experience the finest Indian Cuisine at Akasa. Located at 79 Robinson Road, Singapore. Open Monday to Saturday, 11:30am to 10:30am.",
 //     images: [
-//       "https://akasa.sg/images/seo/twitter-card.jpg", // Primary Twitter Card image
-//       "https://akasa.sg/images/home/hero/carousel/hero1.jpg", // Fallback image
+//       "https://akasa.sg/images/seo/twitter-card.jpg.webp", // Primary Twitter Card image
+//       "https://akasa.sg/images/home/hero/carousel/hero1.jpg.webp", // Fallback image
 //     ],
 //     creator: "@akasa_singapore",
 //     site: "@akasa_singapore",

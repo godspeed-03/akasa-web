@@ -28,22 +28,25 @@ const HeroSection = memo(function HeroSection() {
         The parallax effect is created using CSS transforms and z-index positioning
         This creates a sense of depth as the user scrolls
       */}
-      <div className="absolute inset-0 z-0" style={{
-        zIndex: -1 // Behind all other content
-      }}>
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          zIndex: -1, // Behind all other content
+        }}
+      >
         {/* Use Next.js Image component for better performance */}
         <div className="absolute inset-0 w-full h-full">
           <Image
-            src="/images/events/hero/hero.jpg"
+            src="/images/events/hero/hero.jpg.webp"
             alt="Events at Akasa"
             fill
             priority={true}
             sizes="100vw"
-            quality={90}
+            quality={70}
             className="object-cover"
             style={{
               opacity: 0.7,
-              objectPosition: "center"
+              objectPosition: "center",
             }}
           />
         </div>
@@ -64,17 +67,13 @@ const HeroSection = memo(function HeroSection() {
       <div className="container mx-auto px-4 md:px-8 relative z-10 pt-16 md:pt-0">
         {/* Hero content with increased top padding on mobile */}
         <div className="text-center mt-16 md:mt-0">
-          <h1 className="text-4xl md:text-6xl font-playfair mb-4 text-white">
-            Host Your Special Event
-          </h1>
+          <h1 className="text-4xl md:text-6xl font-playfair mb-4 text-white">Host Your Special Event</h1>
           <p className="text-xl md:text-2xl font-montserrat text-white/80 max-w-2xl mx-auto">
             Create unforgettable memories in our elegant spaces
           </p>
 
           {/* Call-to-action buttons */}
-          <div className="mt-8 flex flex-wrap justify-center gap-4">
-            {/* Buttons here */}
-          </div>
+          <div className="mt-8 flex flex-wrap justify-center gap-4">{/* Buttons here */}</div>
         </div>
       </div>
     </section>
@@ -82,6 +81,3 @@ const HeroSection = memo(function HeroSection() {
 });
 
 export default HeroSection;
-
-
-

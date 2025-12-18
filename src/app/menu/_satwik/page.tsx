@@ -26,12 +26,10 @@ export default function SatwikMenuPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="w-full bg-[url('/images/menu/festive/image.png')] bg-cover bg-center py-64 relative">
+      <section className="w-full bg-[url('/images/menu/festive/image.png.webp')] bg-cover bg-center py-64 relative">
         <div className="absolute inset-0 bg-black/70"></div>
         <div className="container mx-auto px-4 md:px-8 relative z-10 text-center flex flex-col items-center space-y-6">
-          <h1 className="text-4xl md:text-6xl font-playfair mb-6 text-white">
-            Satwik Menu
-          </h1>
+          <h1 className="text-4xl md:text-6xl font-playfair mb-6 text-white">Satwik Menu</h1>
           <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#E6C78B] to-transparent mx-auto mb-6"></div>
           <p className="text-lg md:text-xl font-montserrat text-white/80 max-w-3xl mx-auto">
             Wholesome vegetarian delights prepared with purity and tradition
@@ -61,35 +59,26 @@ export default function SatwikMenuPage() {
             <div className="inline-flex items-center justify-center gap-6 bg-black/40 backdrop-blur-sm px-6 py-3 rounded-lg border border-white/10">
               <div className="flex items-center">
                 <span className="text-lg mr-2">🟢</span>
-                <span className="text-sm font-montserrat text-white/80">
-                  Vegetarian
-                </span>
+                <span className="text-sm font-montserrat text-white/80">Vegetarian</span>
               </div>
               <div className="text-sm font-montserrat text-[#E6C78B] mt-2 md:mt-0">
-                Whole Satwik Thali available at{" "}
-                <span className="font-semibold">$28++</span>
+                Whole Satwik Thali available at <span className="font-semibold">$28++</span>
               </div>
             </div>
           </div>
 
           {/* Menu Categories */}
-          {satwikMenu.categories.map(
-            (category: MenuCategory, index: Key | null | undefined) => (
-              <BarBiteCategorySection key={index} category={category} />
-            )
-          )}
+          {satwikMenu.categories.map((category: MenuCategory, index: Key | null | undefined) => (
+            <BarBiteCategorySection key={index} category={category} />
+          ))}
 
           {/* Disclaimer */}
-          <div className="text-center mt-10 text-sm text-white/70 italic">
-            {satwikMenu.disclaimer}
-          </div>
+          <div className="text-center mt-10 text-sm text-white/70 italic">{satwikMenu.disclaimer}</div>
 
           {/* Back Button */}
           <div className="text-center mt-8">
             <Link href="/menu">
-              <Button className="bg-[#1A2A3A] text-white hover:bg-[#0A1A2A]">
-                Back to All Menus
-              </Button>
+              <Button className="bg-[#1A2A3A] text-white hover:bg-[#0A1A2A]">Back to All Menus</Button>
             </Link>
           </div>
         </div>

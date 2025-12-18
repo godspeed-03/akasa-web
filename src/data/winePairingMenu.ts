@@ -102,15 +102,15 @@ export const winePairingMenu = {
 // Wine pairing images
 export const winePairingImages = [
   {
-    src: "/images/menu/wine-pairing/hero-1.jpg",
+    src: "/images/menu/wine-pairing/hero-1.jpg.webp",
     alt: "Wine Pairing Experience",
   },
   {
-    src: "/images/menu/wine-pairing/hero-2.jpg",
+    src: "/images/menu/wine-pairing/hero-2.jpg.webp",
     alt: "Fine Dining",
   },
   {
-    src: "/images/menu/wine-pairing/hero-3.jpg",
+    src: "/images/menu/wine-pairing/hero-3.jpg.webp",
     alt: "Wine Selection",
   },
 ];

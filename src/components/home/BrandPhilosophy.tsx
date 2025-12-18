@@ -36,13 +36,13 @@ const BrandPhilosophy = memo(function BrandPhilosophy() {
       <div className="relative pt-8 pb-12 sm:py-16 px-6 md:py-8 md:px-12 flex flex-col justify-center bg-black overflow-hidden min-h-[500px]">
         {/* Background image with animation */}
         <AnimatedBackground
-          src="/images/home/philosophy/background.jpg"
+          src="/images/home/philosophy/background.jpg.webp"
           alt="Philosophy background"
           isAnimated={isVisible}
           scale={1.05}
           duration={8}
           opacity={0.9}
-          quality={75}
+          quality={70}
           priority={false}
           sizes="(max-width: 768px) 100vw, 40vw"
           objectPosition="center"
@@ -52,11 +52,7 @@ const BrandPhilosophy = memo(function BrandPhilosophy() {
         />
 
         {/* Decorative corners */}
-        <DecorativeCorners
-          color="border-[#E6C78B]/20"
-          size="responsive"
-          position="all"
-        />
+        <DecorativeCorners color="border-[#E6C78B]/20" size="responsive" position="all" />
 
         <div className="relative max-w-md mx-auto md:mx-0 z-[2]">
           <SectionHeading
@@ -73,13 +69,11 @@ const BrandPhilosophy = memo(function BrandPhilosophy() {
             delay={0.4}
             className="font-montserrat text-sm sm:text-base text-white/90 mb-6 leading-relaxed"
           >
-            We prioritize organic, sustainable sourcing to bring you the
-            freshest seasonal ingredients, carefully selected to nourish both
-            body and soul. Inspired by India's rich culinary heritage, we use
-            heirloom grains, vibrant spices, and pasture-raised meats to craft
-            soulful dishes. Enjoy them the traditional way—family style. <br />
-            Whether you order à la carte or try our chef's selection, everything
-            is served to share.
+            We prioritize organic, sustainable sourcing to bring you the freshest seasonal ingredients, carefully
+            selected to nourish both body and soul. Inspired by India's rich culinary heritage, we use heirloom grains,
+            vibrant spices, and pasture-raised meats to craft soulful dishes. Enjoy them the traditional way—family
+            style. <br />
+            Whether you order à la carte or try our chef's selection, everything is served to share.
           </AnimatedText>
 
           <AnimatedText
@@ -101,13 +95,13 @@ const BrandPhilosophy = memo(function BrandPhilosophy() {
       <div className="relative bg-black overflow-hidden min-h-[500px]">
         {/* Background image with animation */}
         <AnimatedBackground
-          src="/images/home/philosophy/drink.jpg"
+          src="/images/home/philosophy/drink.jpg.webp"
           alt="Drink background"
           isAnimated={isVisible}
           scale={1.05}
           duration={8}
           opacity={0.9}
-          quality={75}
+          quality={70}
           priority={false}
           sizes="(max-width: 768px) 100vw, 60vw"
           objectPosition="center"
@@ -140,34 +134,16 @@ const BrandPhilosophy = memo(function BrandPhilosophy() {
 
         <div className="relative h-full flex flex-col justify-center pt-8 pb-12 sm:py-16 px-6 md:py-8 md:px-12">
           <div className="max-w-md mx-auto md:mx-0 z-[2] md:pt-0">
-            <SectionHeading
-              subtitle="Visit Us"
-              title="Singapore"
-              showDivider={true}
-              centered={false}
-            />
+            <SectionHeading subtitle="Visit Us" title="Singapore" showDivider={true} centered={false} />
 
-            <AnimatedText
-              as="div"
-              animation="fadeSlideUp"
-              delay={0.4}
-              className="space-y-2 sm:space-y-3 md:space-y-2"
-            >
+            <AnimatedText as="div" animation="fadeSlideUp" delay={0.4} className="space-y-2 sm:space-y-3 md:space-y-2">
               <div>
-                <p className="text-[#E6C78B]/80 text-xs sm:text-sm font-montserrat">
-                  address:
-                </p>
-                <p className="text-white text-base sm:text-lg font-montserrat">
-                  79 Robinson Road, #01-03 Capitasky,
-                </p>
-                <p className="text-white text-base sm:text-lg font-montserrat">
-                  Tanjong Pagar, Singapore 068897
-                </p>
+                <p className="text-[#E6C78B]/80 text-xs sm:text-sm font-montserrat">address:</p>
+                <p className="text-white text-base sm:text-lg font-montserrat">79 Robinson Road, #01-03 Capitasky,</p>
+                <p className="text-white text-base sm:text-lg font-montserrat">Tanjong Pagar, Singapore 068897</p>
               </div>
               <div>
-                <p className="text-[#E6C78B]/80 text-xs sm:text-sm font-montserrat">
-                  hours:
-                </p>
+                <p className="text-[#E6C78B]/80 text-xs sm:text-sm font-montserrat">hours:</p>
                 <p className="text-white text-base sm:text-lg font-montserrat">
                   Monday to Saturday: 11:30am to 10:30pm
                 </p>

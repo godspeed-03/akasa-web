@@ -8,7 +8,8 @@ const LoyaltyHero = memo(function LoyaltyHero() {
     <section className="h-screen w-full bg-black flex flex-col items-center justify-center relative overflow-hidden">
       {/* Background image without parallax */}
       <div className="absolute inset-0 z-0">
-        <Image src="/images/offers/loyalty_program/loyalty.jpg"
+        <Image
+          src="/images/offers/loyalty_program/loyalty.jpg.webp"
           alt="Loyalty Program background"
           fill
           sizes="100vw"
@@ -18,7 +19,7 @@ const LoyaltyHero = memo(function LoyaltyHero() {
           loading="eager"
           style={{
             objectPosition: "center",
-            opacity: 0.6
+            opacity: 0.6,
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black via-black/50 to-black/80"></div>
@@ -36,13 +37,16 @@ const LoyaltyHero = memo(function LoyaltyHero() {
           <div className="mb-6 relative">
             <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 w-20 h-1 bg-gradient-to-r from-transparent via-[#E6C78B] to-transparent"></div>
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-playfair mb-6 relative inline-block">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/80">Akasa Loyalty Program</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white/80">
+                Akasa Loyalty Program
+              </span>
               <div className="absolute -bottom-3 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-[#E6C78B]/80 to-transparent"></div>
             </h1>
           </div>
 
           <p className="text-lg md:text-xl font-montserrat text-white/90 mb-10 leading-relaxed max-w-2xl mx-auto">
-            Join our exclusive loyalty program and enjoy exclusive benefits, discounts, and special treats based on your visits to Akasa.
+            Join our exclusive loyalty program and enjoy exclusive benefits, discounts, and special treats based on your
+            visits to Akasa.
           </p>
 
           {/* Decorative element */}
@@ -60,4 +64,4 @@ const LoyaltyHero = memo(function LoyaltyHero() {
   );
 });
 
-export default LoyaltyHero; 
+export default LoyaltyHero;

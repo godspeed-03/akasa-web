@@ -16,14 +16,14 @@ const FestiveMenuCTA = memo(function FestiveMenuCTA() {
       {/* Background image */}
       <div className="absolute inset-0">
         <Image
-          src="/images/menu/festive/image.png" // same background as GallerySection
+          src="/images/menu/festive/image.png.webp" // same background as GallerySection
           alt="Festive background"
           fill
           priority
           sizes="100vw"
           className="object-cover"
           style={{ objectPosition: "center" }}
-          quality={75}
+          quality={70}
         />
         {/* Overlay for better text readability */}
         <div className="absolute inset-0 bg-black/60"></div>
@@ -47,13 +47,10 @@ const FestiveMenuCTA = memo(function FestiveMenuCTA() {
           <span className="text-[#E6C78B]">Festive Specials</span>
           <div className="absolute -bottom-3 left-0 w-full h-0.5 bg-[#E6C78B]/50"></div>
         </h2>
-        <h3 className="text-3xl sm:text-4xl font-playfair text-white/90 mb-4 sm:mb-6">
-          Celebrate with Diwali Menus
-        </h3>
+        <h3 className="text-3xl sm:text-4xl font-playfair text-white/90 mb-4 sm:mb-6">Celebrate with Diwali Menus</h3>
         <p className="text-white/80 font-montserrat text-sm sm:text-base mb-8 sm:mb-12 leading-relaxed">
-          Experience the richness of flavors this festive season. Carefully
-          curated Satwik and Diwali menus to make your celebration
-          unforgettable.
+          Experience the richness of flavors this festive season. Carefully curated Satwik and Diwali menus to make your
+          celebration unforgettable.
         </p>
 
         <div className="flex flex-col sm:flex-row justify-center items-stretch gap-8 mt-8">

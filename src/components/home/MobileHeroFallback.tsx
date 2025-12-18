@@ -11,12 +11,12 @@ const MobileHeroFallback = () => {
       {/* Fallback image */}
       <div className="absolute inset-0 bg-black">
         <Image
-          src="/images/home/hero/carousel/hero1.jpg"
+          src="/images/home/hero/carousel/hero1.jpg.webp"
           alt="Akasa restaurant ambiance"
           fill
           priority
           sizes="100vw"
-          quality={80}
+          quality={70}
           className="object-cover object-center"
         />
       </div>

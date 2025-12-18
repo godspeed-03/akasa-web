@@ -1,8 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image"
-;
+import Image from "next/image";
 import { memo } from "react";
 
 const FlavorExperienceSection = memo(function FlavorExperienceSection() {
@@ -19,12 +18,13 @@ const FlavorExperienceSection = memo(function FlavorExperienceSection() {
         <div className="relative overflow-hidden group">
           {/* Background image with parallax effect */}
           <div className="absolute inset-0 transform scale-110 transition-transform duration-10000 group-hover:scale-105">
-            <Image src="/images/home/philosophy/background.jpg"
+            <Image
+              src="/images/home/philosophy/background.jpg.webp"
               alt="Culinary journey"
               fill
               sizes="(max-width: 768px) 100vw, 40vw"
               className="object-cover"
-              quality={80}
+              quality={70}
               loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent"></div>
@@ -37,7 +37,9 @@ const FlavorExperienceSection = memo(function FlavorExperienceSection() {
             <div className="absolute bottom-8 right-8 w-16 h-16 border-b-2 border-r-2 border-[#E6C78B]/50"></div>
 
             <div className="max-w-md">
-              <h3 className="text-xl md:text-2xl font-montserrat text-[#E6C78B] mb-2 tracking-wider uppercase">A culinary journey</h3>
+              <h3 className="text-xl md:text-2xl font-montserrat text-[#E6C78B] mb-2 tracking-wider uppercase">
+                A culinary journey
+              </h3>
 
               <h2 className="text-3xl md:text-4xl lg:text-5xl font-playfair text-white mb-6 relative">
                 Experience the Flavors of India
@@ -45,7 +47,9 @@ const FlavorExperienceSection = memo(function FlavorExperienceSection() {
               </h2>
 
               <p className="font-montserrat text-white/90 mb-8 text-base md:text-lg leading-relaxed">
-                {"Our menu celebrates India's diverse culinary landscape, with a focus on the bold and aromatic flavors of North India.\nEvery dish reflects our commitment to tradition, authenticity, and uncompromising quality."}
+                {
+                  "Our menu celebrates India's diverse culinary landscape, with a focus on the bold and aromatic flavors of North India.\nEvery dish reflects our commitment to tradition, authenticity, and uncompromising quality."
+                }
               </p>
 
               {/* Fancy animated button */}
@@ -67,12 +71,13 @@ const FlavorExperienceSection = memo(function FlavorExperienceSection() {
         <div className="relative overflow-hidden group">
           {/* Background image with parallax effect */}
           <div className="absolute inset-0 transform scale-110 transition-transform duration-10000 group-hover:scale-105">
-            <Image src="/images/home/philosophy/drink.jpg"
+            <Image
+              src="/images/home/philosophy/drink.jpg.webp"
               alt="Culinary philosophy"
               fill
               sizes="(max-width: 768px) 100vw, 60vw"
               className="object-cover"
-              quality={80}
+              quality={70}
               loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-l from-black via-black/70 to-transparent"></div>
@@ -86,7 +91,9 @@ const FlavorExperienceSection = memo(function FlavorExperienceSection() {
             </h2>
 
             <p className="text-white/90 font-montserrat mb-8 text-base md:text-lg leading-relaxed max-w-2xl">
-              {"At Akasa, food is a celebration of culture and tradition. Our menu is guided by three principles that honor the rich heritage of Indian cuisine while embracing modern techniques and presentations."}
+              {
+                "At Akasa, food is a celebration of culture and tradition. Our menu is guided by three principles that honor the rich heritage of Indian cuisine while embracing modern techniques and presentations."
+              }
             </p>
 
             {/* Elegant philosophy cards */}
@@ -107,7 +114,9 @@ const FlavorExperienceSection = memo(function FlavorExperienceSection() {
                 </div>
 
                 <p className="text-white/80 font-montserrat text-sm leading-relaxed pl-11">
-                  {"Honoring authentic recipes passed down through generations, preserving the essence of regional Indian cuisines."}
+                  {
+                    "Honoring authentic recipes passed down through generations, preserving the essence of regional Indian cuisines."
+                  }
                 </p>
               </div>
 
@@ -127,7 +136,9 @@ const FlavorExperienceSection = memo(function FlavorExperienceSection() {
                 </div>
 
                 <p className="text-white/80 font-montserrat text-sm leading-relaxed pl-11">
-                  {"Sourcing the finest ingredients and authentic spices, ensuring every dish meets our exacting standards of excellence."}
+                  {
+                    "Sourcing the finest ingredients and authentic spices, ensuring every dish meets our exacting standards of excellence."
+                  }
                 </p>
               </div>
 
@@ -147,7 +158,9 @@ const FlavorExperienceSection = memo(function FlavorExperienceSection() {
                 </div>
 
                 <p className="text-white/80 font-montserrat text-sm leading-relaxed pl-11">
-                  {"Elevating classic flavors with creative techniques, presenting familiar tastes in surprising and delightful new ways."}
+                  {
+                    "Elevating classic flavors with creative techniques, presenting familiar tastes in surprising and delightful new ways."
+                  }
                 </p>
               </div>
             </div>

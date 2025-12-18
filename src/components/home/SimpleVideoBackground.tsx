@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useRef } from 'react';
-import Image from 'next/image';
+import { useEffect, useRef } from "react";
+import Image from "next/image";
 
 interface SimpleVideoBackgroundProps {
   videoSrc: string;
@@ -56,13 +56,13 @@ const SimpleVideoBackground = ({ videoSrc, fallbackImageSrc }: SimpleVideoBackgr
           if (videoElement) {
             videoElement.play().catch(() => {
               // If still failing, hide video and show fallback
-              videoElement.style.display = 'none';
+              videoElement.style.display = "none";
             });
           }
         }, 100);
       } else if (currentTime > 0 && currentTime !== lastTime) {
         // Video is playing normally, make sure it's visible
-        videoElement.style.display = 'block';
+        videoElement.style.display = "block";
       }
 
       // Store current time for next check
@@ -71,10 +71,10 @@ const SimpleVideoBackground = ({ videoSrc, fallbackImageSrc }: SimpleVideoBackgr
 
     // Define video sources to try
     const sources = [
-      `/images/home/hero/mobile-video/heromobilevid.webm?v=${Date.now()}`,
+      `/video/heromobilevid.mp4?v=${Date.now()}`,
       `/images/home/hero/mobile-video/heromobilevid-small.mp4?v=${Date.now()}`,
       `/images/home/hero/mobile-video/heromobilevid-compressed.mp4?v=${Date.now()}`,
-      `/images/home/hero/mobile-video/heromobilevid.mp4?v=${Date.now()}`
+      `/images/home/hero/mobile-video/heromobilevid.mp4?v=${Date.now()}`,
     ];
 
     // Track which source we're using
@@ -87,8 +87,8 @@ const SimpleVideoBackground = ({ videoSrc, fallbackImageSrc }: SimpleVideoBackgr
     videoElement.autoplay = true;
 
     // Add event listeners
-    videoElement.addEventListener('canplay', handlePlayback);
-    videoElement.addEventListener('pause', handlePlayback); // Try to resume if paused
+    videoElement.addEventListener("canplay", handlePlayback);
+    videoElement.addEventListener("pause", handlePlayback); // Try to resume if paused
 
     // Track last known time to detect freezes
     let lastTime = 0;
@@ -101,8 +101,8 @@ const SimpleVideoBackground = ({ videoSrc, fallbackImageSrc }: SimpleVideoBackgr
 
     // Clean up
     return () => {
-      videoElement.removeEventListener('canplay', handlePlayback);
-      videoElement.removeEventListener('pause', handlePlayback);
+      videoElement.removeEventListener("canplay", handlePlayback);
+      videoElement.removeEventListener("pause", handlePlayback);
       clearInterval(playCheckInterval);
       clearInterval(freezeCheckInterval);
     };
@@ -112,13 +112,7 @@ const SimpleVideoBackground = ({ videoSrc, fallbackImageSrc }: SimpleVideoBackgr
     <div className="absolute inset-0 w-full h-full overflow-hidden">
       {/* Fallback image - always visible underneath */}
       <div className="absolute inset-0 z-[1]">
-        <Image src={fallbackImageSrc}
-          alt="Background"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover"
-        />
+        <Image src={fallbackImageSrc} alt="Background" fill priority sizes="100vw" className="object-cover" />
       </div>
 
       {/* Video element - simple implementation */}
@@ -132,7 +126,7 @@ const SimpleVideoBackground = ({ videoSrc, fallbackImageSrc }: SimpleVideoBackgr
         poster={fallbackImageSrc}
       >
         {/* Try multiple sources with different formats and sizes */}
-        <source src="/images/home/hero/mobile-video/heromobilevid.webm" type="video/webm" />
+        <source src="/video/heromobilevid.mp4" type="video/webm" />
         <source src={`${videoSrc}?v=${Date.now()}`} type="video/mp4" />
         <source src="/images/home/hero/mobile-video/heromobilevid-small.mp4" type="video/mp4" />
         <source src="/images/home/hero/mobile-video/heromobilevid-compressed.mp4" type="video/mp4" />

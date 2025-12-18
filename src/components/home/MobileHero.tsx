@@ -1,8 +1,8 @@
 "use client";
 
-import { useRef, useEffect, useState } from 'react';
-import { preloadVideoSources } from '@/utils/videoPreload';
-import MobileHeroFallback from './MobileHeroFallback';
+import { useRef, useEffect, useState } from "react";
+import { preloadVideoSources } from "@/utils/videoPreload";
+import MobileHeroFallback from "./MobileHeroFallback";
 
 /**
  * Mobile-only hero section with video background
@@ -21,15 +21,15 @@ const MobileHero = () => {
   useEffect(() => {
     // Preload both video formats
     preloadVideoSources([
-      { src: '/images/home/hero/mobile-video/heromobilevid.webm', type: 'video/webm' },
-      { src: '/images/home/hero/mobile-video/heromobilevid.mp4', type: 'video/mp4' }
+      { src: "/video/heromobilevid.mp4", type: "video/webm" },
+      { src: "/images/home/hero/mobile-video/heromobilevid.mp4", type: "video/mp4" },
     ]);
   }, []);
 
   // Set up video playback on mount
   useEffect(() => {
     // Double-check we're on mobile - if not, don't do anything
-    if (typeof window !== 'undefined' && window.innerWidth >= 768) {
+    if (typeof window !== "undefined" && window.innerWidth >= 768) {
       // This component should never be mounted on desktop
       return;
     }
@@ -47,19 +47,22 @@ const MobileHero = () => {
       video.autoplay = true;
       video.loop = true;
       video.controls = false;
-      video.preload = 'auto';
+      video.preload = "auto";
 
       // Set attributes for iOS
-      video.setAttribute('playsinline', '');
-      video.setAttribute('webkit-playsinline', '');
+      video.setAttribute("playsinline", "");
+      video.setAttribute("webkit-playsinline", "");
 
       // Try to play the video
-      video.play().then(() => {
-        setVideoLoaded(true);
-        setVideoError(false);
-      }).catch(() => {
-        setVideoError(true);
-      });
+      video
+        .play()
+        .then(() => {
+          setVideoLoaded(true);
+          setVideoError(false);
+        })
+        .catch(() => {
+          setVideoError(true);
+        });
     }, 500);
 
     // Clean up
@@ -84,10 +87,10 @@ const MobileHero = () => {
           loop
           autoPlay
           style={{
-            objectPosition: 'center',
-            maxWidth: 'none',
+            objectPosition: "center",
+            maxWidth: "none",
             zIndex: videoLoaded ? 5 : 0,
-            opacity: videoLoaded ? 1 : 0
+            opacity: videoLoaded ? 1 : 0,
           }}
           onError={() => {
             setVideoError(true);
@@ -97,7 +100,7 @@ const MobileHero = () => {
             setVideoError(false);
           }}
         >
-          <source src="/images/home/hero/mobile-video/heromobilevid.webm" type="video/webm" />
+          <source src="/video/heromobilevid.mp4" type="video/webm" />
           <source src="/images/home/hero/mobile-video/heromobilevid.mp4" type="video/mp4" />
         </video>
       )}

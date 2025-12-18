@@ -4,8 +4,8 @@ import {
   monitorInteractions,
   monitorLongTasks,
   preloadCriticalResources,
-  initPerformanceMonitoring
-} from '@/utils/performanceMonitor';
+  initPerformanceMonitoring,
+} from "@/utils/performanceMonitor";
 
 // Mock PerformanceObserver
 const mockObserve = jest.fn();
@@ -22,12 +22,12 @@ class MockPerformanceObserver {
   // Simulate triggering the callback with mock entries
   triggerCallback(entries: any[]) {
     this.callback({
-      getEntries: () => entries
+      getEntries: () => entries,
     });
   }
 }
 
-describe('Performance Monitoring Utilities', () => {
+describe("Performance Monitoring Utilities", () => {
   // Save original console methods
   const originalConsoleLog = console.log;
   const originalConsoleWarn = console.warn;
@@ -68,8 +68,8 @@ describe('Performance Monitoring Utilities', () => {
     mockConsoleError.mockClear();
   });
 
-  describe('monitorLCP', () => {
-    it('creates a PerformanceObserver for LCP', () => {
+  describe("monitorLCP", () => {
+    it("creates a PerformanceObserver for LCP", () => {
       // Reset mocks
       mockObserve.mockClear();
       mockConsoleLog.mockClear();
@@ -79,7 +79,7 @@ describe('Performance Monitoring Utilities', () => {
         const entries = entryList.getEntries();
         if (entries.length > 0) {
           const lcpEntry = entries[entries.length - 1];
-          console.log('LCP:', lcpEntry.startTime, 'ms');
+          console.log("LCP:", lcpEntry.startTime, "ms");
         }
       });
 
@@ -92,15 +92,15 @@ describe('Performance Monitoring Utilities', () => {
 
       // Check if observe was called with the correct parameters
       expect(mockObserve).toHaveBeenCalledWith({
-        type: 'largest-contentful-paint',
-        buffered: true
+        type: "largest-contentful-paint",
+        buffered: true,
       });
 
       // Simulate an LCP entry
       mockObserver.triggerCallback([{ startTime: 1500 }]);
 
       // Check if the LCP was logged
-      expect(mockConsoleLog).toHaveBeenCalledWith('LCP:', 1500, 'ms');
+      expect(mockConsoleLog).toHaveBeenCalledWith("LCP:", 1500, "ms");
 
       // Clean up
       if (cleanup) cleanup();
@@ -110,8 +110,8 @@ describe('Performance Monitoring Utilities', () => {
     });
   });
 
-  describe('monitorCLS', () => {
-    it('creates a PerformanceObserver for CLS', () => {
+  describe("monitorCLS", () => {
+    it("creates a PerformanceObserver for CLS", () => {
       // Reset mocks
       mockObserve.mockClear();
       mockConsoleLog.mockClear();
@@ -127,7 +127,7 @@ describe('Performance Monitoring Utilities', () => {
           }
         });
 
-        console.log('Current CLS:', clsValue);
+        console.log("Current CLS:", clsValue);
       });
 
       // Mock the PerformanceObserver constructor to return our mock instance
@@ -139,19 +139,19 @@ describe('Performance Monitoring Utilities', () => {
 
       // Check if observe was called with the correct parameters
       expect(mockObserve).toHaveBeenCalledWith({
-        type: 'layout-shift',
-        buffered: true
+        type: "layout-shift",
+        buffered: true,
       });
 
       // Simulate CLS entries
       mockObserver.triggerCallback([
         { hadRecentInput: false, value: 0.1 },
         { hadRecentInput: true, value: 0.2 }, // Should be ignored due to recent input
-        { hadRecentInput: false, value: 0.3 }
+        { hadRecentInput: false, value: 0.3 },
       ]);
 
       // Check if the CLS was logged (0.1 + 0.3 = 0.4)
-      expect(mockConsoleLog).toHaveBeenCalledWith('Current CLS:', 0.4);
+      expect(mockConsoleLog).toHaveBeenCalledWith("Current CLS:", 0.4);
 
       // Clean up
       if (cleanup) cleanup();
@@ -161,8 +161,8 @@ describe('Performance Monitoring Utilities', () => {
     });
   });
 
-  describe('monitorInteractions', () => {
-    it('creates a PerformanceObserver for interactions', () => {
+  describe("monitorInteractions", () => {
+    it("creates a PerformanceObserver for interactions", () => {
       // Reset mocks
       mockObserve.mockClear();
       mockConsoleLog.mockClear();
@@ -172,7 +172,7 @@ describe('Performance Monitoring Utilities', () => {
         const entries = entryList.getEntries();
 
         entries.forEach((entry: any) => {
-          console.log('Interaction:', entry.name, entry.duration, 'ms');
+          console.log("Interaction:", entry.name, entry.duration, "ms");
         });
       });
 
@@ -185,19 +185,19 @@ describe('Performance Monitoring Utilities', () => {
 
       // Check if observe was called with the correct parameters
       expect(mockObserve).toHaveBeenCalledWith({
-        type: 'first-input',
-        buffered: true
+        type: "first-input",
+        buffered: true,
       });
 
       // Simulate interaction entries
       mockObserver.triggerCallback([
-        { name: 'click', duration: 50 },
-        { name: 'keydown', duration: 30 }
+        { name: "click", duration: 50 },
+        { name: "keydown", duration: 30 },
       ]);
 
       // Check if the interactions were logged
-      expect(mockConsoleLog).toHaveBeenCalledWith('Interaction:', 'click', 50, 'ms');
-      expect(mockConsoleLog).toHaveBeenCalledWith('Interaction:', 'keydown', 30, 'ms');
+      expect(mockConsoleLog).toHaveBeenCalledWith("Interaction:", "click", 50, "ms");
+      expect(mockConsoleLog).toHaveBeenCalledWith("Interaction:", "keydown", 30, "ms");
 
       // Clean up
       if (cleanup) cleanup();
@@ -207,8 +207,8 @@ describe('Performance Monitoring Utilities', () => {
     });
   });
 
-  describe('monitorLongTasks', () => {
-    it('creates a PerformanceObserver for long tasks', () => {
+  describe("monitorLongTasks", () => {
+    it("creates a PerformanceObserver for long tasks", () => {
       // Reset mocks
       mockObserve.mockClear();
       mockConsoleLog.mockClear();
@@ -220,7 +220,7 @@ describe('Performance Monitoring Utilities', () => {
         entries.forEach((entry: any) => {
           // Log tasks longer than 50ms
           if (entry.duration > 50) {
-            console.log('Long task:', entry.duration, 'ms');
+            console.log("Long task:", entry.duration, "ms");
           }
         });
       });
@@ -234,21 +234,21 @@ describe('Performance Monitoring Utilities', () => {
 
       // Check if observe was called with the correct parameters
       expect(mockObserve).toHaveBeenCalledWith({
-        type: 'longtask',
-        buffered: true
+        type: "longtask",
+        buffered: true,
       });
 
       // Simulate long task entries
       mockObserver.triggerCallback([
         { duration: 40 }, // Should be ignored (less than 50ms)
         { duration: 60 }, // Should be logged (more than 50ms)
-        { duration: 100 } // Should be logged (more than 50ms)
+        { duration: 100 }, // Should be logged (more than 50ms)
       ]);
 
       // Check if the long tasks were logged
       expect(mockConsoleLog).toHaveBeenCalledTimes(2);
-      expect(mockConsoleLog).toHaveBeenCalledWith('Long task:', 60, 'ms');
-      expect(mockConsoleLog).toHaveBeenCalledWith('Long task:', 100, 'ms');
+      expect(mockConsoleLog).toHaveBeenCalledWith("Long task:", 60, "ms");
+      expect(mockConsoleLog).toHaveBeenCalledWith("Long task:", 100, "ms");
 
       // Clean up
       if (cleanup) cleanup();
@@ -258,7 +258,7 @@ describe('Performance Monitoring Utilities', () => {
     });
   });
 
-  describe('preloadCriticalResources', () => {
+  describe("preloadCriticalResources", () => {
     // Mock document methods
     const originalCreateElement = document.createElement;
     const originalQuerySelector = document.querySelector;
@@ -268,10 +268,10 @@ describe('Performance Monitoring Utilities', () => {
 
     const mockCreateElement = jest.fn().mockImplementation(() => {
       const linkElement = {
-        rel: '',
-        href: '',
-        as: '',
-        crossOrigin: '',
+        rel: "",
+        href: "",
+        as: "",
+        crossOrigin: "",
       };
       mockLinkElements.push(linkElement);
       return linkElement;
@@ -308,12 +308,12 @@ describe('Performance Monitoring Utilities', () => {
       mockLinkElements = [];
     });
 
-    it('preloads critical resources', () => {
+    it("preloads critical resources", () => {
       const resources = [
-        { url: '/images/test.jpg', type: 'image' as const },
-        { url: '/styles/test.css', type: 'style' as const },
-        { url: '/scripts/test.js', type: 'script' as const },
-        { url: '/fonts/test.woff2', type: 'font' as const },
+        { url: "/images/test.jpg.webp", type: "image" as const },
+        { url: "/styles/test.css", type: "style" as const },
+        { url: "/scripts/test.js", type: "script" as const },
+        { url: "/fonts/test.woff2", type: "font" as const },
       ];
 
       preloadCriticalResources(resources);
@@ -331,37 +331,37 @@ describe('Performance Monitoring Utilities', () => {
       expect(mockLinkElements.length).toBe(4);
 
       // Check image link element
-      expect(mockLinkElements[0].rel).toBe('preload');
-      expect(mockLinkElements[0].href).toBe('/images/test.jpg');
-      expect(mockLinkElements[0].as).toBe('image');
+      expect(mockLinkElements[0].rel).toBe("preload");
+      expect(mockLinkElements[0].href).toBe("/images/test.jpg.webp");
+      expect(mockLinkElements[0].as).toBe("image");
 
       // Check style link element
-      expect(mockLinkElements[1].rel).toBe('preload');
-      expect(mockLinkElements[1].href).toBe('/styles/test.css');
-      expect(mockLinkElements[1].as).toBe('style');
+      expect(mockLinkElements[1].rel).toBe("preload");
+      expect(mockLinkElements[1].href).toBe("/styles/test.css");
+      expect(mockLinkElements[1].as).toBe("style");
 
       // Check script link element
-      expect(mockLinkElements[2].rel).toBe('preload');
-      expect(mockLinkElements[2].href).toBe('/scripts/test.js');
-      expect(mockLinkElements[2].as).toBe('script');
+      expect(mockLinkElements[2].rel).toBe("preload");
+      expect(mockLinkElements[2].href).toBe("/scripts/test.js");
+      expect(mockLinkElements[2].as).toBe("script");
 
       // Check font link element
-      expect(mockLinkElements[3].rel).toBe('preload');
-      expect(mockLinkElements[3].href).toBe('/fonts/test.woff2');
-      expect(mockLinkElements[3].as).toBe('font');
-      expect(mockLinkElements[3].crossOrigin).toBe('anonymous');
+      expect(mockLinkElements[3].rel).toBe("preload");
+      expect(mockLinkElements[3].href).toBe("/fonts/test.woff2");
+      expect(mockLinkElements[3].as).toBe("font");
+      expect(mockLinkElements[3].crossOrigin).toBe("anonymous");
 
       // Check if the link elements were appended to the head
       expect(mockAppendChild).toHaveBeenCalledTimes(4);
     });
 
-    it('does not preload resources that are already preloaded', () => {
+    it("does not preload resources that are already preloaded", () => {
       // Mock querySelector to return an existing element for the first resource
       mockQuerySelector.mockReturnValueOnce({});
 
       const resources = [
-        { url: '/images/test.jpg', type: 'image' as const },
-        { url: '/styles/test.css', type: 'style' as const },
+        { url: "/images/test.jpg.webp", type: "image" as const },
+        { url: "/styles/test.css", type: "style" as const },
       ];
 
       preloadCriticalResources(resources);
@@ -374,17 +374,17 @@ describe('Performance Monitoring Utilities', () => {
 
       // Check if the link element was configured correctly for the second resource
       expect(mockLinkElements.length).toBe(1);
-      expect(mockLinkElements[0].rel).toBe('preload');
-      expect(mockLinkElements[0].href).toBe('/styles/test.css');
-      expect(mockLinkElements[0].as).toBe('style');
+      expect(mockLinkElements[0].rel).toBe("preload");
+      expect(mockLinkElements[0].href).toBe("/styles/test.css");
+      expect(mockLinkElements[0].as).toBe("style");
 
       // Check if only one link element was appended to the head
       expect(mockAppendChild).toHaveBeenCalledTimes(1);
     });
   });
 
-  describe('initPerformanceMonitoring', () => {
-    it('initializes all performance monitoring functions', () => {
+  describe("initPerformanceMonitoring", () => {
+    it("initializes all performance monitoring functions", () => {
       // We'll test that the function doesn't throw an error
       expect(() => {
         initPerformanceMonitoring();

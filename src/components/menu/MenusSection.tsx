@@ -8,24 +8,17 @@ import {
   BACKGROUND_ANIMATION_KEYFRAMES,
   DOUBLE_CLICK_TIMEOUT,
 } from "@/constants/menuConstants";
-import {
-  createClickTracking,
-  handleMenuCardClick as handleClick,
-  detectMobileDevice,
-} from "@/utils/menuUtils";
+import { createClickTracking, handleMenuCardClick as handleClick, detectMobileDevice } from "@/utils/menuUtils";
 import DesktopMenuCard from "./DesktopMenuCard";
 import MobileMenuCard from "./MobileMenuCard";
 import Image from "next/image";
 import Link from "next/link";
 
 // Dynamically import the GrabAndGoSection component
-const GrabAndGoSection = dynamic(
-  () => import("@/components/menu/GrabAndGoSection"),
-  {
-    loading: () => <div className="h-[50vh] bg-black"></div>,
-    ssr: true,
-  }
-);
+const GrabAndGoSection = dynamic(() => import("@/components/menu/GrabAndGoSection"), {
+  loading: () => <div className="h-[50vh] bg-black"></div>,
+  ssr: true,
+});
 
 /**
  * MenusSection Component
@@ -59,29 +52,15 @@ export default function MenusSection() {
   }, []);
 
   // Handle menu card click with double-click detection
-  const handleMenuCardClick = (
-    menuId: string,
-    url: string,
-    e: React.MouseEvent
-  ) => {
-    handleClick(
-      menuId,
-      url,
-      e,
-      clickTracking.current,
-      setActiveMenu,
-      DOUBLE_CLICK_TIMEOUT
-    );
+  const handleMenuCardClick = (menuId: string, url: string, e: React.MouseEvent) => {
+    handleClick(menuId, url, e, clickTracking.current, setActiveMenu, DOUBLE_CLICK_TIMEOUT);
   };
 
   return (
     <>
       <section className="w-full bg-black pt-20 pb-10 relative overflow-hidden">
         <div className="absolute inset-0" style={{ opacity: 0.13 }}>
-          <div
-            className="absolute inset-0"
-            style={ANIMATED_BACKGROUND_STYLE}
-          ></div>
+          <div className="absolute inset-0" style={ANIMATED_BACKGROUND_STYLE}></div>
         </div>
 
         <div className="container-fluid mx-auto px-1 relative z-10">
@@ -89,11 +68,7 @@ export default function MenusSection() {
             <div className="flex justify-center mb-6">
               <div className="relative w-20 h-20 flex items-center justify-center">
                 <div className="absolute inset-0 rounded-full border border-[#E6C78B]/30"></div>
-                <svg
-                  className="w-10 h-10 text-[#E6C78B]"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                >
+                <svg className="w-10 h-10 text-[#E6C78B]" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M8.1,13.34L3.91,9.16C2.35,7.59 2.35,5.06 3.91,3.5L10.93,10.5L8.1,13.34M14.88,11.53L13.41,13L20.29,19.88L18.88,21.29L12,14.41L5.12,21.29L3.71,19.88L13.47,10.12C12.76,8.59 13.26,6.44 14.85,4.85C16.76,2.93 19.5,2.57 20.96,4.03C22.43,5.5 22.07,8.24 20.15,10.15C18.56,11.74 16.41,12.24 14.88,11.53Z" />
                 </svg>
               </div>
@@ -105,15 +80,14 @@ export default function MenusSection() {
             </h2>
 
             <p className="text-lg md:text-xl font-montserrat text-white/80 max-w-3xl mx-auto leading-relaxed italic">
-              Explore our diverse menu offerings, each crafted to provide a
-              unique culinary experience
+              Explore our diverse menu offerings, each crafted to provide a unique culinary experience
             </p>
           </div>
 
           {/* Festive Menu Special Section */}
           {/* <section className="w-full bg-gradient-to-b from-black to-[#0A0A0A] py-16 relative overflow-hidden">
             <div className="absolute inset-0 opacity-10">
-              <div className="absolute inset-0 bg-[url('/images/menu/festive/bg-pattern.jpg')] bg-repeat opacity-30"></div>
+              <div className="absolute inset-0 bg-[url('/images/menu/festive/bg-pattern.jpg.webp')] bg-repeat opacity-30"></div>
             </div>
 
             <div className="container mx-auto px-4 relative z-10">
@@ -189,7 +163,7 @@ export default function MenusSection() {
                     <Image
                       width={400}
                       height={300}
-                      src="/images/menu/festive/image.png"
+                      src="/images/menu/festive/image.png.webp"
                       alt="Akasa Festive Menu Special"
                       className="w-full !h-full"
                       priority

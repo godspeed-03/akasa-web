@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback } from "react";
 
 /**
  * Options for the useVideoPlayer hook
@@ -147,7 +147,7 @@ export function useVideoPlayer({
   onPlay,
   onPause,
   onEnded,
-  onError
+  onError,
 }: VideoPlayerOptions): VideoPlayerResult {
   // Create a ref for the video element
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -159,9 +159,7 @@ export function useVideoPlayer({
   const [hasError, setHasError] = useState(false);
 
   // Generate a unique URL to bypass caching if needed
-  const videoSrc = preventCaching
-    ? `${src}?nocache=${Date.now()}-${Math.random()}`
-    : src;
+  const videoSrc = preventCaching ? `${src}?nocache=${Date.now()}-${Math.random()}` : src;
 
   // Function to play the video
   const play = useCallback(async () => {
@@ -172,7 +170,7 @@ export function useVideoPlayer({
       setIsPlaying(true);
       onPlay?.();
     } catch (error) {
-      console.error('Error playing video:', error);
+      console.error("Error playing video:", error);
       setHasError(true);
       onError?.(error as Error);
     }
@@ -238,8 +236,8 @@ export function useVideoPlayer({
 
     // Set attributes for iOS
     if (playsInline) {
-      video.setAttribute('playsinline', '');
-      video.setAttribute('webkit-playsinline', '');
+      video.setAttribute("playsinline", "");
+      video.setAttribute("webkit-playsinline", "");
     }
 
     // Event handlers
@@ -267,11 +265,11 @@ export function useVideoPlayer({
 
     const handleError = (e: Event) => {
       // Log error in development mode
-      if (process.env.NODE_ENV === 'development') {
-        console.error('Video error occurred');
+      if (process.env.NODE_ENV === "development") {
+        console.error("Video error occurred");
         if (video.error) {
-          console.error('Video error code:', video.error.code);
-          console.error('Video error message:', video.error.message);
+          console.error("Video error code:", video.error.code);
+          console.error("Video error message:", video.error.message);
         }
       }
 
@@ -282,14 +280,14 @@ export function useVideoPlayer({
       try {
         if (video.childElementCount > 0) {
           // If we have source elements, try to switch to MP4 if WebM failed
-          const sources = video.querySelectorAll('source');
+          const sources = video.querySelectorAll("source");
           const timestamp = Date.now();
 
-          sources.forEach(source => {
+          sources.forEach((source) => {
             // Add cache busting
-            if (source.src.includes('webm')) {
-              source.src = `/images/home/hero/mobile-video/heromobilevid.webm?v=${timestamp}`;
-            } else if (source.src.includes('mp4')) {
+            if (source.src.includes("webm")) {
+              source.src = `/video/heromobilevid.mp4?v=${timestamp}`;
+            } else if (source.src.includes("mp4")) {
               source.src = `/images/home/hero/mobile-video/heromobilevid.mp4?v=${timestamp}`;
             }
           });
@@ -299,39 +297,39 @@ export function useVideoPlayer({
 
           // Try to play again after a short delay
           setTimeout(() => {
-            video.play().catch(err => {
-              if (process.env.NODE_ENV === 'development') {
-                console.error('Recovery play error:', err);
+            video.play().catch((err) => {
+              if (process.env.NODE_ENV === "development") {
+                console.error("Recovery play error:", err);
               }
             });
           }, 500);
         }
       } catch (err) {
         // Silent catch for recovery attempts
-        if (process.env.NODE_ENV === 'development') {
-          console.error('Recovery error:', err);
+        if (process.env.NODE_ENV === "development") {
+          console.error("Recovery error:", err);
         }
       }
 
       // Call error callback
-      onError?.(new Error('Video playback error'));
+      onError?.(new Error("Video playback error"));
     };
 
     // Add event listeners
-    video.addEventListener('canplay', handleCanPlay);
-    video.addEventListener('play', handlePlay);
-    video.addEventListener('pause', handlePause);
-    video.addEventListener('ended', handleEnded);
-    video.addEventListener('error', handleError);
+    video.addEventListener("canplay", handleCanPlay);
+    video.addEventListener("play", handlePlay);
+    video.addEventListener("pause", handlePause);
+    video.addEventListener("ended", handleEnded);
+    video.addEventListener("error", handleError);
 
     // Clean up
     return () => {
       // Remove event listeners
-      video.removeEventListener('canplay', handleCanPlay);
-      video.removeEventListener('play', handlePlay);
-      video.removeEventListener('pause', handlePause);
-      video.removeEventListener('ended', handleEnded);
-      video.removeEventListener('error', handleError);
+      video.removeEventListener("canplay", handleCanPlay);
+      video.removeEventListener("play", handlePlay);
+      video.removeEventListener("pause", handlePause);
+      video.removeEventListener("ended", handleEnded);
+      video.removeEventListener("error", handleError);
 
       try {
         // Pause the video
@@ -345,7 +343,7 @@ export function useVideoPlayer({
           }
         } else {
           // Otherwise, clear the src attribute
-          video.src = '';
+          video.src = "";
         }
 
         // Force reload
@@ -367,7 +365,7 @@ export function useVideoPlayer({
     togglePlay,
     toggleMute,
     mute,
-    unmute
+    unmute,
   };
 }
 

@@ -9,9 +9,9 @@ const LoyaltyNewsletter = memo(function LoyaltyNewsletter() {
       <div
         className="absolute inset-0 bg-cover bg-center z-0"
         style={{
-          backgroundImage: "url('/images/home/hero/hero-home.jpg?quality=60&width=1200')",
+          backgroundImage: "url('/images/home/hero/hero-home.jpg.webp?quality=60&width=1200')",
           backgroundSize: "cover",
-          backgroundPosition: "center"
+          backgroundPosition: "center",
         }}
       ></div>
       <div className="absolute inset-0 bg-black/80"></div>
@@ -19,7 +19,8 @@ const LoyaltyNewsletter = memo(function LoyaltyNewsletter() {
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-playfair mb-4">Stay Updated</h2>
           <p className="text-lg font-montserrat text-white/70 mb-8">
-            Subscribe to our newsletter to receive exclusive loyalty program updates, event invitations, and culinary insights directly to your inbox.
+            Subscribe to our newsletter to receive exclusive loyalty program updates, event invitations, and culinary
+            insights directly to your inbox.
           </p>
 
           <form className="flex flex-col sm:flex-row gap-4">
@@ -47,4 +48,4 @@ const LoyaltyNewsletter = memo(function LoyaltyNewsletter() {
   );
 });
 
-export default LoyaltyNewsletter; 
+export default LoyaltyNewsletter;

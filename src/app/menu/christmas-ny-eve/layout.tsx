@@ -11,7 +11,7 @@ export const metadata: Metadata = generateMetadata({
   ogDescription:
     "Christmas/NY Eve by Chef Akhilesh Pathak. Special festive menu with Christmas Tandoori Chicken. $48++ per person. 24-25 December.",
   ogImageUrl:
-    "https://cdn.jsdelivr.net/gh/sharadchaturveda/akasa_b-bwireframe@master/public/menus/soul-weekend-brunch/DSC06273-topaz.jpg",
+    "https://cdn.jsdelivr.net/gh/sharadchaturveda/akasa_b-bwireframe@master/public/menus/soul-weekend-brunch/DSC06273-topaz.jpg.webp",
   keywords:
     "Christmas Brunch Singapore, Christmas/NY Eve, Christmas Dinner Singapore, Indian Christmas Menu, Chef Akhilesh Pathak, Holiday Dining, Christmas Tandoori Chicken, Festive Menu Singapore, Christmas Eve Dinner, Christmas Day Brunch, Robinson Road Christmas, Akasa Festive Menu, Indian Christmas Feast",
 });

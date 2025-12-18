@@ -26,12 +26,10 @@ export default function DiwaliMenuPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="w-full bg-[url('/images/menu/festive/image.png')] bg-cover bg-center py-64 relative">
+      <section className="w-full bg-[url('/images/menu/festive/image.png.webp')] bg-cover bg-center py-64 relative">
         <div className="absolute inset-0 bg-black/70"></div>
         <div className="container mx-auto px-4 md:px-8 relative z-10 text-center flex flex-col items-center space-y-6">
-          <h1 className="text-4xl md:text-6xl font-playfair mb-6 text-white">
-            Diwali Menu
-          </h1>
+          <h1 className="text-4xl md:text-6xl font-playfair mb-6 text-white">Diwali Menu</h1>
           <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#E6C78B] to-transparent mx-auto mb-6"></div>
           <p className="text-lg md:text-xl font-montserrat text-white/80 max-w-3xl mx-auto">
             Festive vegetarian & non-vegetarian thali and ala-carte specialties
@@ -40,8 +38,7 @@ export default function DiwaliMenuPage() {
             Valid from 2nd Oct - 8th Nov
           </div>
           <div className="text-xs text-white/70 mt-2">
-            Thali menu available for 4 guests and above. All prices subject to
-            10% service charge and prevailing GST.
+            Thali menu available for 4 guests and above. All prices subject to 10% service charge and prevailing GST.
           </div>
         </div>
       </section>
@@ -61,23 +58,17 @@ export default function DiwaliMenuPage() {
 
         <div className="container mx-auto px-4 md:px-8 relative z-10">
           {/* Menu Categories */}
-          {diwaliMenu.categories.map(
-            (category: MenuCategory, index: Key | null | undefined) => (
-              <BarBiteCategorySection key={index} category={category} />
-            )
-          )}
+          {diwaliMenu.categories.map((category: MenuCategory, index: Key | null | undefined) => (
+            <BarBiteCategorySection key={index} category={category} />
+          ))}
 
           {/* Disclaimer */}
-          <div className="text-center mt-10 text-sm text-white/70 italic">
-            {diwaliMenu.disclaimer}
-          </div>
+          <div className="text-center mt-10 text-sm text-white/70 italic">{diwaliMenu.disclaimer}</div>
 
           {/* Back Button */}
           <div className="text-center mt-8">
             <Link href="/menu">
-              <Button className="bg-[#1A2A3A] text-white hover:bg-[#0A1A2A]">
-                Back to All Menus
-              </Button>
+              <Button className="bg-[#1A2A3A] text-white hover:bg-[#0A1A2A]">Back to All Menus</Button>
             </Link>
           </div>
         </div>

@@ -6,20 +6,23 @@ const FAQSection = memo(function FAQSection() {
   const faqs = [
     {
       question: "How far in advance should I book my event?",
-      answer: "We recommend booking at least 4-6 weeks in advance for private dining and 2-3 months for larger events like weddings or corporate functions to ensure availability."
+      answer:
+        "We recommend booking at least 4-6 weeks in advance for private dining and 2-3 months for larger events like weddings or corporate functions to ensure availability.",
     },
     {
       question: "Can you accommodate dietary restrictions?",
-      answer: "Yes, our culinary team can accommodate most dietary restrictions and preferences. Please inform us of any special requirements when making your inquiry."
+      answer:
+        "Yes, our culinary team can accommodate most dietary restrictions and preferences. Please inform us of any special requirements when making your inquiry.",
     },
     {
       question: "Is there a minimum spend requirement?",
-      answer: "Minimum spend requirements vary depending on the day of the week, time of year, and the space reserved. Our events team will provide specific details based on your event needs."
+      answer:
+        "Minimum spend requirements vary depending on the day of the week, time of year, and the space reserved. Our events team will provide specific details based on your event needs.",
     },
     {
       question: "Can I bring my own cake?",
-      answer: "Yes, you may bring your own cake for special occasions. There is a cake cutting fee of $5 per person."
-    }
+      answer: "Yes, you may bring your own cake for special occasions. There is a cake cutting fee of $5 per person.",
+    },
   ];
 
   return (
@@ -28,9 +31,9 @@ const FAQSection = memo(function FAQSection() {
       <div
         className="absolute inset-0 bg-cover bg-center z-0 opacity-30"
         style={{
-          backgroundImage: "url('/images/menu/hero/gallery-1.jpg')",
+          backgroundImage: "url('/images/menu/hero/gallery-1.jpg.webp')",
           backgroundSize: "cover",
-          backgroundPosition: "center"
+          backgroundPosition: "center",
         }}
       ></div>
       <div className="absolute inset-0 bg-black/75"></div>
@@ -58,4 +61,3 @@ const FAQSection = memo(function FAQSection() {
 });
 
 export default FAQSection;
-

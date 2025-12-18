@@ -14,8 +14,9 @@ export const metadata: Metadata = generateMetadata({
   ogTitle: "Akasa Loyalty Program – Rewards & Exclusive Perks",
   ogDescription:
     "Join Akasa’s loyalty program and enjoy exclusive dining rewards, member perks, and special offers every time you experience authentic Indian flavors.",
-  ogImageUrl: "https://akasa.sg/images/offers/loyalty_program/loyalty.jpg",
-  keywords: "Akasa loyalty program, premium dining rewards, exclusive member benefits, Singapore restaurant loyalty, fine dining rewards, Akasa membership, Indian restaurant rewards, VIP dining perks, member discounts, Akasa SG loyalty",
+  ogImageUrl: "https://akasa.sg/images/offers/loyalty_program/loyalty.jpg.webp",
+  keywords:
+    "Akasa loyalty program, premium dining rewards, exclusive member benefits, Singapore restaurant loyalty, fine dining rewards, Akasa membership, Indian restaurant rewards, VIP dining perks, member discounts, Akasa SG loyalty",
 });
 
 export default function LoyaltyProgramLayout({
@@ -23,7 +24,6 @@ export default function LoyaltyProgramLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   return (
     <>
       {/* Facebook Pixel - Global tracking */}

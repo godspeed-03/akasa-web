@@ -46,24 +46,24 @@ interface EventListingsSectionProps {
  */
 const EventListingsSection = memo(function EventListingsSection({
   filteredEvents,
-  eventCategories
+  eventCategories,
 }: EventListingsSectionProps) {
   // Function to handle smooth scrolling to the inquiry section
   const scrollToInquiry = useCallback((e: React.MouseEvent) => {
     e.preventDefault();
 
     // Use our optimized scroll utility
-    scrollToElement('inquiry', 80, 300);
+    scrollToElement("inquiry", 80, 300);
   }, []);
 
   useEffect(() => {
     // Force pattern visibility after component mounts - once is enough
     const forcePatternVisibility = () => {
-      document.querySelectorAll('[data-exclude-optimization="true"]').forEach(el => {
+      document.querySelectorAll('[data-exclude-optimization="true"]').forEach((el) => {
         // Force the element to be visible
-        (el as HTMLElement).style.display = 'block';
-        (el as HTMLElement).style.visibility = 'visible';
-        (el as HTMLElement).style.opacity = '0.1';
+        (el as HTMLElement).style.display = "block";
+        (el as HTMLElement).style.visibility = "visible";
+        (el as HTMLElement).style.opacity = "0.1";
       });
     };
 
@@ -90,17 +90,14 @@ const EventListingsSection = memo(function EventListingsSection({
         {filteredEvents.map((event, index) => {
           console.log(`Event: ${event.title}, termsApply: ${event.termsApply}`);
           // Use standard flex-row for all, but control order for specific categories
-          const isSpecialCategory = event.category === 'anniversary' || event.category === 'office-parties';
+          const isSpecialCategory = event.category === "anniversary" || event.category === "office-parties";
 
           return (
-            <div
-              key={event.id}
-              className="w-full flex flex-col md:flex-row md:flex-nowrap md:items-stretch"
-            >
+            <div key={event.id} className="w-full flex flex-col md:flex-row md:flex-nowrap md:items-stretch">
               {/* Event Image Container */}
               <div
                 className={`relative h-[350px] md:h-auto w-full md:w-2/5 group overflow-hidden ${
-                  isSpecialCategory ? 'md:order-2' : index % 2 === 0 ? 'md:order-1' : 'md:order-2'
+                  isSpecialCategory ? "md:order-2" : index % 2 === 0 ? "md:order-1" : "md:order-2"
                 }`}
                 role="img"
                 aria-label={event.title}
@@ -115,7 +112,7 @@ const EventListingsSection = memo(function EventListingsSection({
                     className="object-cover"
                     priority={index === 0}
                     loading={index === 0 ? undefined : "lazy"}
-                    quality={80}
+                    quality={70}
                     onError={() => {
                       console.error(`Failed to load image: ${event.image}`);
                     }}
@@ -126,17 +123,17 @@ const EventListingsSection = memo(function EventListingsSection({
                   className="absolute inset-0 bg-gradient-to-r transition-opacity duration-700 z-10"
                   style={{
                     background: isSpecialCategory
-                      ? 'linear-gradient(to left, rgba(0,0,0,0.8), rgba(0,0,0,0.4), transparent)'
+                      ? "linear-gradient(to left, rgba(0,0,0,0.8), rgba(0,0,0,0.4), transparent)"
                       : index % 2 === 0
-                        ? 'linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.4), transparent)'
-                        : 'linear-gradient(to left, rgba(0,0,0,0.8), rgba(0,0,0,0.4), transparent)'
+                        ? "linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0.4), transparent)"
+                        : "linear-gradient(to left, rgba(0,0,0,0.8), rgba(0,0,0,0.4), transparent)",
                   }}
                 ></div>
 
                 {/* Category badge */}
                 <div className="absolute top-8 right-8 z-10 transform group-hover:scale-110 transition-all duration-500 group-hover:translate-y-1">
                   <div className="bg-[#E6C78B] text-black px-5 py-2 rounded-full text-xs font-medium tracking-wide shadow-xl">
-                    {eventCategories.find(cat => cat.id === event.category)?.name}
+                    {eventCategories.find((cat) => cat.id === event.category)?.name}
                   </div>
                 </div>
 
@@ -151,23 +148,25 @@ const EventListingsSection = memo(function EventListingsSection({
               {/* Event Description Container */}
               <div
                 className={`p-6 md:p-16 bg-black w-full md:w-3/5 flex flex-col justify-center relative group/desc ${
-                  isSpecialCategory ? 'md:order-1' : index % 2 === 0 ? 'md:order-2' : 'md:order-1'
+                  isSpecialCategory ? "md:order-1" : index % 2 === 0 ? "md:order-2" : "md:order-1"
                 }`}
               >
                 {/* Custom background pattern based on event category with fallback */}
                 <div
                   className="absolute inset-0 opacity-15 pointer-events-none z-0"
                   style={{
-                    backgroundImage: `url('/images/events/backgrounds/${event.category}-pattern.png'), url('/images/events/backgrounds/default-pattern.png')`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    backgroundRepeat: 'repeat',
-                    backgroundBlendMode: 'overlay'
+                    backgroundImage: `url('/images/events/backgrounds/${event.category}-pattern.png.webp'), url('/images/events/backgrounds/default-pattern.png.webp')`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "repeat",
+                    backgroundBlendMode: "overlay",
                   }}
                 ></div>
 
                 {/* Event package label */}
-                <span className="text-[#E6C78B] text-xs md:text-sm tracking-widest uppercase block font-montserrat mb-1 md:mb-2">Event Package</span>
+                <span className="text-[#E6C78B] text-xs md:text-sm tracking-widest uppercase block font-montserrat mb-1 md:mb-2">
+                  Event Package
+                </span>
 
                 {/* Event title with decorative underline */}
                 <h2 className="text-2xl md:text-4xl font-playfair relative inline-block mt-4 md:mt-8 mb-4 md:mb-8">
@@ -182,19 +181,29 @@ const EventListingsSection = memo(function EventListingsSection({
 
                 {/* Features list section */}
                 <div className="mb-4 md:mb-6">
-                  <h3 className="text-lg md:text-xl font-playfair text-[#E6C78B] mt-4 md:mt-8 mb-4 md:mb-8">Features</h3>
+                  <h3 className="text-lg md:text-xl font-playfair text-[#E6C78B] mt-4 md:mt-8 mb-4 md:mb-8">
+                    Features
+                  </h3>
                   <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-4">
                     {/* Map through features array to create list items */}
                     {event.features.map((feature, i) => (
                       <li key={i} className="flex items-start group/feature">
                         {/* Checkmark icon with hover effect */}
                         <div className="w-5 h-5 md:w-7 md:h-7 rounded-full bg-[#1A2A3A] flex items-center justify-center mr-2 md:mr-3 group-hover/feature:bg-[#E6C78B]/20 transition-all duration-300 transform group-hover/feature:scale-110">
-                          <svg className="w-2.5 h-2.5 md:w-3.5 md:h-3.5 text-[#E6C78B]" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                          <svg
+                            className="w-2.5 h-2.5 md:w-3.5 md:h-3.5 text-[#E6C78B]"
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true"
+                          >
                             <path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z" />
                           </svg>
                         </div>
                         {/* Feature text with hover effect */}
-                        <span className="text-sm md:text-base text-white/80 group-hover/feature:text-white transition-colors duration-300">{feature}</span>
+                        <span className="text-sm md:text-base text-white/80 group-hover/feature:text-white transition-colors duration-300">
+                          {feature}
+                        </span>
                       </li>
                     ))}
                   </ul>
@@ -205,13 +214,11 @@ const EventListingsSection = memo(function EventListingsSection({
                   {/* Price display */}
                   <div className="text-white/90 font-montserrat mb-4 md:mb-0">
                     <span className="text-xs md:text-sm uppercase tracking-wider">
-                      {event.price.includes('$') ? 'Starting at' : ''}
+                      {event.price.includes("$") ? "Starting at" : ""}
                     </span>
                     <div className="text-xl md:text-2xl font-medium">
                       {event.price}
-                      {event.termsApply && (
-                        <span className="text-xs text-[#E6C78B] ml-2 italic">T&C apply</span>
-                      )}
+                      {event.termsApply && <span className="text-xs text-[#E6C78B] ml-2 italic">T&C apply</span>}
                     </div>
                   </div>
 
@@ -222,22 +229,13 @@ const EventListingsSection = memo(function EventListingsSection({
                       onClick={scrollToInquiry}
                       className="group inline-flex items-center justify-center rounded-full text-xs md:text-sm font-montserrat font-medium tracking-wider transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none relative overflow-hidden bg-[#1A2A3A] hover:bg-[#E6C78B] text-white hover:text-black px-4 md:px-6 py-2 md:py-3 min-w-[120px] md:min-w-[160px]"
                     >
-                      <span className="relative flex-1 text-center">
-                        Inquire Now
-                      </span>
+                      <span className="relative flex-1 text-center">Inquire Now</span>
                     </button>
 
                     {/* Event Menu button */}
-                    <Link
-                      href="/menus/event-menu.pdf"
-                      prefetch={true}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
+                    <Link href="/menus/event-menu.pdf" prefetch={true} target="_blank" rel="noopener noreferrer">
                       <button className="group inline-flex items-center justify-center rounded-full text-xs md:text-sm font-montserrat font-medium tracking-wider transition-colors duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none relative overflow-hidden bg-[#1A2A3A] hover:bg-[#E6C78B] text-white hover:text-black px-4 md:px-6 py-2 md:py-3 min-w-[120px] md:min-w-[160px]">
-                        <span className="relative flex-1 text-center">
-                          View Event Menu
-                        </span>
+                        <span className="relative flex-1 text-center">View Event Menu</span>
                       </button>
                     </Link>
                   </div>
@@ -255,8 +253,12 @@ const EventListingsSection = memo(function EventListingsSection({
       */}
       <style jsx>{`
         @keyframes slideBackground {
-          0% { background-position: 0 0; }
-          100% { background-position: 100% 100%; }
+          0% {
+            background-position: 0 0;
+          }
+          100% {
+            background-position: 100% 100%;
+          }
         }
       `}</style>
     </section>

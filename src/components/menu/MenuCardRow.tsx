@@ -1,7 +1,6 @@
 "use client";
 
-import Image from "next/image"
-;
+import Image from "next/image";
 import { useState, useRef } from "react";
 
 interface MenuType {
@@ -23,7 +22,7 @@ export default function MenuCardRow() {
   // Handle menu card click with double-click detection
   const handleMenuCardClick = (menuId: string, url: string, e: React.MouseEvent) => {
     // Only process if the click is directly on the card and not on a button
-    if (e.target === e.currentTarget || (e.target as HTMLElement).closest('button') === null) {
+    if (e.target === e.currentTarget || (e.target as HTMLElement).closest("button") === null) {
       // Set this menu as active
       setActiveMenu(menuId);
 
@@ -57,13 +56,55 @@ export default function MenuCardRow() {
 
   // Menu types
   const menuTypes: MenuType[] = [
-    { id: "a-la-carte", name: "À La Carte", description: "Our signature dishes available for individual selection", image: "/images/menu/a-la-carte/hero/hero.jpg", url: "/menu/a-la-carte" },
-    { id: "soul-food", name: "Soul Food Weekends", description: "Special weekend offerings that nourish the soul", image: "/images/menu/soul-food-weekends/hero/hero.jpg", url: "/menu/soul-food-weekends" },
-    { id: "drinks", name: "Drinks", description: "Signature cocktails, fine wines, and refreshing beverages", image: "/images/menu/drinks/hero/hero.jpg", url: "/menu/drinks" },
-    { id: "bar-bites", name: "Chaat & Bar Bites", description: "Perfect small plates to accompany your drinks", image: "/images/menu/bar-bites/hero/hero.jpg", url: "/menu/bar-bites" },
-    { id: "set-lunch", name: "3 Course Set Lunch", description: "A perfect midday dining experience with three exquisite courses", image: "/images/menu/set-lunch/hero/hero.jpg", url: "/menu/set-lunch" },
-    { id: "vegan", name: "Vegan Menu", description: "Explore our delicious plant-based options", image: "/images/menu/vegan/hero/hero.jpg", url: "/menu/vegan" },
-    { id: "tasting-menu", name: "Tasting Menu", description: "A curated multi-course journey through Indian cuisine", image: "/images/menu/tasting-menu/hero/hero.jpg", url: "/menu/tasting-menu" }
+    {
+      id: "a-la-carte",
+      name: "À La Carte",
+      description: "Our signature dishes available for individual selection",
+      image: "/images/menu/a-la-carte/hero/hero.jpg.webp",
+      url: "/menu/a-la-carte",
+    },
+    {
+      id: "soul-food",
+      name: "Soul Food Weekends",
+      description: "Special weekend offerings that nourish the soul",
+      image: "/images/menu/soul-food-weekends/hero/hero.jpg.webp",
+      url: "/menu/soul-food-weekends",
+    },
+    {
+      id: "drinks",
+      name: "Drinks",
+      description: "Signature cocktails, fine wines, and refreshing beverages",
+      image: "/images/menu/drinks/hero/hero.jpg.webp",
+      url: "/menu/drinks",
+    },
+    {
+      id: "bar-bites",
+      name: "Chaat & Bar Bites",
+      description: "Perfect small plates to accompany your drinks",
+      image: "/images/menu/bar-bites/hero/hero.jpg.webp",
+      url: "/menu/bar-bites",
+    },
+    {
+      id: "set-lunch",
+      name: "3 Course Set Lunch",
+      description: "A perfect midday dining experience with three exquisite courses",
+      image: "/images/menu/set-lunch/hero/hero.jpg.webp",
+      url: "/menu/set-lunch",
+    },
+    {
+      id: "vegan",
+      name: "Vegan Menu",
+      description: "Explore our delicious plant-based options",
+      image: "/images/menu/vegan/hero/hero.jpg.webp",
+      url: "/menu/vegan",
+    },
+    {
+      id: "tasting-menu",
+      name: "Tasting Menu",
+      description: "A curated multi-course journey through Indian cuisine",
+      image: "/images/menu/tasting-menu/hero/hero.jpg.webp",
+      url: "/menu/tasting-menu",
+    },
   ];
 
   return (
@@ -79,17 +120,20 @@ export default function MenuCardRow() {
                 style={{ width: "800px" }}
                 onClick={(e) => handleMenuCardClick(menu.id, menu.url, e)}
               >
-                <div className={`relative transition-all duration-500 transform ${
-                  activeMenu === menu.id ? 'scale-105' : ''
-                } hover:scale-105`}>
+                <div
+                  className={`relative transition-all duration-500 transform ${
+                    activeMenu === menu.id ? "scale-105" : ""
+                  } hover:scale-105`}
+                >
                   {/* Front of card */}
                   <div className="relative overflow-hidden h-[450px] border border-[#E6C78B]/30 rounded-lg shadow-xl shadow-black/50">
-                    <Image src={menu.image}
+                    <Image
+                      src={menu.image}
                       alt={menu.name}
                       fill
                       sizes="800px"
                       className="object-cover transition-transform duration-700 group-hover:scale-110"
-                      quality={90}
+                      quality={70}
                     />
 
                     {/* Enhanced gradient overlay for better readability */}
@@ -108,8 +152,17 @@ export default function MenuCardRow() {
                             {activeMenu === menu.id && (
                               <div className="absolute top-0 right-0 flex-shrink-0">
                                 <div className="bg-[#E6C78B]/20 backdrop-blur-sm rounded-full p-2 border border-[#E6C78B]/50">
-                                  <svg className="w-10 h-10 text-[#E6C78B]" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                  <svg
+                                    className="w-10 h-10 text-[#E6C78B]"
+                                    fill="currentColor"
+                                    viewBox="0 0 20 20"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                  >
+                                    <path
+                                      fillRule="evenodd"
+                                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                                      clipRule="evenodd"
+                                    />
                                   </svg>
                                 </div>
                               </div>
@@ -118,13 +171,15 @@ export default function MenuCardRow() {
                         </div>
 
                         {/* Description with more space */}
-                        <p className="text-white/90 font-sans text-xl mb-8 min-h-[100px] leading-relaxed"
-                           style={{
-                             display: '-webkit-box',
-                             WebkitLineClamp: 3,
-                             WebkitBoxOrient: 'vertical',
-                             overflow: 'hidden'
-                           }}>
+                        <p
+                          className="text-white/90 font-sans text-xl mb-8 min-h-[100px] leading-relaxed"
+                          style={{
+                            display: "-webkit-box",
+                            WebkitLineClamp: 3,
+                            WebkitBoxOrient: "vertical",
+                            overflow: "hidden",
+                          }}
+                        >
                           {menu.description}
                         </p>
                       </div>
@@ -161,9 +216,11 @@ export default function MenuCardRow() {
               className="group cursor-pointer mx-auto w-full max-w-sm"
               onClick={(e) => handleMenuCardClick(menu.id, menu.url, e)}
             >
-              <div className={`relative transition-all duration-500 transform ${
-                activeMenu === menu.id ? 'scale-[1.02]' : ''
-              } hover:scale-[1.02]`}>
+              <div
+                className={`relative transition-all duration-500 transform ${
+                  activeMenu === menu.id ? "scale-[1.02]" : ""
+                } hover:scale-[1.02]`}
+              >
                 {/* Card with equal parts image and content */}
                 <div className="relative overflow-hidden border border-[#E6C78B]/30 rounded-lg shadow-lg shadow-black/30 bg-black/80 backdrop-blur-sm">
                   {/* Image section - 50% of card height */}
@@ -174,15 +231,24 @@ export default function MenuCardRow() {
                       fill
                       sizes="(max-width: 640px) 100vw, 384px"
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
-                      quality={80}
+                      quality={70}
                     />
 
                     {/* Selected indicator */}
                     {activeMenu === menu.id && (
                       <div className="absolute top-2 right-2 z-10">
                         <div className="bg-[#E6C78B]/20 backdrop-blur-sm rounded-full p-1 border border-[#E6C78B]/50">
-                          <svg className="w-6 h-6 text-[#E6C78B]" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                          <svg
+                            className="w-6 h-6 text-[#E6C78B]"
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                              clipRule="evenodd"
+                            />
                           </svg>
                         </div>
                       </div>
@@ -195,9 +261,7 @@ export default function MenuCardRow() {
                       {menu.name}
                     </h3>
 
-                    <p className="text-white/80 text-sm mb-5 line-clamp-3">
-                      {menu.description}
-                    </p>
+                    <p className="text-white/80 text-sm mb-5 line-clamp-3">{menu.description}</p>
 
                     <button
                       onClick={(e) => {
@@ -206,9 +270,7 @@ export default function MenuCardRow() {
                       }}
                       className="w-full bg-transparent hover:bg-[#E6C78B] text-[#E6C78B] hover:text-black border border-[#E6C78B] rounded-full py-3 px-6 transition-all duration-300 flex items-center justify-center"
                     >
-                      <span className="relative flex-1 text-center font-medium text-base">
-                        View Menu
-                      </span>
+                      <span className="relative flex-1 text-center font-medium text-base">View Menu</span>
                     </button>
                   </div>
                 </div>
@@ -221,9 +283,15 @@ export default function MenuCardRow() {
       {/* Add custom CSS for enhanced effects */}
       <style jsx>{`
         @keyframes glow {
-          0% { box-shadow: 0 0 5px rgba(230, 199, 139, 0.3); }
-          50% { box-shadow: 0 0 20px rgba(230, 199, 139, 0.5); }
-          100% { box-shadow: 0 0 5px rgba(230, 199, 139, 0.3); }
+          0% {
+            box-shadow: 0 0 5px rgba(230, 199, 139, 0.3);
+          }
+          50% {
+            box-shadow: 0 0 20px rgba(230, 199, 139, 0.5);
+          }
+          100% {
+            box-shadow: 0 0 5px rgba(230, 199, 139, 0.3);
+          }
         }
 
         .drop-shadow-lg {
@@ -233,11 +301,3 @@ export default function MenuCardRow() {
     </div>
   );
 }
-
-
-
-
-
-
-
-

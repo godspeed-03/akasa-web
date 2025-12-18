@@ -8,25 +8,23 @@
 
 "use client";
 
-import React, { useEffect, useState, Suspense } from 'react';
-import dynamic from 'next/dynamic';
-import Image from 'next/image'
-;
+import React, { useEffect, useState, Suspense } from "react";
+import dynamic from "next/dynamic";
+import Image from "next/image";
 
-import PageLayout from '@/components/layout/PageLayout';
-import Loading from '@/components/ui/Loading';
-import { FEATURED_DISHES } from '@/data/examples/documentedFeaturedDishes';
+import PageLayout from "@/components/layout/PageLayout";
+import Loading from "@/components/ui/Loading";
+import { FEATURED_DISHES } from "@/data/examples/documentedFeaturedDishes";
 
 // Dynamically import below-the-fold components for better performance
 // This reduces the initial bundle size and improves page load time
-const FeaturedDishesSection = dynamic(
-  () => import('@/components/examples/FeaturedDishesSection'),
-  {
-    loading: () => <div className="h-[50vh] bg-black flex items-center justify-center">
+const FeaturedDishesSection = dynamic(() => import("@/components/examples/FeaturedDishesSection"), {
+  loading: () => (
+    <div className="h-[50vh] bg-black flex items-center justify-center">
       <Loading text="Loading featured dishes..." />
     </div>
-  }
-);
+  ),
+});
 
 /**
  * DocumentedPage Component
@@ -64,10 +62,10 @@ export default function DocumentedPage(): React.ReactElement {
     // Function to preload critical images
     const preloadCriticalImages = () => {
       // Get the first two featured dish images for preloading
-      const criticalImages = FEATURED_DISHES.slice(0, 2).map(dish => dish.imagePath);
+      const criticalImages = FEATURED_DISHES.slice(0, 2).map((dish) => dish.imagePath);
 
       // Add the hero image
-      criticalImages.push('/images/examples/hero-background.jpg');
+      criticalImages.push("/images/examples/hero-background.jpg.webp");
 
       // Set critical resources as loaded immediately
       // This is a simplified version that doesn't actually preload images
@@ -76,7 +74,7 @@ export default function DocumentedPage(): React.ReactElement {
     };
 
     // Use requestIdleCallback for better performance
-    if ('requestIdleCallback' in window) {
+    if ("requestIdleCallback" in window) {
       window.requestIdleCallback(preloadCriticalImages, { timeout: 2000 });
     } else {
       // Fallback for browsers that don't support requestIdleCallback
@@ -99,13 +97,14 @@ export default function DocumentedPage(): React.ReactElement {
       <section className="relative w-full min-h-screen bg-black">
         {/* Hero Background Image */}
         <div className="absolute inset-0 z-0">
-          <Image src="/images/examples/hero-background.jpg"
+          <Image
+            src="/images/examples/hero-background.jpg.webp"
             alt="Akasa restaurant interior"
             fill
             priority={true}
             fetchPriority="high"
             sizes="100vw"
-            quality={80}
+            quality={70}
             className="object-cover opacity-70"
           />
           {/* Overlay for better text readability */}
@@ -118,16 +117,13 @@ export default function DocumentedPage(): React.ReactElement {
             Using asymmetric layout (40/60 split) for hero content
             as per Akasa's design requirements
           */}
-          <div className={`grid grid-cols-1 ${'md:grid-cols-10'} gap-8 items-center`}>
+          <div className={`grid grid-cols-1 ${"md:grid-cols-10"} gap-8 items-center`}>
             {/* Left Content (40%) */}
-            <div className={`${'md:col-span-4'}`}>
-              <h1 className="text-4xl md:text-6xl font-playfair text-white mb-6">
-                Documented Example Page
-              </h1>
+            <div className={`${"md:col-span-4"}`}>
+              <h1 className="text-4xl md:text-6xl font-playfair text-white mb-6">Documented Example Page</h1>
               <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#E6C78B] to-transparent mb-6"></div>
               <p className="text-lg md:text-xl font-montserrat text-white/80 mb-8">
-                This example page demonstrates how to properly document a page component
-                in the Akasa website project.
+                This example page demonstrates how to properly document a page component in the Akasa website project.
               </p>
             </div>
 
@@ -135,7 +131,8 @@ export default function DocumentedPage(): React.ReactElement {
             {!isMobile && (
               <div className="md:col-span-6 flex justify-center">
                 <div className="relative w-full max-w-lg aspect-square">
-                  <Image src="/images/examples/hero-feature.jpg"
+                  <Image
+                    src="/images/examples/hero-feature.jpg.webp"
                     alt="Signature dish presentation"
                     fill
                     priority={true}
@@ -150,11 +147,13 @@ export default function DocumentedPage(): React.ReactElement {
       </section>
 
       {/* Featured Dishes Section - Dynamically imported */}
-      <Suspense fallback={
-        <div className="h-[50vh] bg-black flex items-center justify-center">
-          <Loading text="Loading featured dishes..." />
-        </div>
-      }>
+      <Suspense
+        fallback={
+          <div className="h-[50vh] bg-black flex items-center justify-center">
+            <Loading text="Loading featured dishes..." />
+          </div>
+        }
+      >
         <FeaturedDishesSection
           title="Our Signature Dishes"
           subtitle="Experience the finest flavors of Akasa"
@@ -164,5 +163,3 @@ export default function DocumentedPage(): React.ReactElement {
     </PageLayout>
   );
 }
-
-

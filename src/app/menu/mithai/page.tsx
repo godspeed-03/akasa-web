@@ -27,12 +27,10 @@ export default function MithaiMenuPage() {
       <Navigation />
 
       {/* Hero Section */}
-      <section className="w-full bg-[url('/images/menu/festive/image.png')] bg-cover bg-center py-64 relative">
+      <section className="w-full bg-[url('/images/menu/festive/image.png.webp')] bg-cover bg-center py-64 relative">
         <div className="absolute inset-0 bg-black/70"></div>
         <div className="container mx-auto px-4 md:px-8 relative z-10 text-center flex flex-col items-center space-y-6">
-          <h1 className="text-4xl md:text-6xl font-playfair mb-6 text-white">
-            Mithai Menu
-          </h1>
+          <h1 className="text-4xl md:text-6xl font-playfair mb-6 text-white">Mithai Menu</h1>
           <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#E6C78B] to-transparent mx-auto mb-6"></div>
           <p className="text-lg md:text-xl font-montserrat text-white/80 max-w-3xl mx-auto">
             Traditional Indian sweet delicacies made with authentic recipes
@@ -67,7 +65,7 @@ export default function MithaiMenuPage() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <div className="overflow-hidden rounded-md">
                   <Image
-                    src="/images/menu/mithai/box.JPG"
+                    src="/images/menu/mithai/box.jpg.webp"
                     alt="Mithai Gift Boxes"
                     width={400}
                     height={600}
@@ -76,7 +74,7 @@ export default function MithaiMenuPage() {
                 </div>
                 <div className="overflow-hidden rounded-md">
                   <Image
-                    src="/images/menu/mithai/box-info.JPG"
+                    src="/images/menu/mithai/box-info.jpg.webp"
                     alt="Ladoo Collection"
                     width={400}
                     height={600}
@@ -85,7 +83,7 @@ export default function MithaiMenuPage() {
                 </div>
                 <div className="overflow-hidden rounded-md">
                   <Image
-                    src="/images/menu/mithai/Mithai.JPG"
+                    src="/images/menu/mithai/Mithai.jpg.webp"
                     alt="Gift Jars"
                     width={400}
                     height={600}
@@ -94,8 +92,7 @@ export default function MithaiMenuPage() {
                 </div>
               </div>
               <p className="mt-4 text-white/70 font-montserrat text-sm">
-                Our traditional sweets are available as individual items, in
-                gift boxes, or in premium gift jars
+                Our traditional sweets are available as individual items, in gift boxes, or in premium gift jars
               </p>
             </div>
           </div>
@@ -105,9 +102,7 @@ export default function MithaiMenuPage() {
             <div className="inline-flex items-center justify-center gap-6 bg-black/40 backdrop-blur-sm px-6 py-3 rounded-lg border border-white/10">
               <div className="flex items-center">
                 <span className="text-lg mr-2">🟢</span>
-                <span className="text-sm font-montserrat text-white/80">
-                  Vegetarian
-                </span>
+                <span className="text-sm font-montserrat text-white/80">Vegetarian</span>
               </div>
               <div className="flex items-center">
                 <span className="text-xs font-montserrat text-[#E6C78B] italic">
@@ -118,23 +113,17 @@ export default function MithaiMenuPage() {
           </div>
 
           {/* Menu Categories */}
-          {mithaiMenu.categories.map(
-            (category: MenuCategory, index: Key | null | undefined) => (
-              <MithaiCategorySection key={index} category={category} />
-            )
-          )}
+          {mithaiMenu.categories.map((category: MenuCategory, index: Key | null | undefined) => (
+            <MithaiCategorySection key={index} category={category} />
+          ))}
 
           {/* Disclaimer */}
-          <div className="text-center mt-10 text-sm text-white/70 italic">
-            {mithaiMenu.disclaimer}
-          </div>
+          <div className="text-center mt-10 text-sm text-white/70 italic">{mithaiMenu.disclaimer}</div>
 
           {/* Back Button */}
           <div className="text-center mt-8">
             <Link href="/menu">
-              <Button className="bg-[#1A2A3A] text-white hover:bg-[#0A1A2A]">
-                Back to All Menus
-              </Button>
+              <Button className="bg-[#1A2A3A] text-white hover:bg-[#0A1A2A]">Back to All Menus</Button>
             </Link>
           </div>
         </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { memo, useState } from 'react';
+import { memo, useState } from "react";
 import Image from "next/image";
 
 /**
@@ -15,19 +15,19 @@ const SimpleMobileHero = memo(function SimpleMobileHero() {
       {/* Hero image - no darkening overlay as per client request */}
       <div className="absolute inset-0 z-10">
         <Image
-          src="/images/home/hero/carousel/hero1.jpg"
+          src="/images/home/hero/carousel/hero1.jpg.webp"
           alt="Akasa restaurant ambiance"
           fill
           priority
           sizes="100vw"
-          quality={90}
+          quality={70}
           className="object-cover"
           style={{
-            filter: 'brightness(1.15)',
-            objectFit: 'cover',
-            objectPosition: 'center',
-            transform: 'translateZ(0)', // Force hardware acceleration
-            willChange: 'transform' // Hint to browser to optimize
+            filter: "brightness(1.15)",
+            objectFit: "cover",
+            objectPosition: "center",
+            transform: "translateZ(0)", // Force hardware acceleration
+            willChange: "transform", // Hint to browser to optimize
           }}
           onLoad={() => setIsLoaded(true)}
         />

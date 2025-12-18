@@ -1,8 +1,7 @@
 "use client";
 
 import { memo } from "react";
-import Image from "next/image"
-;
+import Image from "next/image";
 
 /**
  * Testimonials data for the Events page
@@ -12,20 +11,23 @@ import Image from "next/image"
  */
 const testimonials = [
   {
-    quote: "The private dining experience at Akasa exceeded all our expectations. The attention to detail was impeccable.",
+    quote:
+      "The private dining experience at Akasa exceeded all our expectations. The attention to detail was impeccable.",
     author: "Sarah Lawrence",
-    event: "Anniversary Dinner"
+    event: "Anniversary Dinner",
   },
   {
-    quote: "Our corporate event was a huge success thanks to the Akasa team. The food was exceptional and the service was flawless.",
+    quote:
+      "Our corporate event was a huge success thanks to the Akasa team. The food was exceptional and the service was flawless.",
     author: "Michael Wong",
-    event: "Annual Company Dinner"
+    event: "Annual Company Dinner",
   },
   {
-    quote: "Chef Akhilesh made our office party unforgettable. Every dish was a knockout, and our team hasn’t stopped talking about the food since.",
+    quote:
+      "Chef Akhilesh made our office party unforgettable. Every dish was a knockout, and our team hasn’t stopped talking about the food since.",
     author: "Priya Patel",
-    event: "Office Party"
-  }
+    event: "Office Party",
+  },
 ];
 
 /**
@@ -43,7 +45,7 @@ const TestimonialsSection = memo(function TestimonialsSection() {
       <div
         className="absolute inset-0 z-0 opacity-20 bg-cover bg-center"
         style={{
-          backgroundImage: "url('/images/menu/hero/gallery-3.jpg')"
+          backgroundImage: "url('/images/menu/hero/gallery-3.jpg.webp')",
         }}
         aria-hidden="true"
       ></div>
@@ -54,7 +56,9 @@ const TestimonialsSection = memo(function TestimonialsSection() {
       {/* Main content container with higher z-index to appear above background */}
       <div className="container mx-auto px-4 md:px-8 relative z-10">
         {/* Section heading */}
-        <div className="text-center mb-12 pt-16"> {/* Added pt-16 for top padding */}
+        <div className="text-center mb-12 pt-16">
+          {" "}
+          {/* Added pt-16 for top padding */}
           <h2 className="text-3xl md:text-4xl font-playfair mb-4">What Our Clients Say</h2>
           <p className="text-lg font-montserrat text-white/70 max-w-2xl mx-auto">
             Hear from those who have hosted their special events with us.
@@ -94,5 +98,3 @@ const TestimonialsSection = memo(function TestimonialsSection() {
 });
 
 export default TestimonialsSection;
-
-

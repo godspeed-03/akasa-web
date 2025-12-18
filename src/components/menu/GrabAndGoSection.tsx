@@ -9,19 +9,22 @@ const GrabAndGoSection = memo(function GrabAndGoSection() {
   useEffect(() => {
     const checkIfMobile = () => setIsMobile(window.innerWidth < 768);
     checkIfMobile();
-    window.addEventListener('resize', checkIfMobile);
-    return () => window.removeEventListener('resize', checkIfMobile);
+    window.addEventListener("resize", checkIfMobile);
+    return () => window.removeEventListener("resize", checkIfMobile);
   }, []);
 
   return (
     <section className="w-full bg-black pt-12 pb-24 relative overflow-hidden mt-[-2rem]">
       {/* Animated background pattern - matching other sections */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e6c78b' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          backgroundSize: '60px 60px',
-          animation: 'slideBackground 60s linear infinite'
-        }}></div>
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e6c78b' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundSize: "60px 60px",
+            animation: "slideBackground 60s linear infinite",
+          }}
+        ></div>
       </div>
 
       <div className="container mx-auto px-4">
@@ -42,26 +45,29 @@ const GrabAndGoSection = memo(function GrabAndGoSection() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
           {/* Image column with fancy card styling - Responsive dimensions */}
           <div className="flex justify-center">
-            <div className={`group relative ${isMobile ? 'w-full aspect-[3/4]' : 'w-[495px] h-[744px]'} rounded-xl overflow-hidden border border-[#E6C78B]/20 bg-black/30 backdrop-blur-sm`}>
+            <div
+              className={`group relative ${isMobile ? "w-full aspect-[3/4]" : "w-[495px] h-[744px]"} rounded-xl overflow-hidden border border-[#E6C78B]/20 bg-black/30 backdrop-blur-sm`}
+            >
               {/* Gold accent corners */}
               <div className="absolute top-0 left-0 w-16 h-16 border-t-2 border-l-2 border-[#E6C78B]/40 z-10 transition-all duration-500 group-hover:w-20 group-hover:h-20"></div>
               <div className="absolute bottom-0 right-0 w-16 h-16 border-b-2 border-r-2 border-[#E6C78B]/40 z-10 transition-all duration-500 group-hover:w-20 group-hover:h-20"></div>
 
               {/* Subtle glow effect on hover */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
-                   style={{boxShadow: "inset 0 0 30px rgba(230, 199, 139, 0.1)"}}>
-              </div>
+              <div
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700"
+                style={{ boxShadow: "inset 0 0 30px rgba(230, 199, 139, 0.1)" }}
+              ></div>
 
               {/* Image with responsive dimensions */}
               <div className="absolute inset-0">
                 <Image
-                  src="/images/menu/grab-and-go/grab-and-go-main.jpg"
+                  src="/images/menu/grab-and-go/grab-and-go-main.jpg.webp"
                   alt="Akasa Grab & Go meals"
                   fill
                   sizes="(max-width: 768px) 100vw, 495px"
-                  className={`w-full h-full transition-transform duration-700 group-hover:scale-105 ${isMobile ? 'object-contain' : 'object-cover'}`}
+                  className={`w-full h-full transition-transform duration-700 group-hover:scale-105 ${isMobile ? "object-contain" : "object-cover"}`}
                   loading="lazy"
-                  quality={75}
+                  quality={70}
                   priority={false}
                 />
               </div>
@@ -102,7 +108,8 @@ const GrabAndGoSection = memo(function GrabAndGoSection() {
                   <div>
                     <h3 className="text-2xl font-playfair text-[#E6C78B] mb-2">Fresh Daily</h3>
                     <p className="text-white/80 font-montserrat">
-                      Prepared each morning by our chefs—available from<br />
+                      Prepared each morning by our chefs—available from
+                      <br />
                       11:30 AM until 3:00 PM.
                     </p>
                   </div>
@@ -133,8 +140,12 @@ const GrabAndGoSection = memo(function GrabAndGoSection() {
       {/* Add custom CSS for animations */}
       <style jsx>{`
         @keyframes slideBackground {
-          0% { background-position: 0 0; }
-          100% { background-position: 100% 100%; }
+          0% {
+            background-position: 0 0;
+          }
+          100% {
+            background-position: 100% 100%;
+          }
         }
       `}</style>
     </section>
@@ -142,10 +153,3 @@ const GrabAndGoSection = memo(function GrabAndGoSection() {
 });
 
 export default GrabAndGoSection;
-
-
-
-
-
-
-

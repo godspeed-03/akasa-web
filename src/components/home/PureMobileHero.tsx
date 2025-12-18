@@ -1,9 +1,9 @@
 "use client";
 
-import { memo, useEffect, useRef, useState, useCallback } from 'react';
-import Image from 'next/image';
-import { IMAGES } from '@/constants';
-import { optimizeVideoForMobile, preloadVideoSources, logVideoError } from '@/utils/videoUtils';
+import { memo, useEffect, useRef, useState, useCallback } from "react";
+import Image from "next/image";
+import { IMAGES } from "@/constants";
+import { optimizeVideoForMobile, preloadVideoSources, logVideoError } from "@/utils/videoUtils";
 
 /**
  * AudioControlButton Component
@@ -12,7 +12,7 @@ import { optimizeVideoForMobile, preloadVideoSources, logVideoError } from '@/ut
  */
 const AudioControlButton = memo(function AudioControlButton({
   isMuted,
-  toggleMute
+  toggleMute,
 }: {
   isMuted: boolean;
   toggleMute: () => void;
@@ -21,11 +21,11 @@ const AudioControlButton = memo(function AudioControlButton({
     <div
       className={`fixed bottom-8 right-8 z-50 w-20 h-20 bg-gradient-to-br from-black to-gray-800 rounded-full
                  flex items-center justify-center border-2 border-white/80 shadow-[0_0_15px_rgba(255,255,255,0.3)]
-                 cursor-pointer transition-all duration-300 hover:scale-105 ${isMuted ? 'animate-pulse' : ''}`}
+                 cursor-pointer transition-all duration-300 hover:scale-105 ${isMuted ? "animate-pulse" : ""}`}
       onClick={toggleMute}
       style={{
         opacity: 0.95,
-        backdropFilter: 'blur(4px)'
+        backdropFilter: "blur(4px)",
       }}
     >
       {isMuted ? (
@@ -34,7 +34,7 @@ const AudioControlButton = memo(function AudioControlButton({
           {/* Custom volume icon */}
           <div className="w-12 h-12 flex items-center justify-center">
             <img
-              src="/images/volume-muted-icon.png"
+              src="/images/volume-muted-icon.png.webp"
               alt="Unmute"
               className="w-10 h-10 drop-shadow-[0_0_3px_rgba(255,255,255,0.7)]"
             />
@@ -85,8 +85,8 @@ const PureMobileHero = memo(function PureMobileHero() {
   useEffect(() => {
     // Preload both video formats
     preloadVideoSources([
-      { src: '/images/home/hero/mobile-video/heromobilevid.webm', type: 'video/webm' },
-      { src: '/images/home/hero/mobile-video/heromobilevid.mp4', type: 'video/mp4' }
+      { src: "/video/heromobilevid.mp4", type: "video/webm" },
+      { src: "/images/home/hero/mobile-video/heromobilevid.mp4", type: "video/mp4" },
     ]);
   }, []);
 
@@ -95,7 +95,7 @@ const PureMobileHero = memo(function PureMobileHero() {
     const video = videoRef.current;
     if (!video) return;
 
-    console.log('Setting up mobile hero video');
+    console.log("Setting up mobile hero video");
 
     // Optimize video for mobile playback
     optimizeVideoForMobile(video);
@@ -103,11 +103,11 @@ const PureMobileHero = memo(function PureMobileHero() {
     // Set attributes for iOS compatibility
     // Note: We're setting these directly on the DOM element
     // even though we also have them in the JSX
-    video.setAttribute('playsinline', 'true');
+    video.setAttribute("playsinline", "true");
 
     // Set up event handlers
     const handleCanPlay = () => {
-      console.log('Video can play');
+      console.log("Video can play");
       setVideoReady(true);
     };
 
@@ -118,24 +118,24 @@ const PureMobileHero = memo(function PureMobileHero() {
       setHasError(true);
 
       // Notify parent component about failure
-      window.dispatchEvent(new Event('mobile-video-failure'));
+      window.dispatchEvent(new Event("mobile-video-failure"));
     };
 
     const handlePlaying = () => {
-      console.log('Video is playing');
+      console.log("Video is playing");
       setVideoReady(true);
     };
 
     // Handle pause event - important for iOS power saving
     const handlePause = () => {
-      console.log('Video paused - attempting to resume');
+      console.log("Video paused - attempting to resume");
 
       // Try to resume playback if video was paused by the browser
       // This helps with iOS power saving pauses
-      if (document.visibilityState !== 'hidden') {
+      if (document.visibilityState !== "hidden") {
         setTimeout(() => {
-          video.play().catch(err => {
-            console.log('Could not resume after pause:', err.message);
+          video.play().catch((err) => {
+            console.log("Could not resume after pause:", err.message);
           });
         }, 100);
       }
@@ -143,43 +143,45 @@ const PureMobileHero = memo(function PureMobileHero() {
 
     // Handle visibility change
     const handleVisibilityChange = () => {
-      if (document.visibilityState === 'visible') {
-        console.log('Page became visible - attempting to play video');
-        video.play().catch(err => {
-          console.log('Could not play on visibility change:', err.message);
+      if (document.visibilityState === "visible") {
+        console.log("Page became visible - attempting to play video");
+        video.play().catch((err) => {
+          console.log("Could not play on visibility change:", err.message);
         });
       }
     };
 
     // Add event listeners
-    video.addEventListener('canplay', handleCanPlay);
-    video.addEventListener('playing', handlePlaying);
-    video.addEventListener('error', handleError);
-    video.addEventListener('pause', handlePause);
-    document.addEventListener('visibilitychange', handleVisibilityChange);
+    video.addEventListener("canplay", handleCanPlay);
+    video.addEventListener("playing", handlePlaying);
+    video.addEventListener("error", handleError);
+    video.addEventListener("pause", handlePause);
+    document.addEventListener("visibilitychange", handleVisibilityChange);
 
     // Function to attempt playback with retry logic
     const attemptPlayback = (retries = 3, delay = 300) => {
-      video.play().catch(err => {
+      video.play().catch((err) => {
         // Safely log the error message
-        console.error(`Error playing video (attempts left: ${retries}):`,
-          err && typeof err.message === 'string' ? err.message : 'Unknown error');
+        console.error(
+          `Error playing video (attempts left: ${retries}):`,
+          err && typeof err.message === "string" ? err.message : "Unknown error"
+        );
 
         if (retries > 0) {
           // If error is power saving related, we'll retry
-          const errorMsg = err && typeof err.message === 'string' ? err.message : '';
-          if (errorMsg.includes('power') || errorMsg.includes('interrupted')) {
-            console.log('Power saving error detected, retrying...');
+          const errorMsg = err && typeof err.message === "string" ? err.message : "";
+          if (errorMsg.includes("power") || errorMsg.includes("interrupted")) {
+            console.log("Power saving error detected, retrying...");
             setTimeout(() => attemptPlayback(retries - 1, delay * 1.5), delay);
           } else if (retries === 1) {
             // Last retry failed, switch to fallback
             setHasError(true);
-            window.dispatchEvent(new Event('mobile-video-failure'));
+            window.dispatchEvent(new Event("mobile-video-failure"));
           }
         } else {
           // No more retries, switch to fallback
           setHasError(true);
-          window.dispatchEvent(new Event('mobile-video-failure'));
+          window.dispatchEvent(new Event("mobile-video-failure"));
         }
       });
     };
@@ -190,8 +192,8 @@ const PureMobileHero = memo(function PureMobileHero() {
 
       // Set up periodic check to ensure video is still playing
       const playbackCheckInterval = setInterval(() => {
-        if (video.paused && document.visibilityState === 'visible') {
-          console.log('Video found paused during check, attempting to resume');
+        if (video.paused && document.visibilityState === "visible") {
+          console.log("Video found paused during check, attempting to resume");
           video.play().catch(() => {});
         }
       }, 5000);
@@ -202,11 +204,11 @@ const PureMobileHero = memo(function PureMobileHero() {
 
     // Clean up
     return () => {
-      video.removeEventListener('canplay', handleCanPlay);
-      video.removeEventListener('playing', handlePlaying);
-      video.removeEventListener('error', handleError);
-      video.removeEventListener('pause', handlePause);
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      video.removeEventListener("canplay", handleCanPlay);
+      video.removeEventListener("playing", handlePlaying);
+      video.removeEventListener("error", handleError);
+      video.removeEventListener("pause", handlePause);
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
       clearTimeout(timer);
     };
   }, []);
@@ -224,14 +226,17 @@ const PureMobileHero = memo(function PureMobileHero() {
       `}</style>
 
       {/* Fallback image - only shown until video is ready */}
-      <div className="absolute inset-0 z-10" style={{ opacity: videoReady ? 0 : 1, transition: 'opacity 0.5s ease-in-out' }}>
+      <div
+        className="absolute inset-0 z-10"
+        style={{ opacity: videoReady ? 0 : 1, transition: "opacity 0.5s ease-in-out" }}
+      >
         <Image
-          src="/images/home/hero/carousel/hero1.jpg"
+          src="/images/home/hero/carousel/hero1.jpg.webp"
           alt="Akasa restaurant ambiance"
           fill
           priority
           sizes="100vw"
-          quality={85}
+          quality={70}
           className="object-cover"
         />
       </div>
@@ -246,19 +251,19 @@ const PureMobileHero = memo(function PureMobileHero() {
           loop
           autoPlay
           preload="auto"
-          poster="/images/home/hero/carousel/hero1.jpg"
+          poster="/images/home/hero/carousel/hero1.jpg.webp"
           style={{
-            objectFit: 'cover',
-            objectPosition: 'center',
-            width: '100%',
-            height: '100%',
-            filter: 'brightness(1.15)',
+            objectFit: "cover",
+            objectPosition: "center",
+            width: "100%",
+            height: "100%",
+            filter: "brightness(1.15)",
             opacity: videoReady && !hasError ? 1 : 0,
-            transition: 'opacity 0.5s ease-in-out',
-            backgroundColor: 'transparent',
-            transform: 'translateZ(0)', // Force hardware acceleration
-            willChange: 'transform', // Hint to browser to optimize
-            zIndex: 1
+            transition: "opacity 0.5s ease-in-out",
+            backgroundColor: "transparent",
+            transform: "translateZ(0)", // Force hardware acceleration
+            willChange: "transform", // Hint to browser to optimize
+            zIndex: 1,
           }}
           data-wf-ignore="true" // Webflow ignore attribute to prevent interference
           disablePictureInPicture // Prevent picture-in-picture
@@ -269,9 +274,7 @@ const PureMobileHero = memo(function PureMobileHero() {
       </div>
 
       {/* Audio control button - only shown when video is playing */}
-      {videoReady && (
-        <AudioControlButton isMuted={isMuted} toggleMute={toggleMute} />
-      )}
+      {videoReady && <AudioControlButton isMuted={isMuted} toggleMute={toggleMute} />}
     </div>
   );
 });

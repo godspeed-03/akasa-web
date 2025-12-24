@@ -86,7 +86,10 @@ const PureMobileHero = memo(function PureMobileHero() {
     // Preload both video formats
     preloadVideoSources([
       { src: "/video/heromobilevid.mp4", type: "video/webm" },
-      { src: "/images/home/hero/mobile-video/heromobilevid.mp4", type: "video/mp4" },
+      {
+        src: "https://cdn.jsdelivr.net/gh/godspeed-03/akasa-web@main/public/video/heromobilevid.mp4",
+        type: "video/mp4",
+      },
     ]);
   }, []);
 
@@ -269,7 +272,10 @@ const PureMobileHero = memo(function PureMobileHero() {
           disablePictureInPicture // Prevent picture-in-picture
           disableRemotePlayback // Prevent remote playback
         >
-          <source src="/images/home/hero/mobile-video/heromobilevid.mp4" type="video/mp4" />
+          <source
+            src="https://cdn.jsdelivr.net/gh/godspeed-03/akasa-web@main/public/video/heromobilevid.mp4"
+            type="video/mp4"
+          />
         </video>
       </div>
 

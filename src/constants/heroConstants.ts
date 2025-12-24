@@ -46,7 +46,7 @@ export const DESKTOP_HERO_IMAGES: HeroImage[] = [
  */
 export const MOBILE_HERO_VIDEO_SOURCES = {
   webm: "/video/heromobilevid.mp4",
-  mp4: "/images/home/hero/mobile-video/heromobilevid.mp4",
+  mp4: "https://cdn.jsdelivr.net/gh/godspeed-03/akasa-web@main/public/video/heromobilevid.mp4",
 };
 
 /**

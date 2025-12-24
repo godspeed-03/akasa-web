@@ -54,7 +54,7 @@ export default function DirectMobileHero() {
     webmSource.type = "video/webm";
 
     const mp4Source = document.createElement("source");
-    mp4Source.src = `/images/home/hero/mobile-video/heromobilevid.mp4?t=${timestamp}`;
+    mp4Source.src = `https://cdn.jsdelivr.net/gh/godspeed-03/akasa-web@main/public/video/heromobilevid.mp4?t=${timestamp}`;
     mp4Source.type = "video/mp4";
 
     // Add sources to video

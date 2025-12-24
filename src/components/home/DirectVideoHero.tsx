@@ -26,7 +26,7 @@ export default function DirectVideoHero() {
 
     // Add timestamp to prevent caching
     const timestamp = new Date().getTime();
-    video.src = `/images/home/hero/mobile-video/heromobilevid.mp4?v=${timestamp}`;
+    video.src = `https://cdn.jsdelivr.net/gh/godspeed-03/akasa-web@main/public/video/heromobilevid.mp4?v=${timestamp}`;
 
     // Event handlers
     const handleCanPlay = () => {

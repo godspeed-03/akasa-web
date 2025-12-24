@@ -30,7 +30,7 @@ const BasicVideoHero = memo(function BasicVideoHero() {
     if (!video.src || video.src === "") {
       // Set the src directly with cache busting
       const timestamp = new Date().getTime();
-      video.src = `/images/home/hero/mobile-video/heromobilevid.mp4?v=${timestamp}`;
+      video.src = `https://cdn.jsdelivr.net/gh/godspeed-03/akasa-web@main/public/video/heromobilevid.mp4?v=${timestamp}`;
     }
 
     // Prepare video for mobile playback
@@ -171,7 +171,7 @@ const BasicVideoHero = memo(function BasicVideoHero() {
         autoPlay
         preload="auto"
         poster="/images/home/hero/mobile-poster.jpg.webp"
-        src="/images/home/hero/mobile-video/heromobilevid.mp4"
+        src="https://cdn.jsdelivr.net/gh/godspeed-03/akasa-web@main/public/video/heromobilevid.mp4"
         style={{
           objectFit: "cover",
           zIndex: videoLoaded ? 10 : 0,

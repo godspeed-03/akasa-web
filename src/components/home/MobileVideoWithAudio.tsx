@@ -11,7 +11,7 @@ const VIDEO_SOURCES: VideoSource[] = [
     type: "video/webm",
   },
   {
-    src: "/images/home/hero/mobile-video/heromobilevid.mp4",
+    src: "https://cdn.jsdelivr.net/gh/godspeed-03/akasa-web@main/public/video/heromobilevid.mp4",
     type: "video/mp4",
   },
 ];

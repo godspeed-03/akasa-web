@@ -171,7 +171,7 @@ export const festiveBrunchImages = [
 
 // Christmas/NY Eve video
 export const festiveBrunchVideo = {
-  src: "/video/christmas-ny-eve.mp4",
+  src: "https://cdn.jsdelivr.net/gh/godspeed-03/akasa-web@main/public/video/christmas-ny-eve.mp4",
   poster: "/menus/soul-weekend-brunch/DSC06273-topaz.jpg.webp",
   alt: "Christmas/NY Eve Experience at Akasa",
 };

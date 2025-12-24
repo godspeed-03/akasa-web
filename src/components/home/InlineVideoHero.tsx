@@ -2,7 +2,7 @@
 
 /**
  * InlineVideoHero Component
- * 
+ *
  * The simplest possible implementation with inline video
  * No React state, no useEffect, just a direct video element
  */
@@ -17,17 +17,15 @@ export default function InlineVideoHero() {
         loop
         autoPlay
         preload="auto"
-        src="/images/home/hero/mobile-video/heromobilevid.mp4"
+        src="https://cdn.jsdelivr.net/gh/godspeed-03/akasa-web@main/public/video/heromobilevid.mp4"
         style={{
-          objectFit: 'cover',
-          objectPosition: 'center',
+          objectFit: "cover",
+          objectPosition: "center",
         }}
       />
-      
+
       {/* Debug indicator */}
-      <div className="absolute top-4 left-4 z-50 bg-red-500 text-white p-2 text-xs font-bold">
-        INLINE VIDEO ACTIVE
-      </div>
+      <div className="absolute top-4 left-4 z-50 bg-red-500 text-white p-2 text-xs font-bold">INLINE VIDEO ACTIVE</div>
     </div>
   );
 }

@@ -74,7 +74,7 @@ const SimpleVideoBackground = ({ videoSrc, fallbackImageSrc }: SimpleVideoBackgr
       `/video/heromobilevid.mp4?v=${Date.now()}`,
       `/images/home/hero/mobile-video/heromobilevid-small.mp4?v=${Date.now()}`,
       `/images/home/hero/mobile-video/heromobilevid-compressed.mp4?v=${Date.now()}`,
-      `/images/home/hero/mobile-video/heromobilevid.mp4?v=${Date.now()}`,
+      `https://cdn.jsdelivr.net/gh/godspeed-03/akasa-web@main/public/video/heromobilevid.mp4?v=${Date.now()}`,
     ];
 
     // Track which source we're using

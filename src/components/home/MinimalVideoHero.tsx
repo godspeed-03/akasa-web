@@ -35,7 +35,7 @@ export default function MinimalVideoHero() {
         loop
         autoPlay
         preload="auto"
-        src="/images/home/hero/mobile-video/heromobilevid.mp4"
+        src="https://cdn.jsdelivr.net/gh/godspeed-03/akasa-web@main/public/video/heromobilevid.mp4"
         onPlaying={() => setIsVideoPlaying(true)}
         style={{
           objectFit: "cover",

@@ -107,7 +107,7 @@ export const addVideoPreloadHints = (): void => {
 
   // Preload the mobile hero video
   preloadVideoSources([
-    { src: "/video/heromobilevid.mp4", type: "video/webm" },
+    { src: "https://cdn.jsdelivr.net/gh/godspeed-03/akasa-web@main/public/video/heromobilevid.mp4", type: "video/webm" },
     { src: "https://cdn.jsdelivr.net/gh/godspeed-03/akasa-web@main/public/video/heromobilevid.mp4", type: "video/mp4" },
   ]);
 };

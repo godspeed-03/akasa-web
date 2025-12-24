@@ -123,7 +123,10 @@ const SimpleHeroSection = memo(function SimpleHeroSection() {
       <div className="absolute inset-0 w-full h-full overflow-hidden bg-black mobile-only">
         {/* Absolutely minimal video element */}
         <video id="heroVideo" className="absolute inset-0 w-full h-full" playsInline muted loop autoPlay>
-          <source src="/video/heromobilevid.mp4" type="video/webm" />
+          <source
+            src="https://cdn.jsdelivr.net/gh/godspeed-03/akasa-web@main/public/video/heromobilevid.mp4"
+            type="video/webm"
+          />
         </video>
 
         {/* Text content */}

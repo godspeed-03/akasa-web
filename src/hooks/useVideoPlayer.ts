@@ -286,7 +286,7 @@ export function useVideoPlayer({
           sources.forEach((source) => {
             // Add cache busting
             if (source.src.includes("webm")) {
-              source.src = `/video/heromobilevid.mp4?v=${timestamp}`;
+              source.src = `https://cdn.jsdelivr.net/gh/godspeed-03/akasa-web@main/public/video/heromobilevid.mp4?v=${timestamp}`;
             } else if (source.src.includes("mp4")) {
               source.src = `https://cdn.jsdelivr.net/gh/godspeed-03/akasa-web@main/public/video/heromobilevid.mp4?v=${timestamp}`;
             }

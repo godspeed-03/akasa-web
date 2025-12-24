@@ -7,7 +7,7 @@ import { optimizeVideoForMobile, logVideoError, addCacheBustingToVideoSources, V
 // Define video sources
 const VIDEO_SOURCES: VideoSource[] = [
   {
-    src: "/video/heromobilevid.mp4",
+    src: "https://cdn.jsdelivr.net/gh/godspeed-03/akasa-web@main/public/video/heromobilevid.mp4",
     type: "video/webm",
   },
   {

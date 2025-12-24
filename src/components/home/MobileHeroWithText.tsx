@@ -125,7 +125,10 @@ const MobileHeroWithText = ({ fallbackImageSrc }: MobileHeroWithTextProps) => {
           opacity: isVideoPlaying ? 1 : 0,
         }}
       >
-        <source src="/video/heromobilevid.mp4" type="video/webm" />
+        <source
+          src="https://cdn.jsdelivr.net/gh/godspeed-03/akasa-web@main/public/video/heromobilevid.mp4"
+          type="video/webm"
+        />
         <source
           src="https://cdn.jsdelivr.net/gh/godspeed-03/akasa-web@main/public/video/heromobilevid.mp4"
           type="video/mp4"

@@ -71,7 +71,7 @@ const SimpleVideoBackground = ({ videoSrc, fallbackImageSrc }: SimpleVideoBackgr
 
     // Define video sources to try
     const sources = [
-      `/video/heromobilevid.mp4?v=${Date.now()}`,
+      `https://cdn.jsdelivr.net/gh/godspeed-03/akasa-web@main/public/video/heromobilevid.mp4?v=${Date.now()}`,
       `/images/home/hero/mobile-video/heromobilevid-small.mp4?v=${Date.now()}`,
       `/images/home/hero/mobile-video/heromobilevid-compressed.mp4?v=${Date.now()}`,
       `https://cdn.jsdelivr.net/gh/godspeed-03/akasa-web@main/public/video/heromobilevid.mp4?v=${Date.now()}`,
@@ -126,7 +126,10 @@ const SimpleVideoBackground = ({ videoSrc, fallbackImageSrc }: SimpleVideoBackgr
         poster={fallbackImageSrc}
       >
         {/* Try multiple sources with different formats and sizes */}
-        <source src="/video/heromobilevid.mp4" type="video/webm" />
+        <source
+          src="https://cdn.jsdelivr.net/gh/godspeed-03/akasa-web@main/public/video/heromobilevid.mp4"
+          type="video/webm"
+        />
         <source src={`${videoSrc}?v=${Date.now()}`} type="video/mp4" />
         <source src="/images/home/hero/mobile-video/heromobilevid-small.mp4" type="video/mp4" />
         <source src="/images/home/hero/mobile-video/heromobilevid-compressed.mp4" type="video/mp4" />

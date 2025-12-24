@@ -85,7 +85,7 @@ const PureMobileHero = memo(function PureMobileHero() {
   useEffect(() => {
     // Preload both video formats
     preloadVideoSources([
-      { src: "/video/heromobilevid.mp4", type: "video/webm" },
+      { src: "https://cdn.jsdelivr.net/gh/godspeed-03/akasa-web@main/public/video/heromobilevid.mp4", type: "video/webm" },
       {
         src: "https://cdn.jsdelivr.net/gh/godspeed-03/akasa-web@main/public/video/heromobilevid.mp4",
         type: "video/mp4",

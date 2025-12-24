@@ -11,9 +11,7 @@ const MenusSection = dynamic(() => import("@/components/menu/MenusSection"), {
 const FlavorExperienceSection = dynamic(() => import("@/components/menu/FlavorExperienceSection"), {
   loading: () => <div className="h-[50vh] bg-black"></div>,
 });
-// const FeaturedDishesSection = dynamic(() => import("@/components/menu/FeaturedDishesSection"), {
-//   loading: () => <div className="h-[50vh] bg-black"></div>,
-// });
+
 
 export default function LandingRestaurantPage() {
   return (
@@ -26,7 +24,7 @@ export default function LandingRestaurantPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div className="pt-6">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-playfair text-white mb-4">
-                Fine dining Indian restaurant Singapore — an elevated North Indian restaurant experience
+                Fine dining Indian restaurant Singapore
               </h1>
 
               <p className="text-lg text-white/80 font-montserrat mb-6 max-w-2xl">
@@ -43,16 +41,16 @@ export default function LandingRestaurantPage() {
             </div>
 
             {/* Reservation slot moved to layout - page shows content only */}
-             <iframe
-        src="https://widget.quandoo.sg/widget/reservation/merchant/HUsUS?aid=2&countryId=SGP"
-        width="100%"
-        height="550px"
-        frameBorder="0"
-        title="Quandoo Reservations"
-        style={{ marginBottom: '2rem' }}
-        sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"
-        loading="lazy"
-      ></iframe>
+            <iframe
+              src="https://widget.quandoo.sg/widget/reservation/merchant/HUsUS?aid=2&countryId=SGP"
+              width="100%"
+              height="550px"
+              frameBorder="0"
+              title="Quandoo Reservations"
+              style={{ marginBottom: "2rem" }}
+              sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox"
+              loading="lazy"
+            ></iframe>
           </div>
         </div>
       </section>

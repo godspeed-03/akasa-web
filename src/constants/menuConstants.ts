@@ -52,14 +52,14 @@ export const MENU_TYPES: MenuType[] = [
     image: "/images/menu/set-lunch/hero/hero.jpg.webp",
     url: "/menu/set-lunch",
   },
-  {
-    id: "christmas-ny-eve",
-    name: "Christmas/NY Eve",
-    description:
-      "Celebrate the season with our exclusive Christmas/NY Eve menu, featuring special holiday dishes and drinks.",
-    image: "/menus/soul-weekend-brunch/DSC06277-topaz.jpg.webp",
-    url: "/menu/christmas-ny-eve",
-  },
+  // {
+  //   id: "christmas-ny-eve",
+  //   name: "Christmas/NY Eve",
+  //   description:
+  //     "Celebrate the season with our exclusive Christmas/NY Eve menu, featuring special holiday dishes and drinks.",
+  //   image: "/menus/soul-weekend-brunch/DSC06277-topaz.jpg.webp",
+  //   url: "/menu/christmas-ny-eve",
+  // },
   {
     id: "saturday-brunch",
     name: "Saturday Brunch",
@@ -88,13 +88,13 @@ export const MENU_TYPES: MenuType[] = [
     image: "/images/menu/drinks/hero/hero.jpg.webp",
     url: "/menu/drinks",
   },
-  // {
-  //   id: "bar-bites",
-  //   name: "Chaat & Bar Bites",
-  //   description: "Perfect small plates to accompany your drinks",
-  //   image: "/images/menu/bar-bites/hero/hero.jpg.webp",
-  //   url: "/menu/bar-bites",
-  // },
+  {
+    id: "bar-bites",
+    name: "Chaat & Bar Bites",
+    description: "Perfect small plates to accompany your drinks",
+    image: "/images/menu/bar-bites/hero/hero.jpg.webp",
+    url: "/menu/bar-bites",
+  },
 
   // {
   //   id: "vegan",
